@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   title: "Warley Coutinho — Desenvolvedor Full Stack",
   description:
     "Desenvolvedor Full Stack especializado em Next.js, Fastify e TypeScript. Do chão de fábrica ao desenvolvimento de sistemas web e mobile.",
-  metadataBase: new URL("https://warleycoutinho.dev"),
+  metadataBase: new URL("https://warley-portfolio.vercel.app"),
   openGraph: {
     title: "Warley Coutinho — Desenvolvedor Full Stack",
     description:

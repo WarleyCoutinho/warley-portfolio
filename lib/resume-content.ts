@@ -2,7 +2,7 @@
 // vem de lib/data.ts — mesma fonte que alimenta o site. Editando lá, o PDF
 // gerado no botão de download já sai atualizado, sem precisar mexer aqui.
 
-export const SITE_URL = "https://warleycoutinho.dev";
+export const SITE_URL = "https://warley-portfolio.vercel.app";
 
 export const resumeSummary =
   "Desenvolvedor Full Stack com experiência prática em produtos web e mobile de ponta a ponta, especializado em Next.js, React, Fastify e TypeScript. Trajetória construída fora do caminho tradicional de tecnologia — atuei em manufatura e logística antes de migrar para desenvolvimento de software, trazendo forte disciplina de entrega e resolução de problemas sob pressão real. Foco em código type-safe, APIs bem documentadas e interfaces construídas com shadcn/ui.";
