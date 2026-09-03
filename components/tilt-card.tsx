@@ -32,6 +32,8 @@ export function TiltCard({ children, className }: { children: ReactNode; classNa
         ref={ref}
         onPointerMove={handleMove}
         onPointerLeave={handleLeave}
+        whileHover={{ scale: 1.012, y: -3 }}
+        transition={{ type: "spring", stiffness: 260, damping: 22 }}
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
         className={className}
       >
