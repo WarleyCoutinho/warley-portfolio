@@ -1,0 +1,94 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Space Grotesk", ui-sans-serif, sans-serif;
+  --font-body: "Inter", ui-sans-serif, sans-serif;
+  --font-mono-brand: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-bg: #12151a;
+  --color-bg-raised: #1a1e25;
+  --color-bg-raised-2: #20242d;
+  --color-border: #2a2f38;
+  --color-border-soft: #22262e;
+  --color-text: #ece9e2;
+  --color-text-dim: #9099a8;
+  --color-text-faint: #5b6270;
+  --color-amber: #e8952a;
+  --color-amber-dim: #8a5a1e;
+  --color-steel: #6fa0d8;
+}
+
+/*
+  Tema claro ("light"). Ativado via classe .light na <html>
+  (ver script inline no layout.tsx que evita flash no load).
+  As variáveis abaixo sobrescrevem as de @theme em runtime porque
+  utilities do Tailwind (bg-bg, text-text-dim, etc.) sempre leem
+  var(--color-*) — não importa se o valor mudou depois do build.
+*/
+.light {
+  --color-bg: #f7f5f0;
+  --color-bg-raised: #ffffff;
+  --color-bg-raised-2: #edeae2;
+  --color-border: #ddd8cc;
+  --color-border-soft: #e6e2d8;
+  --color-text: #14171c;
+  --color-text-dim: #565e6c;
+  --color-text-faint: #838b98;
+  --color-amber: #c97f1e;
+  --color-amber-dim: #dba15c;
+  --color-steel: #2f5f92;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background: var(--color-amber);
+  color: #1a1206;
+}
+
+.bg-blueprint {
+  background-image:
+    linear-gradient(var(--color-border-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border-soft) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black, black 60%, transparent 100%);
+}
+
+.tick {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+}
+.tick::before,
+.tick::after {
+  content: "";
+  position: absolute;
+  background: var(--color-border);
+}
+.tick::before {
+  width: 100%;
+  height: 1px;
+  top: 50%;
+}
+.tick::after {
+  height: 100%;
+  width: 1px;
+  left: 50%;
+}
