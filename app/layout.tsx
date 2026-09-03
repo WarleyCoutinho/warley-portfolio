@@ -43,6 +43,7 @@ export default function RootLayout({
       lang="pt-BR"
       data-scroll-behavior="smooth"
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
     >
       <head>
         {/* Aplica o tema salvo antes do primeiro paint, evitando flash dark->light */}
