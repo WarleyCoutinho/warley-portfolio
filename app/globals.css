@@ -20,6 +20,16 @@
 }
 
 /*
+  Intensidade do retrato/glow de fundo do Hero (ver hero-background-scene.tsx).
+  Ficam fora de @theme porque não são cores, são valores de opacidade —
+  sobrescritos por .light do mesmo jeito que as cores acima.
+*/
+:root {
+  --hero-portrait-opacity: 0.22;
+  --hero-glow-opacity: 0.4;
+}
+
+/*
   Tema claro ("light"). Ativado via classe .light na <html>
   (ver script inline no layout.tsx que evita flash no load).
   As variáveis abaixo sobrescrevem as de @theme em runtime porque
@@ -38,6 +48,8 @@
   --color-amber: #c97f1e;
   --color-amber-dim: #dba15c;
   --color-steel: #2f5f92;
+  --hero-portrait-opacity: 0.09;
+  --hero-glow-opacity: 0.2;
 }
 
 html {

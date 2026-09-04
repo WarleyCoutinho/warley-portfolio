@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, QrCode } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Clock } from "@/components/clock";
 
 const links = [
   { href: "/#sobre", label: "Sobre" },
@@ -33,6 +34,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
+          <Clock className="hidden font-mono-brand text-[12px] tabular-nums text-text-faint lg:inline" />
           <ThemeToggle />
           <Link
             href="/qrcode"
