@@ -13,14 +13,21 @@ const links = [
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-bg/85 backdrop-blur-md">
-      <div className="mx-auto flex max-w-[1040px] items-center justify-between px-6 py-4 sm:px-8">
-        <Link href="/" className="flex items-center gap-2 font-mono-brand text-sm text-text">
-          <span className="h-[7px] w-[7px] rounded-full bg-amber" />
-          warley.dev
+      <div className="mx-auto flex max-w-260 items-center justify-between px-6 py-4 sm:px-8">
+        <Link
+          href="/"
+          className="flex items-center gap-2 font-mono-brand text-sm text-text"
+        >
+          <span className="h-1.75 w-1.75 rounded-full bg-amber" />
+          Warley Coutinho
         </Link>
         <nav className="hidden gap-7 text-sm text-text-dim sm:flex">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className="transition-colors hover:text-text">
+            <Link
+              key={link.href}
+              href={link.href}
+              className="transition-colors hover:text-text"
+            >
               {link.label}
             </Link>
           ))}
