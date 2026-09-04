@@ -34,23 +34,32 @@ export function Projects() {
                 <div className="mb-2.5 font-mono-brand text-[11.5px] text-text-faint">
                   {project.kicker}
                 </div>
-                <h3 className="mb-2.5 font-display text-[22px] font-semibold">{project.title}</h3>
-                <p className="mb-4 text-[14.5px] text-text-dim">{project.description}</p>
+                <h3 className="mb-2.5 font-display text-[22px] font-semibold">
+                  {project.title}
+                </h3>
+                <p className="mb-4 text-[14.5px] text-text-dim">
+                  {project.description}
+                </p>
                 <a
-                  href={project.liveUrl ?? "#contato"}
-                  target={project.liveUrl ? "_blank" : undefined}
-                  rel={project.liveUrl ? "noopener noreferrer" : undefined}
+                  href={project.liveUrl ?? project.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="font-mono-brand text-[12.5px] text-steel underline decoration-transparent underline-offset-4 transition-colors hover:decoration-steel"
                 >
-                  {project.liveUrl ? project.liveLabel : "Solicitar acesso ao repositório ↗"}
+                  {project.liveUrl ? project.liveLabel : "ver o repositório ↗"}
                 </a>
               </div>
               <div className="relative">
                 <ul className="flex flex-col gap-2.5">
                   {project.features.map((feature) => (
-                    <li key={feature.title} className="relative pl-4 text-[13.5px] text-text-dim">
-                      <span className="absolute left-0 top-[7px] h-px w-1.5 bg-amber-dim" />
-                      <strong className="font-medium text-text">{feature.title}</strong>{" "}
+                    <li
+                      key={feature.title}
+                      className="relative pl-4 text-[13.5px] text-text-dim"
+                    >
+                      <span className="absolute left-0 top-1.75 h-px w-1.5 bg-amber-dim" />
+                      <strong className="font-medium text-text">
+                        {feature.title}
+                      </strong>{" "}
                       {feature.description}
                     </li>
                   ))}

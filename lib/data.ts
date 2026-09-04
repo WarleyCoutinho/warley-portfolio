@@ -87,7 +87,7 @@ export type ExperienceItem = {
 
 export const experience: ExperienceItem[] = [
   {
-    period: "2024 — atual",
+    period: "2026 — atual",
     company: "Adapti Code",
     role: "Fundador & Desenvolvedor Full Stack · Anápolis, GO",
     description:
@@ -135,6 +135,7 @@ export type Project = {
   stack: string[];
   liveUrl?: string;
   liveLabel?: string;
+  repoUrl: string;
 };
 
 export const projects: Project[] = [
@@ -164,6 +165,7 @@ export const projects: Project[] = [
     stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Better Auth"],
     liveUrl: "https://www.servix.app.br/",
     liveLabel: "Ver produto ao vivo ↗",
+    repoUrl: "https://github.com/AdaptiCode",
   },
   {
     kicker: "app mobile-first · next.js 16 + react 19",
@@ -199,6 +201,7 @@ export const projects: Project[] = [
       "shadcn/ui",
       "Zod",
     ],
+    repoUrl: "https://github.com/WarleyCoutinho/frontend-products.git",
   },
   {
     kicker: "api rest · fastify 5 + prisma 7",
@@ -234,5 +237,6 @@ export const projects: Project[] = [
       "Better Auth",
       "Swagger",
     ],
+    repoUrl: "https://github.com/WarleyCoutinho/api-products.git",
   },
 ];
