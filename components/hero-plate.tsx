@@ -23,6 +23,8 @@ export function HeroPlate() {
   const rotateY = useTransform(spx, [0, 1], [-13, 13]);
   const shadowX = useTransform(spx, [0, 1], [16, -16]);
   const shadowY = useTransform(spy, [0, 1], [10, -10]);
+  const spotX = useTransform(spx, (v) => `${v * 100}%`);
+  const spotY = useTransform(spy, (v) => `${v * 100}%`);
 
   function handleMove(e: PointerEvent<HTMLDivElement>) {
     const rect = ref.current?.getBoundingClientRect();
@@ -41,7 +43,7 @@ export function HeroPlate() {
       ref={ref}
       onPointerMove={handleMove}
       onPointerLeave={handleLeave}
-      className="relative mx-auto h-[280px] w-[240px] select-none sm:h-[320px] sm:w-[280px]"
+      className="group relative mx-auto h-[280px] w-[240px] select-none sm:h-[320px] sm:w-[280px]"
       style={{ perspective: 1400 }}
     >
       <motion.div
@@ -80,6 +82,19 @@ export function HeroPlate() {
         <div
           className="bg-blueprint absolute inset-0 rounded-lg opacity-25"
           style={{ transform: "translateZ(4px)" }}
+        />
+
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 rounded-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          style={{
+            transform: "translateZ(6px)",
+            background: useTransform(
+              [spotX, spotY],
+              ([x, y]) =>
+                `radial-gradient(160px circle at ${x} ${y}, color-mix(in srgb, var(--color-amber) 28%, transparent), transparent 72%)`,
+            ),
+          }}
         />
 
         {(
