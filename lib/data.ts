@@ -24,7 +24,7 @@ export const heroMeta = [
 export const aboutParagraphs = [
   "Minha trajetória não começou em uma faculdade de tecnologia. Passei anos soldando estrutura metálica e depois trabalhando com logística e vendas antes de decidir migrar para desenvolvimento de software — uma escolha que exigiu recomeçar do zero, mas que trouxe pra minha forma de programar uma disciplina que poucos currículos ensinam: entregar algo que funciona sob pressão real.",
   "Hoje sou Desenvolvedor Full Stack especializado em Next.js, Fastify e TypeScript de ponta a ponta. Gosto de trabalhar em todas as camadas de um produto — da modelagem do banco de dados à última interação de UI — e me importo tanto com a robustez da API quanto com a experiência de quem vai usar a tela.",
-  "Também sou fundador da Adapti Code, meu estúdio de desenvolvimento sob medida, onde crio sistemas web, plataformas SaaS e apps mobile do zero — incluindo o Servix, produto próprio em produção desde 2024.",
+  "Também sou fundador da Adapti Code, meu estúdio de desenvolvimento sob medida, onde crio sistemas web, plataformas SaaS e apps mobile do zero — incluindo o Servix, iniciado como projeto paralelo em 2024 e hoje em produção sob a Adapti Code.",
 ];
 
 export const facts = [
@@ -91,7 +91,7 @@ export const experience: ExperienceItem[] = [
     company: "Adapti Code",
     role: "Fundador & Desenvolvedor Full Stack · Anápolis, GO",
     description:
-      "Estúdio próprio de desenvolvimento sob medida — sistemas web, plataformas SaaS e apps mobile, do levantamento de requisitos ao deploy em produção. Produto próprio em destaque: Servix, plataforma SaaS multi-tenant de gestão para negócios de beleza.",
+      "Estúdio próprio de desenvolvimento sob medida — sistemas web, plataformas SaaS e apps mobile, do levantamento de requisitos ao deploy em produção. Formalizado em 2026 a partir do Servix, produto próprio iniciado como projeto paralelo em 2024 e hoje em produção como plataforma SaaS multi-tenant de gestão para negócios de beleza, atendendo 5 negócios ativos e processando cerca de 50 agendamentos por mês.",
     tags: ["Next.js", "Fastify", "Prisma", "PostgreSQL", "Better Auth"],
     url: "https://www.adapticode.com.br/",
   },
@@ -100,7 +100,7 @@ export const experience: ExperienceItem[] = [
     company: "Rancheiro",
     role: "Analista de Sistemas Pleno · Anápolis, GO",
     description:
-      "Desenvolvimento de sistema web responsivo para Indústria 4.0, atuando do levantamento de requisitos à entrega em produção junto a uma equipe multidisciplinar.",
+      "Desenvolvimento de sistema web responsivo para Indústria 4.0, atuando do levantamento de requisitos à entrega em produção junto a uma equipe multidisciplinar. Sistema usado por 5 linhas de produção para contagem de caixas por turno e fechamento mensal — antes, o líder de produção ficava 1h após o expediente pra fechar o total do dia; com o sistema, os dados já ficam prontos em ~20min (-66%).",
     tags: ["React.js", "Python", "PostgreSQL", "TypeScript"],
   },
   {
@@ -143,7 +143,7 @@ export const projects: Project[] = [
     kicker: "produto em produção · saas multi-tenant · adapti code",
     title: "Servix",
     description:
-      "Plataforma SaaS de gestão para negócios de beleza, com autenticação, dashboard interativo, agendamentos e API robusta. Produto próprio, em produção desde 2024, desenvolvido e mantido pela Adapti Code.",
+      "Plataforma SaaS de gestão para negócios de beleza, com autenticação, dashboard interativo, agendamentos e API robusta. Produto próprio, iniciado em 2024 e hoje em produção, desenvolvido e mantido pela Adapti Code — 5 negócios ativos, ~50 agendamentos/mês.",
     features: [
       {
         title: "Multi-tenant",

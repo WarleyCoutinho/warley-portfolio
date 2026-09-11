@@ -19,6 +19,9 @@ import {
   education,
   certifications,
   availability,
+  resumeProjects,
+  resumeExperienceOverrides,
+  siteDomainLabel,
 } from "@/lib/resume-content";
 
 // Evita hifenização automática quebrando palavras no meio (ex: "sis-tema")
@@ -67,9 +70,9 @@ function makeStyles(t: Theme) {
       fontFamily: "Helvetica",
       fontSize: 9,
       lineHeight: 1.3,
-      paddingTop: 30,
+      paddingTop: 24,
       paddingHorizontal: 32,
-      paddingBottom: 46,
+      paddingBottom: 36,
     },
     headerRow: {
       flexDirection: "row",
@@ -123,13 +126,13 @@ function makeStyles(t: Theme) {
       borderBottomWidth: 1,
       borderColor: t.borderSoft,
       borderStyle: "solid",
-      paddingVertical: 9,
-      marginTop: 13,
+      paddingVertical: 7,
+      marginTop: 10,
       color: t.textDim,
       fontSize: 8.5,
-      lineHeight: 1.45,
+      lineHeight: 1.4,
     },
-    stats: { flexDirection: "row", marginTop: 13, marginBottom: 3 },
+    stats: { flexDirection: "row", marginTop: 10, marginBottom: 2 },
     statBlock: { width: 150 },
     statNum: {
       fontFamily: "Helvetica-Bold",
@@ -145,7 +148,7 @@ function makeStyles(t: Theme) {
       color: t.textFaint,
       width: 105,
     },
-    cols: { flexDirection: "row", marginTop: 15 },
+    cols: { flexDirection: "row", marginTop: 12 },
     colLeft: { width: 322 },
     colRight: { width: 177, marginLeft: 22 },
     sectionTitle: {
@@ -161,7 +164,7 @@ function makeStyles(t: Theme) {
       marginRight: 6,
     },
     sectionLabel: { fontFamily: "Helvetica-Bold", fontSize: 10, lineHeight: 1 },
-    job: { marginBottom: 9 },
+    job: { marginBottom: 7 },
     jobDate: {
       fontFamily: "Courier",
       fontSize: 7,
@@ -177,7 +180,14 @@ function makeStyles(t: Theme) {
       fontSize: 8,
       lineHeight: 1.4,
       marginTop: 3,
-      marginBottom: 5,
+      marginBottom: 4,
+    },
+    projectItem: { marginBottom: 6 },
+    projectDesc: {
+      color: t.textDim,
+      fontSize: 8,
+      lineHeight: 1.4,
+      marginTop: 2,
     },
     tags: { flexDirection: "row", flexWrap: "wrap" },
     tag: {
@@ -199,10 +209,10 @@ function makeStyles(t: Theme) {
       borderTopWidth: 1,
       borderColor: t.borderSoft,
       borderStyle: "solid",
-      paddingTop: 8,
+      paddingTop: 6,
       color: t.textFaint,
       fontSize: 7.5,
-      lineHeight: 1.4,
+      lineHeight: 1.35,
     },
     stackGroup: { marginBottom: 9 },
     stackGroupLabel: {
@@ -212,7 +222,7 @@ function makeStyles(t: Theme) {
       color: t.textFaint,
       marginBottom: 5,
     },
-    sideBlock: { marginBottom: 12 },
+    sideBlock: { marginBottom: 9 },
     sideH3: {
       fontFamily: "Helvetica-Bold",
       fontSize: 9,
@@ -232,14 +242,14 @@ function makeStyles(t: Theme) {
       position: "absolute",
       left: 32,
       right: 32,
-      bottom: 22,
+      bottom: 16,
       flexDirection: "row",
       justifyContent: "space-between",
       fontFamily: "Courier",
       fontSize: 7,
       lineHeight: 1,
       color: t.textFaint,
-      paddingTop: 8,
+      paddingTop: 6,
       borderTopWidth: 1,
       borderColor: t.borderSoft,
       borderStyle: "solid",
@@ -285,7 +295,7 @@ export function ResumeDocument({
             <Text style={s.contact}>
               {profile.phone} · {profile.email} · linkedin.com
               {profile.linkedinLabel} · github.com{profile.githubLabel} ·{" "}
-              {profile.studioLabel}
+              {siteDomainLabel}
             </Text>
           </View>
           <View style={s.photoFrame}>
@@ -318,7 +328,9 @@ export function ResumeDocument({
                   <Text style={s.jobCompany}>{job.company} </Text>
                   <Text style={s.jobRole}>{job.role}</Text>
                 </View>
-                <Text style={s.jobDesc}>{job.description}</Text>
+                <Text style={s.jobDesc}>
+                  {resumeExperienceOverrides[job.company] ?? job.description}
+                </Text>
                 <View style={s.tags}>
                   {job.tags.map((tag) => (
                     <Text key={tag} style={s.tag}>
@@ -333,11 +345,28 @@ export function ResumeDocument({
               <Text style={s.jobDate}>{earlierCareer.period}</Text>
               <Text>Antes da tecnologia: {earlierCareer.description}</Text>
             </View>
+
+            <View style={{ marginTop: 11 }}>
+              <View style={s.sectionTitle}>
+                <Text style={s.sectionNum}>02</Text>
+                <Text style={s.sectionLabel}>Projetos em destaque</Text>
+              </View>
+
+              {resumeProjects.map((project) => (
+                <View key={project.title} style={s.projectItem} wrap={false}>
+                  <View style={s.jobTitleRow}>
+                    <Text style={s.jobCompany}>{project.title} </Text>
+                    <Text style={s.jobRole}>· {project.linkLabel}</Text>
+                  </View>
+                  <Text style={s.projectDesc}>{project.description}</Text>
+                </View>
+              ))}
+            </View>
           </View>
 
           <View style={s.colRight}>
             <View style={s.sectionTitle}>
-              <Text style={s.sectionNum}>02</Text>
+              <Text style={s.sectionNum}>03</Text>
               <Text style={s.sectionLabel}>Stack técnica</Text>
             </View>
 
@@ -356,7 +385,7 @@ export function ResumeDocument({
 
             <View style={s.sideBlock} wrap={false}>
               <View style={s.sectionTitle}>
-                <Text style={s.sectionNum}>03</Text>
+                <Text style={s.sectionNum}>04</Text>
                 <Text style={s.sectionLabel}>Formação</Text>
               </View>
               <Text style={s.sideH3}>{education.degree}</Text>
@@ -365,7 +394,7 @@ export function ResumeDocument({
 
             <View style={s.sideBlock} wrap={false}>
               <View style={s.sectionTitle}>
-                <Text style={s.sectionNum}>04</Text>
+                <Text style={s.sectionNum}>05</Text>
                 <Text style={s.sectionLabel}>Certificações</Text>
               </View>
               {certifications.map((cert) => (
@@ -378,7 +407,7 @@ export function ResumeDocument({
 
             <View wrap={false}>
               <View style={s.sectionTitle}>
-                <Text style={s.sectionNum}>05</Text>
+                <Text style={s.sectionNum}>06</Text>
                 <Text style={s.sectionLabel}>Disponibilidade</Text>
               </View>
               <Text style={s.sideSub}>{availability}</Text>
@@ -394,7 +423,7 @@ export function ResumeDocument({
         </View>
 
         <View style={s.footer} fixed>
-          <Text>warleycoutinho.dev</Text>
+          <Text>{siteDomainLabel}</Text>
           <Text>{`currículo gerado em ${new Date().toLocaleDateString("pt-BR")}`}</Text>
         </View>
       </Page>

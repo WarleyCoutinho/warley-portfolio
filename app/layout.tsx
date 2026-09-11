@@ -53,7 +53,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased font-body">{children}</body>
+      <body className="antialiased font-body" suppressHydrationWarning>{children}</body>
     </html>
   );
 }

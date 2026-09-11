@@ -6,7 +6,8 @@
     "dev": "next dev --port 3338",
     "build": "next build",
     "start": "next start --port 3338",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "resume:pdf": "esbuild scripts/gen-resume.tsx --bundle --platform=node --format=esm --target=node22 --outfile=scripts/.gen-resume.bundle.mjs --packages=external && node scripts/.gen-resume.bundle.mjs && rm scripts/.gen-resume.bundle.mjs"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.9.0",
@@ -26,9 +27,11 @@
     "@types/qrcode": "^1.5.6",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
+    "esbuild": "^0.28.2",
     "eslint": "^10.9.1",
     "eslint-config-next": "^16.3.4",
     "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.13",
     "typescript": "^7.0.2"
   }
 }

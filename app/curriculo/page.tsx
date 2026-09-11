@@ -22,10 +22,15 @@ export default function CurriculoPage() {
           <h1 className="mb-3 font-display text-[28px] font-semibold">
             Baixe o currículo em PDF
           </h1>
-          <p className="mb-10 text-[15px] text-text-dim">
+          <p className="mb-6 text-[15px] text-text-dim">
             O PDF é montado na hora do download, com as informações mais recentes do
             portfólio e um QR code que leva direto pra este site — sempre atualizado, sem
             versão desatualizada rodando por aí.
+          </p>
+          <p className="mb-10 text-[13px] text-text-faint">
+            Escuro/claro: layout com design, pra enviar direto a uma pessoa ou anexar
+            no LinkedIn. ATS: coluna única, sem foto e sem elementos gráficos — use essa
+            versão em formulários de candidatura e sistemas de recrutamento automatizados.
           </p>
           <ResumeDownloadButtons />
         </section>
