@@ -1,16 +1,7 @@
-// Dados usados SÓ pelo currículo (PDF). O resto (experiência, stack, perfil)
-// vem de lib/data.ts — mesma fonte que alimenta o site. Editando lá, o PDF
-// gerado no botão de download já sai atualizado, sem precisar mexer aqui.
-
-// TODO(warley): se warleycoutinho.dev já estiver no ar e apontando pra este
-// site, troque só esta linha — header, rodapé e QR code do PDF atualizam
-// juntos, porque todos leem daqui.
 export const SITE_URL = "https://warley-portfolio.vercel.app";
 
 export const siteDomainLabel = SITE_URL.replace(/^https?:\/\//, "");
 
-// Versão enxuta de lib/data.ts#projects pro currículo: só o que cabe numa
-// página A4 sem virar bula. Conteúdo alinhado ao PDF do LinkedIn.
 export const resumeProjects = [
   {
     title: "Servix (2024 — atual)",
@@ -29,10 +20,6 @@ export const resumeProjects = [
 export const resumeSummary =
   "Engenheiro de Software Full Stack especializado em TypeScript, Node.js e produtos web, com experiência em sistemas de produção, SaaS e Indústria 4.0. Fundador da Adapti Code, onde desenvolvo produtos de ponta a ponta: arquitetura, banco de dados, integrações, deploy e manutenção. Transformo processos complexos em sistemas mais rápidos, automatizados e confiáveis. Trajetória fora do caminho tradicional — soldador, almoxarife e comerciante antes de migrar para software. Aberto a vagas de Software, Backend ou Full Stack Engineer.";
 
-// Versões enxutas de lib/data.ts#experience[].description, só pro PDF — o
-// site continua com o texto completo (sem limite de página). Currículo tem
-// que caber numa folha A4, então aqui é a mesma informação, mais direta.
-// Empresa sem entrada aqui usa o texto de data.ts normalmente.
 export const resumeExperienceOverrides: Record<string, string> = {
   "Adapti Code":
     "Projeto e desenvolvo produtos de ponta a ponta — web e mobile, APIs, banco, integrações, deploy e produção. Servix: SaaS de agendamento em produção em 5 salões e barbearias; ~90% menos faltas (lembretes via WhatsApp + Google Calendar) e reservas multisserviço atômicas com Prisma $transaction.",
@@ -44,8 +31,14 @@ export const resumeExperienceOverrides: Record<string, string> = {
 
 export const resumeStats = [
   { value: "5+", label: "anos em desenvolvimento de software" },
-  { value: "-90%", label: "faltas (no-shows) no Servix, com lembretes automáticos" },
-  { value: "1h→20min", label: "fechamento operacional automatizado (Rancheiro)" },
+  {
+    value: "-90%",
+    label: "faltas (no-shows) no Servix, com lembretes automáticos",
+  },
+  {
+    value: "1h→20min",
+    label: "fechamento operacional automatizado (Rancheiro)",
+  },
 ];
 
 export const education = {

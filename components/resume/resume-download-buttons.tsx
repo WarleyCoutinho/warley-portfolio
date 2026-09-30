@@ -36,7 +36,6 @@ export function ResumeDownloadButtons() {
       let blob: Blob;
 
       if (variant === "ats") {
-        // Versão ATS não usa foto nem QR — só texto, de propósito.
         blob = await pdf(<ResumeDocumentATS />).toBlob();
       } else {
         const [qrDataUrl, photoDataUrl] = await Promise.all([
@@ -53,7 +52,11 @@ export function ResumeDownloadButtons() {
         ]);
 
         blob = await pdf(
-          <ResumeDocument theme={variant} qrDataUrl={qrDataUrl} photoDataUrl={photoDataUrl} />
+          <ResumeDocument
+            theme={variant}
+            qrDataUrl={qrDataUrl}
+            photoDataUrl={photoDataUrl}
+          />,
         ).toBlob();
       }
 

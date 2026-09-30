@@ -9,13 +9,11 @@ type SpotlightProps = {
   size?: number;
 };
 
-/**
- * Envolve `children` e desenha um glow radial que acompanha o cursor,
- * visível só no hover (via CSS, sem re-render — usa custom properties
- * setadas direto no elemento). Pensado pra bordas/botões outline, onde
- * o fundo transparente deixa o glow aparecer por trás do conteúdo.
- */
-export function Spotlight({ children, className = "", size = 200 }: SpotlightProps) {
+export function Spotlight({
+  children,
+  className = "",
+  size = 200,
+}: SpotlightProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   function handleMove(e: PointerEvent<HTMLDivElement>) {

@@ -7,12 +7,7 @@ import {
   StyleSheet,
   Font,
 } from "@react-pdf/renderer";
-import {
-  profile,
-  stackGroups,
-  experience,
-  earlierCareer,
-} from "@/lib/data";
+import { profile, stackGroups, experience, earlierCareer } from "@/lib/data";
 import {
   resumeSummary,
   resumeStats,
@@ -24,7 +19,6 @@ import {
   siteDomainLabel,
 } from "@/lib/resume-content";
 
-// Evita hifenização automática quebrando palavras no meio (ex: "sis-tema")
 Font.registerHyphenationCallback((word) => [word]);
 
 type Theme = {
@@ -60,8 +54,6 @@ const light: Theme = {
   amber: "#b3711a",
 };
 
-// Tag/chip com margem própria (direita + baixo) em vez de `gap` no container —
-// `gap` em Views com flexWrap se comporta de forma inconsistente no react-pdf.
 function makeStyles(t: Theme) {
   return StyleSheet.create({
     page: {
@@ -172,7 +164,12 @@ function makeStyles(t: Theme) {
       color: t.textFaint,
       marginBottom: 3,
     },
-    jobTitleRow: { flexDirection: "row", flexWrap: "wrap", fontSize: 9.5, lineHeight: 1.3 },
+    jobTitleRow: {
+      flexDirection: "row",
+      flexWrap: "wrap",
+      fontSize: 9.5,
+      lineHeight: 1.3,
+    },
     jobCompany: { fontFamily: "Helvetica-Bold" },
     jobRole: { color: t.amber, fontFamily: "Helvetica-Bold" },
     jobDesc: {
@@ -289,9 +286,7 @@ export function ResumeDocument({
           <View style={s.headerText}>
             <Text style={s.eyebrow}>anápolis, go — brasil</Text>
             <Text style={s.name}>{profile.name}</Text>
-            <Text style={s.role}>
-              {profile.role} — TypeScript · Node.js
-            </Text>
+            <Text style={s.role}>{profile.role} — TypeScript · Node.js</Text>
             <Text style={s.contact}>
               {profile.phone} · {profile.email} · linkedin.com
               {profile.linkedinLabel} · github.com{profile.githubLabel} ·{" "}

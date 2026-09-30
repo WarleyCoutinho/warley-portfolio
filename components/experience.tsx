@@ -10,8 +10,10 @@ export function Experience() {
         <div className="ml-1.5 border-l border-border">
           {experience.map((item) => (
             <div key={item.company} className="relative pb-11 pl-8 last:pb-0">
-              <span className="absolute -left-[5px] top-1 size-[9px] rounded-full border border-amber bg-bg" />
-              <div className="mb-2 font-mono-brand text-xs text-amber">{item.period}</div>
+              <span className="absolute -left-1.25 top-1 size-2.25 rounded-full border border-amber bg-bg" />
+              <div className="mb-2 font-mono-brand text-xs text-amber">
+                {item.period}
+              </div>
               <h3 className="font-display text-[19px] font-semibold">
                 {item.url ? (
                   <a
@@ -27,7 +29,9 @@ export function Experience() {
                 )}
               </h3>
               <div className="mb-3 text-sm text-text-dim">{item.role}</div>
-              <p className="mb-3 max-w-[62ch] text-[14.5px] text-text-dim">{item.description}</p>
+              <p className="mb-3 max-w-[62ch] text-[14.5px] text-text-dim">
+                {item.description}
+              </p>
               <div className="flex flex-wrap gap-1.5">
                 {item.tags.map((tag) => (
                   <span
@@ -41,8 +45,10 @@ export function Experience() {
             </div>
           ))}
           <div className="relative pl-8">
-            <span className="absolute -left-[5px] top-1 size-[9px] rounded-full border border-amber bg-bg" />
-            <div className="mb-2 font-mono-brand text-xs text-amber">{earlierCareer.period}</div>
+            <span className="absolute -left-1.25 top-1 size-2.25 rounded-full border border-amber bg-bg" />
+            <div className="mb-2 font-mono-brand text-xs text-amber">
+              {earlierCareer.period}
+            </div>
             <h3 className="mb-2 font-display text-base font-semibold text-text-dim">
               Antes da tecnologia
             </h3>

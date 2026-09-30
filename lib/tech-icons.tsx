@@ -1,13 +1,5 @@
 import * as simpleIcons from "simple-icons";
 import { Blocks, Network, ShieldCheck, type LucideIcon } from "lucide-react";
-
-// Ícones reais das tecnologias, vindos do pacote `simple-icons` (SVG com a cor
-// oficial de cada marca). Server-side apenas: o componente <Stack /> não é
-// "use client", então o pacote não vai pro bundle do navegador.
-//
-// A chave é o mesmo texto usado em lib/data.ts#stackGroups. Se uma tecnologia
-// nova não estiver aqui, ela aparece só com o texto (sem quebrar nada).
-
 type SimpleIcon = { path: string; hex: string };
 const icons = simpleIcons as unknown as Record<string, SimpleIcon | undefined>;
 
@@ -43,8 +35,6 @@ const FALLBACK_ICON: Record<string, LucideIcon> = {
   "Better Auth": ShieldCheck,
 };
 
-// Cores de marca muito escuras (Next.js, Vercel, shadcn…) somem no tema escuro;
-// nesses casos usamos currentColor, que acompanha o tema.
 function channel(hex: string, start: number) {
   const c = parseInt(hex.slice(start, start + 2), 16) / 255;
   return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;

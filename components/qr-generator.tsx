@@ -38,7 +38,7 @@ export function QrGenerator() {
   }
 
   return (
-    <section className="mx-auto max-w-[560px] px-6 py-28 sm:px-8">
+    <section className="mx-auto max-w-140 px-6 py-28 sm:px-8">
       <div className="mb-2 font-mono-brand text-[13px] text-amber">
         // ferramenta interna
       </div>
@@ -78,7 +78,7 @@ export function QrGenerator() {
       <div className="flex flex-col items-center gap-6 rounded-lg border border-border bg-bg-raised p-8">
         <canvas
           ref={canvasRef}
-          className="h-[220px] w-[220px] rounded-md sm:h-[280px] sm:w-[280px]"
+          className="h-55 w-55 rounded-md sm:h-70 sm:w-70"
         />
         <button
           onClick={handleDownload}

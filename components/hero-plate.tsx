@@ -43,7 +43,7 @@ export function HeroPlate() {
       ref={ref}
       onPointerMove={handleMove}
       onPointerLeave={handleLeave}
-      className="group relative mx-auto h-[280px] w-[240px] select-none sm:h-[320px] sm:w-[280px]"
+      className="group relative mx-auto h-70 w-60 select-none sm:h-80 sm:w-70"
       style={{ perspective: 1400 }}
     >
       <motion.div
@@ -107,7 +107,7 @@ export function HeroPlate() {
         ).map(([x, y], i) => (
           <div
             key={i}
-            className="absolute size-[6px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-dim"
+            className="absolute size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-dim"
             style={{ left: x, top: y, transform: "translateZ(18px)" }}
           />
         ))}
@@ -116,13 +116,13 @@ export function HeroPlate() {
           className="absolute inset-0 flex flex-col items-center justify-center gap-2"
           style={{ transform: "translateZ(36px)" }}
         >
-          <div className="size-[92px] overflow-hidden rounded-md border border-amber-dim shadow-[0_14px_30px_-10px_rgba(0,0,0,0.7)] sm:size-[104px]">
+          <div className="size-23 overflow-hidden rounded-md border border-amber-dim shadow-[0_14px_30px_-10px_rgba(0,0,0,0.7)] sm:size-26">
             <Image
               src="/images/warley-avatar.jpg"
               alt="Warley Coutinho"
               width={208}
               height={208}
-              className="h-full w-full object-cover grayscale-[15%] contrast-[1.05]"
+              className="h-full w-full object-cover grayscale-15 contrast-[1.05]"
               priority
             />
           </div>
@@ -130,17 +130,26 @@ export function HeroPlate() {
             FULL STACK DEV
           </span>
           <span className="h-px w-9 bg-amber-dim" />
-          <span className="font-mono-brand text-[10px] text-text-faint">Adapti Code · 2026</span>
+          <span className="font-mono-brand text-[10px] text-text-faint">
+            Adapti Code · 2026
+          </span>
         </div>
 
         {badges.map((label, i) => (
           <motion.div
             key={label}
             className="absolute rounded-sm border border-border bg-bg px-2.5 py-1.5 font-mono-brand text-[11px] text-text-dim shadow-[0_10px_24px_-8px_rgba(0,0,0,0.6)]"
-            style={{ transform: `translateZ(${58 + i * 8}px)`, ...badgePosition[i] }}
+            style={{
+              transform: `translateZ(${58 + i * 8}px)`,
+              ...badgePosition[i],
+            }}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.45 + i * 0.12, duration: 0.5, ease: "easeOut" }}
+            transition={{
+              delay: 0.45 + i * 0.12,
+              duration: 0.5,
+              ease: "easeOut",
+            }}
           >
             {label}
           </motion.div>

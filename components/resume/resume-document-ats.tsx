@@ -1,4 +1,11 @@
-import { Document, Page, View, Text, StyleSheet, Font } from "@react-pdf/renderer";
+import {
+  Document,
+  Page,
+  View,
+  Text,
+  StyleSheet,
+  Font,
+} from "@react-pdf/renderer";
 import { profile, stackGroups, experience, earlierCareer } from "@/lib/data";
 import {
   resumeSummary,
@@ -11,15 +18,8 @@ import {
   siteDomainLabel,
 } from "@/lib/resume-content";
 
-// Evita hifenização automática quebrando palavras no meio (ex: "sis-tema")
 Font.registerHyphenationCallback((word) => [word]);
 
-// Versão pensada pra parser de ATS, não pra olho humano:
-// - coluna única, ordem de leitura top-to-bottom sem ambiguidade
-// - preto sobre branco, sem imagem/QR/ícone (nada não-textual que possa
-//   confundir extração ou ficar fora da ordem de leitura)
-// - tags de stack viram texto corrido separado por vírgula, não "chips"
-// - cabeçalhos de seção em texto simples, sem numeração decorativa
 const s = StyleSheet.create({
   page: {
     backgroundColor: "#ffffff",
@@ -70,12 +70,20 @@ const s = StyleSheet.create({
     marginBottom: 3,
   },
   job: { marginBottom: 4 },
-  jobTitleLine: { fontSize: 9.5, fontFamily: "Helvetica-Bold", marginBottom: 1 },
+  jobTitleLine: {
+    fontSize: 9.5,
+    fontFamily: "Helvetica-Bold",
+    marginBottom: 1,
+  },
   jobDate: { fontSize: 8.3, color: "#333333", marginBottom: 1 },
   jobDesc: { fontSize: 9, lineHeight: 1.3, marginBottom: 1 },
   jobStack: { fontSize: 8, color: "#333333" },
   project: { marginBottom: 3 },
-  projectTitleLine: { fontSize: 9.5, fontFamily: "Helvetica-Bold", marginBottom: 1 },
+  projectTitleLine: {
+    fontSize: 9.5,
+    fontFamily: "Helvetica-Bold",
+    marginBottom: 1,
+  },
   projectDesc: { fontSize: 9, lineHeight: 1.3 },
   prehist: { fontSize: 8.3, color: "#333333", marginTop: 1, lineHeight: 1.3 },
   stackLine: { fontSize: 9, lineHeight: 1.32, marginBottom: 2 },
@@ -101,16 +109,21 @@ export function ResumeDocumentATS() {
     >
       <Page size="A4" style={s.page}>
         <Text style={s.name}>{profile.name}</Text>
-        <Text style={s.role}>{profile.role} — TypeScript, Node.js, Next.js</Text>
+        <Text style={s.role}>
+          {profile.role} — TypeScript, Node.js, Next.js
+        </Text>
         <Text style={s.contact}>
           {profile.location} | {profile.phone} | {profile.email} | linkedin.com
-          {profile.linkedinLabel} | github.com{profile.githubLabel} | {siteDomainLabel}
+          {profile.linkedinLabel} | github.com{profile.githubLabel} |{" "}
+          {siteDomainLabel}
         </Text>
 
         <Text style={s.summary}>{resumeSummary}</Text>
 
         <Text style={s.statsLine}>
-          {resumeStats.map((stat) => `${stat.value} ${stat.label}`).join("   |   ")}
+          {resumeStats
+            .map((stat) => `${stat.value} ${stat.label}`)
+            .join("   |   ")}
         </Text>
 
         <Text style={s.sectionTitle}>Experiência</Text>
@@ -128,7 +141,9 @@ export function ResumeDocumentATS() {
         ))}
         <View wrap={false}>
           <Text style={s.jobDate}>{earlierCareer.period}</Text>
-          <Text style={s.prehist}>Antes da tecnologia: {earlierCareer.description}</Text>
+          <Text style={s.prehist}>
+            Antes da tecnologia: {earlierCareer.description}
+          </Text>
         </View>
 
         <Text style={s.sectionTitle}>Projetos em destaque</Text>
@@ -161,7 +176,9 @@ export function ResumeDocumentATS() {
         <Text style={s.sideLine}>{availability}</Text>
 
         <Text style={s.footer} fixed>
-          {siteDomainLabel} — currículo gerado em {new Date().toLocaleDateString("pt-BR")} — versão texto puro, compatível com ATS
+          {siteDomainLabel} — currículo gerado em{" "}
+          {new Date().toLocaleDateString("pt-BR")} — versão texto puro,
+          compatível com ATS
         </Text>
       </Page>
     </Document>

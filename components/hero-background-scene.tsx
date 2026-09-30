@@ -74,17 +74,11 @@ export function HeroBackgroundScene() {
         style={{ background: "var(--color-amber)", x: gridX, y: gridY }}
       />
 
-      {/* grid do próprio projeto, reaproveitado como camada de profundidade */}
       <motion.div
         className="bg-blueprint absolute inset-0 hidden opacity-40 sm:block"
         style={{ x: gridX, y: gridY }}
       />
 
-      {/* Retrato — recortado com máscara radial, bem discreto. Só existe no
-          DOM a partir do sm: no mobile o navegador nunca faz o fetch da
-          imagem (sem `hidden`/display:none escondendo um <Image> já
-          montado — ela simplesmente não é renderizada). Sem `priority`
-          porque essa cena é puramente decorativa, não faz parte do LCP. */}
       <motion.div
         className="absolute -right-6 bottom-0 hidden h-[115%] w-140 max-w-none sm:block sm:w-180"
         style={{

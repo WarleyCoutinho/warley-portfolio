@@ -13,7 +13,7 @@ export default function QrCodePage() {
     <>
       <BlueprintBackground />
       <SiteHeader />
-      <main className="relative z-10 mx-auto max-w-[1040px] px-6 sm:px-8">
+      <main className="relative z-10 mx-auto max-w-260 px-6 sm:px-8">
         <QrGenerator />
       </main>
       <SiteFooter />

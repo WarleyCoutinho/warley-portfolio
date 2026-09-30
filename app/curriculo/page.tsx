@@ -14,8 +14,8 @@ export default function CurriculoPage() {
     <>
       <BlueprintBackground />
       <SiteHeader />
-      <main className="relative z-10 mx-auto max-w-[1040px] px-6 sm:px-8">
-        <section className="mx-auto max-w-[560px] px-0 py-28">
+      <main className="relative z-10 mx-auto max-w-260 px-6 sm:px-8">
+        <section className="mx-auto max-w-140 px-0 py-28">
           <div className="mb-2 font-mono-brand text-[13px] text-amber">
             // currículo
           </div>
@@ -23,14 +23,15 @@ export default function CurriculoPage() {
             Baixe o currículo em PDF
           </h1>
           <p className="mb-6 text-[15px] text-text-dim">
-            O PDF é montado na hora do download, com as informações mais recentes do
-            portfólio e um QR code que leva direto pra este site — sempre atualizado, sem
-            versão desatualizada rodando por aí.
+            O PDF é montado na hora do download, com as informações mais
+            recentes do portfólio e um QR code que leva direto pra este site —
+            sempre atualizado, sem versão desatualizada rodando por aí.
           </p>
           <p className="mb-10 text-[13px] text-text-faint">
-            Escuro/claro: layout com design, pra enviar direto a uma pessoa ou anexar
-            no LinkedIn. ATS: coluna única, sem foto e sem elementos gráficos — use essa
-            versão em formulários de candidatura e sistemas de recrutamento automatizados.
+            Escuro/claro: layout com design, pra enviar direto a uma pessoa ou
+            anexar no LinkedIn. ATS: coluna única, sem foto e sem elementos
+            gráficos — use essa versão em formulários de candidatura e sistemas
+            de recrutamento automatizados.
           </p>
           <ResumeDownloadButtons />
         </section>

@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 
 export function ThemeToggle() {
-  // Começa null pra não renderizar o ícone errado antes de saber o tema real (hidratação)
   const [isLight, setIsLight] = useState<boolean | null>(null);
 
   useEffect(() => {

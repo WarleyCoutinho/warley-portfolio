@@ -14,22 +14,32 @@ export function Contact() {
           <span className="tick bottom-0 right-0" />
 
           <div>
-            <h2 className="mb-3.5 max-w-[520px] font-display text-[32px] font-semibold">
+            <h2 className="mb-3.5 max-w-130 font-display text-[32px] font-semibold">
               Vamos construir o próximo sistema juntos.
             </h2>
-            <p className="max-w-[480px] text-[15px] text-text-dim">
-              Aberto a oportunidades PJ ou CLT e a projetos de desenvolvimento web e mobile
-              sob medida.
+            <p className="max-w-120 text-[15px] text-text-dim">
+              Aberto a oportunidades PJ ou CLT e a projetos de desenvolvimento
+              web e mobile sob medida.
             </p>
           </div>
 
           <div className="flex flex-col gap-3 font-mono-brand text-sm">
-            <a href={`mailto:${profile.email}`} className="flex items-center gap-2.5 text-text-dim transition-colors hover:text-amber">
-              <span className="inline-block w-20 text-[11px] text-text-faint">e-mail</span>
+            <a
+              href={`mailto:${profile.email}`}
+              className="flex items-center gap-2.5 text-text-dim transition-colors hover:text-amber"
+            >
+              <span className="inline-block w-20 text-[11px] text-text-faint">
+                e-mail
+              </span>
               {profile.email}
             </a>
-            <a href={`tel:${profile.phoneHref}`} className="flex items-center gap-2.5 text-text-dim transition-colors hover:text-amber">
-              <span className="inline-block w-20 text-[11px] text-text-faint">telefone</span>
+            <a
+              href={`tel:${profile.phoneHref}`}
+              className="flex items-center gap-2.5 text-text-dim transition-colors hover:text-amber"
+            >
+              <span className="inline-block w-20 text-[11px] text-text-faint">
+                telefone
+              </span>
               {profile.phone}
             </a>
             <a
@@ -38,7 +48,9 @@ export function Contact() {
               rel="noopener noreferrer"
               className="flex items-center gap-2.5 text-text-dim transition-colors hover:text-amber"
             >
-              <span className="inline-block w-20 text-[11px] text-text-faint">linkedin</span>
+              <span className="inline-block w-20 text-[11px] text-text-faint">
+                linkedin
+              </span>
               {profile.linkedinLabel} ↗
             </a>
             <a
@@ -47,7 +59,9 @@ export function Contact() {
               rel="noopener noreferrer"
               className="flex items-center gap-2.5 text-text-dim transition-colors hover:text-amber"
             >
-              <span className="inline-block w-20 text-[11px] text-text-faint">instagram</span>
+              <span className="inline-block w-20 text-[11px] text-text-faint">
+                instagram
+              </span>
               {profile.instagramLabel} ↗
             </a>
             <a
@@ -56,7 +70,9 @@ export function Contact() {
               rel="noopener noreferrer"
               className="flex items-center gap-2.5 text-text-dim transition-colors hover:text-amber"
             >
-              <span className="inline-block w-20 text-[11px] text-text-faint">github</span>
+              <span className="inline-block w-20 text-[11px] text-text-faint">
+                github
+              </span>
               {profile.githubLabel} ↗
             </a>
             <a
@@ -65,7 +81,9 @@ export function Contact() {
               rel="noopener noreferrer"
               className="flex items-center gap-2.5 text-text-dim transition-colors hover:text-amber"
             >
-              <span className="inline-block w-20 text-[11px] text-text-faint">adapti code</span>
+              <span className="inline-block w-20 text-[11px] text-text-faint">
+                adapti code
+              </span>
               {profile.githubOrgLabel} ↗
             </a>
             <a
@@ -74,11 +92,15 @@ export function Contact() {
               rel="noopener noreferrer"
               className="flex items-center gap-2.5 text-text-dim transition-colors hover:text-amber"
             >
-              <span className="inline-block w-20 text-[11px] text-text-faint">estúdio</span>
+              <span className="inline-block w-20 text-[11px] text-text-faint">
+                estúdio
+              </span>
               {profile.studioLabel} ↗
             </a>
             <div className="flex items-center gap-2.5 text-text-dim">
-              <span className="inline-block w-20 text-[11px] text-text-faint">local</span>
+              <span className="inline-block w-20 text-[11px] text-text-faint">
+                local
+              </span>
               {profile.location}
             </div>
           </div>
