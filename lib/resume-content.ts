@@ -10,13 +10,12 @@ export const SITE_URL = "https://warley-portfolio.vercel.app";
 export const siteDomainLabel = SITE_URL.replace(/^https?:\/\//, "");
 
 // Versão enxuta de lib/data.ts#projects pro currículo: só o que cabe numa
-// página A4 sem virar bula. Textos abaixo são recortes do que já existe em
-// data.ts — nenhum dado novo foi inventado aqui.
+// página A4 sem virar bula. Conteúdo alinhado ao PDF do LinkedIn.
 export const resumeProjects = [
   {
     title: "Servix (2024 — atual)",
     description:
-      "SaaS multi-tenant de agendamento e gestão para negócios de beleza — dashboard, autenticação e API em produção pela Adapti Code. 5 negócios ativos, ~50 agendamentos/mês.",
+      "SaaS de agendamento e gestão para salões e barbearias, em produção em 5 negócios. Lembretes via WhatsApp (microserviço Node.js + Baileys) e sync com Google Calendar: ~90% menos faltas. Reservas multisserviço atômicas com Prisma $transaction.",
     linkLabel: "servix.app.br",
   },
   {
@@ -28,7 +27,7 @@ export const resumeProjects = [
 ];
 
 export const resumeSummary =
-  "Desenvolvedor Full Stack com experiência prática em produtos web e mobile de ponta a ponta, especializado em Next.js, React, Fastify e TypeScript. Trajetória construída fora do caminho tradicional de tecnologia — atuei em manufatura e logística antes de migrar para desenvolvimento de software, trazendo forte disciplina de entrega e resolução de problemas sob pressão real. Foco em código type-safe, APIs bem documentadas e interfaces construídas com shadcn/ui.";
+  "Engenheiro de Software Full Stack especializado em TypeScript, Node.js e produtos web, com experiência em sistemas de produção, SaaS e Indústria 4.0. Fundador da Adapti Code, onde desenvolvo produtos de ponta a ponta: arquitetura, banco de dados, integrações, deploy e manutenção. Transformo processos complexos em sistemas mais rápidos, automatizados e confiáveis. Trajetória fora do caminho tradicional — soldador, almoxarife e comerciante antes de migrar para software. Aberto a vagas de Software, Backend ou Full Stack Engineer.";
 
 // Versões enxutas de lib/data.ts#experience[].description, só pro PDF — o
 // site continua com o texto completo (sem limite de página). Currículo tem
@@ -36,15 +35,17 @@ export const resumeSummary =
 // Empresa sem entrada aqui usa o texto de data.ts normalmente.
 export const resumeExperienceOverrides: Record<string, string> = {
   "Adapti Code":
-    "Estúdio próprio de desenvolvimento sob medida — sistemas web, SaaS e apps mobile, do requisito ao deploy. Formalizado em 2026 a partir do Servix (projeto paralelo desde 2024), hoje SaaS multi-tenant pra negócios de beleza: 5 negócios ativos, ~50 agendamentos/mês.",
+    "Projeto e desenvolvo produtos de ponta a ponta — web e mobile, APIs, banco, integrações, deploy e produção. Servix: SaaS de agendamento em produção em 5 salões e barbearias; ~90% menos faltas (lembretes via WhatsApp + Google Calendar) e reservas multisserviço atômicas com Prisma $transaction.",
   Rancheiro:
-    "Sistema web responsivo para Indústria 4.0, do requisito à produção, com equipe multidisciplinar. Usado por 5 linhas pra contagem de caixas por turno e fechamento mensal — reduziu o fechamento do líder de 1h pra ~20min (-66%).",
+    "Soluções para Indústria 4.0: dashboards de produção, estoque e controle de acesso, com Next.js/React/TypeScript sobre APIs Python, mais APIs e integrações em Node.js e com equipamentos industriais. Automatizei um fechamento operacional de ~1h para ~20min e criei relatórios por turno, dia e mês (PDF e Excel).",
+  Avaloon:
+    "Sistema OEE para Indústria 4.0 (Node.js, Vue.js, PostgreSQL): microsserviços de coleta direto das máquinas, APIs REST e integrações. Correção de gargalos e problemas de performance, com redução de até 70% das ocorrências identificadas.",
 };
 
 export const resumeStats = [
-  { value: "4+", label: "anos em desenvolvimento de software" },
-  { value: "+90%", label: "produtividade no fluxo de trabalho dos usuários" },
-  { value: "-70%", label: "tempo de resposta do sistema em produção" },
+  { value: "5+", label: "anos em desenvolvimento de software" },
+  { value: "-90%", label: "faltas (no-shows) no Servix, com lembretes automáticos" },
+  { value: "1h→20min", label: "fechamento operacional automatizado (Rancheiro)" },
 ];
 
 export const education = {
@@ -60,4 +61,4 @@ export const certifications = [
 ];
 
 export const availability =
-  "Projetos freelance e vagas CLT / PJ — atendimento 100% remoto.";
+  "Aberto a oportunidades PJ ou CLT em times de produto e engenharia.";

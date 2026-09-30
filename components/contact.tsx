@@ -18,8 +18,8 @@ export function Contact() {
               Vamos construir o próximo sistema juntos.
             </h2>
             <p className="max-w-[480px] text-[15px] text-text-dim">
-              Aberto a oportunidades CLT, PJ e projetos freelance de desenvolvimento web e mobile
-              sob medida — atendimento 100% remoto.
+              Aberto a oportunidades PJ ou CLT e a projetos de desenvolvimento web e mobile
+              sob medida.
             </p>
           </div>
 
@@ -40,6 +40,15 @@ export function Contact() {
             >
               <span className="inline-block w-20 text-[11px] text-text-faint">linkedin</span>
               {profile.linkedinLabel} ↗
+            </a>
+            <a
+              href={profile.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2.5 text-text-dim transition-colors hover:text-amber"
+            >
+              <span className="inline-block w-20 text-[11px] text-text-faint">instagram</span>
+              {profile.instagramLabel} ↗
             </a>
             <a
               href={profile.github}

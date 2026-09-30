@@ -282,7 +282,7 @@ export function ResumeDocument({
     <Document
       title={`${profile.name} — Currículo`}
       author={profile.name}
-      subject="Currículo — Desenvolvedor Full Stack"
+      subject="Currículo — Engenheiro de Software Full Stack"
     >
       <Page size="A4" style={s.page}>
         <View style={s.headerRow}>
@@ -290,7 +290,7 @@ export function ResumeDocument({
             <Text style={s.eyebrow}>anápolis, go — brasil</Text>
             <Text style={s.name}>{profile.name}</Text>
             <Text style={s.role}>
-              {profile.role} — Next.js · Fastify · TypeScript
+              {profile.role} — TypeScript · Node.js
             </Text>
             <Text style={s.contact}>
               {profile.phone} · {profile.email} · linkedin.com

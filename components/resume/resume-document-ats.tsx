@@ -97,11 +97,11 @@ export function ResumeDocumentATS() {
     <Document
       title={`${profile.name} — Currículo (ATS)`}
       author={profile.name}
-      subject="Currículo — Desenvolvedor Full Stack"
+      subject="Currículo — Engenheiro de Software Full Stack"
     >
       <Page size="A4" style={s.page}>
         <Text style={s.name}>{profile.name}</Text>
-        <Text style={s.role}>{profile.role} — Next.js, Fastify, TypeScript</Text>
+        <Text style={s.role}>{profile.role} — TypeScript, Node.js, Next.js</Text>
         <Text style={s.contact}>
           {profile.location} | {profile.phone} | {profile.email} | linkedin.com
           {profile.linkedinLabel} | github.com{profile.githubLabel} | {siteDomainLabel}
