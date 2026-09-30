@@ -24,9 +24,13 @@ export const heroMeta = [
 ];
 
 export const aboutParagraphs = [
-  "Minha trajetória não começou em uma faculdade de tecnologia. Passei anos soldando estrutura metálica e depois trabalhando com logística e vendas antes de decidir migrar para desenvolvimento de software — uma escolha que exigiu recomeçar do zero, mas que trouxe pra minha forma de programar uma disciplina que poucos currículos ensinam: entregar algo que funciona sob pressão real.",
-  "Hoje sou Engenheiro de Software Full Stack, especializado em TypeScript, Node.js, Next.js e Fastify. Atuo de ponta a ponta — da arquitetura e modelagem do banco às integrações, deploy e manutenção em produção — com experiência em sistemas de Indústria 4.0, APIs REST, microsserviços e dashboards. Gosto de atuar próximo do problema, entendendo o processo antes de transformar a necessidade em software.",
-  "Sou fundador da Adapti Code, onde projeto e desenvolvo produtos web e mobile do zero — incluindo o Servix, SaaS de agendamento e gestão em produção em 5 salões e barbearias, que reduziu em cerca de 90% as faltas (no-shows) com lembretes automáticos via WhatsApp e sincronização com o Google Calendar.",
+  "Sou Software Engineer / Full Stack Developer especializado em TypeScript, Node.js e desenvolvimento de produtos web, com experiência em sistemas de produção, SaaS e soluções para operações reais de negócio.",
+  "Transformo processos complexos em sistemas mais rápidos, automatizados e confiáveis. Na Rancheiro, desenvolvi soluções para Indústria 4.0 que automatizaram processos de produção e reduziram um fechamento operacional de aproximadamente 1 hora para cerca de 20 minutos.",
+  "Atualmente, sou Founder & Software Engineer na Adapti Code, onde desenvolvo produtos de ponta a ponta, da arquitetura e modelagem do banco ao desenvolvimento, integrações, deploy e manutenção em produção. Um dos projetos é o SERVIX, SaaS de agendamento e gestão desenvolvido com TypeScript, Next.js, React, Node.js, Fastify, Prisma e PostgreSQL.",
+  "Na minha trajetória, atuei no desenvolvimento de sistemas Full Stack e Backend, APIs REST, microserviços, dashboards e integrações com sistemas e equipamentos industriais. Na Avaloon, trabalhei com sistemas OEE para Indústria 4.0, utilizando Node.js, Vue.js e PostgreSQL, além de atuar na análise e correção de bugs, gargalos e problemas de performance.",
+  "Tenho experiência desde o levantamento de requisitos e entendimento de regras de negócio até arquitetura, desenvolvimento, integração, testes, otimização e entrega. Gosto de atuar próximo do problema, entendendo o processo antes de transformar a necessidade em solução de software.",
+  "Stack principal: TypeScript, Node.js, Fastify, Next.js, React, React Native, Prisma, PostgreSQL, REST APIs, Microservices, Docker, Git, Vercel, Tailwind CSS, shadcn/ui e Vue.js.",
+  "Busco oportunidades como Software Engineer, Backend Engineer ou Full Stack Engineer, especialmente em times de produto e engenharia que valorizem arquitetura, automação, performance e desenvolvimento de produtos.",
 ];
 
 export const facts = [
