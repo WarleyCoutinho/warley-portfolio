@@ -1,6 +1,7 @@
 import { SectionHead } from "@/components/section-head";
 import { SectionReveal } from "@/components/section-reveal";
 import { stackGroups } from "@/lib/data";
+import { TechIcon } from "@/lib/tech-icons";
 
 export function Stack() {
   return (
@@ -15,8 +16,9 @@ export function Stack() {
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-sm border border-border px-2.5 py-1.5 font-mono-brand text-[12.5px] text-text-dim transition-colors hover:border-amber-dim hover:text-text"
+                    className="inline-flex items-center gap-2 rounded-sm border border-border px-2.5 py-1.5 font-mono-brand text-[12.5px] text-text-dim transition-colors hover:border-amber-dim hover:text-text"
                   >
+                    <TechIcon name={item} />
                     {item}
                   </span>
                 ))}
