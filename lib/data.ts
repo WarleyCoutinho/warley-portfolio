@@ -1,6 +1,6 @@
 export const profile = {
   name: "Warley Coutinho",
-  role: "Engenheiro de Software Full Stack",
+  role: "Engenheiro de Software | Backend Node.js | Full Stack TypeScript",
   location: "Anápolis, Goiás — Brasil",
   email: "warleycoutinho@icloud.com",
   phone: "(62) 9-9248-6492",
@@ -18,18 +18,19 @@ export const profile = {
 };
 
 export const heroMeta = [
-  { k: "foco atual", v: "Full stack — TypeScript, Next.js & Fastify" },
+  { k: "foco atual", v: "Software Engineering — Node.js, TypeScript & Next.js" },
   { k: "experiência", v: "5+ anos em desenvolvimento de software" },
   { k: "formação", v: "Eng. de Software — UniEVANGÉLICA" },
 ];
 
 export const aboutParagraphs = [
-  "Sou Software Engineer / Full Stack Developer especializado em TypeScript, Node.js e desenvolvimento de produtos web, com experiência em sistemas de produção, SaaS e soluções para operações reais de negócio.",
-  "Transformo processos complexos em sistemas mais rápidos, automatizados e confiáveis. Na Rancheiro, desenvolvi soluções para Indústria 4.0 que automatizaram processos de produção e reduziram um fechamento operacional de aproximadamente 1 hora para cerca de 20 minutos.",
-  "Atualmente, sou Founder & Software Engineer na Adapti Code, onde desenvolvo produtos de ponta a ponta, da arquitetura e modelagem do banco ao desenvolvimento, integrações, deploy e manutenção em produção. Um dos projetos é o SERVIX, SaaS de agendamento e gestão desenvolvido com TypeScript, Next.js, React, Node.js, Fastify, Prisma e PostgreSQL.",
-  "Na minha trajetória, atuei no desenvolvimento de sistemas Full Stack e Backend, APIs REST, microserviços, dashboards e integrações com sistemas e equipamentos industriais. Na Avaloon, trabalhei com sistemas OEE para Indústria 4.0, utilizando Node.js, Vue.js e PostgreSQL, além de atuar na análise e correção de bugs, gargalos e problemas de performance.",
-  "Tenho experiência desde o levantamento de requisitos e entendimento de regras de negócio até arquitetura, desenvolvimento, integração, testes, otimização e entrega. Gosto de atuar próximo do problema, entendendo o processo antes de transformar a necessidade em solução de software.",
-  "Stack principal: TypeScript, Node.js, Fastify, Next.js, React, React Native, Prisma, PostgreSQL, REST APIs, Microservices, Docker, Git, Vercel, Tailwind CSS, shadcn/ui e Vue.js.",
+  "Sou Engenheiro de Software Full Stack com 5+ anos de experiência em desenvolvimento de software, com foco em TypeScript, Node.js, Next.js e React.",
+  "Atuo no desenvolvimento de produtos e sistemas de ponta a ponta, desde arquitetura, modelagem de dados e desenvolvimento de APIs até integrações, deploy e manutenção em produção.",
+  "Na Adapti Code, desenvolvo produtos web e mobile e trabalho diretamente com arquitetura, backend, banco de dados, integrações e produção. Um dos principais projetos é o Servix, produto de agendamento e gestão em produção em 5 negócios.",
+  "No Servix, implementei lembretes automáticos via WhatsApp e sincronização com Google Calendar, contribuindo para uma redução de aproximadamente 90% nas faltas (no-shows). Também implementei reservas multisserviço atômicas utilizando Prisma $transaction.",
+  "Na Rancheiro, desenvolvi soluções para Indústria 4.0, incluindo dashboards de produção, estoque e controle de acesso, APIs, integrações com sistemas e equipamentos industriais e automações. Um processo de fechamento operacional foi reduzido de aproximadamente 1 hora para cerca de 20 minutos.",
+  "Na Avaloon, trabalhei com sistemas OEE para Indústria 4.0, APIs REST, microsserviços de coleta de dados diretamente das máquinas e otimização de performance, contribuindo para reduzir em até 70% as ocorrências identificadas.",
+  "Minha stack principal inclui TypeScript, Node.js, Fastify, Next.js, React, React Native, Prisma, PostgreSQL, REST APIs, Microservices, Docker, Git, Vercel, Tailwind CSS, shadcn/ui e Vue.js.",
   "Busco oportunidades como Software Engineer, Backend Engineer ou Full Stack Engineer, especialmente em times de produto e engenharia que valorizem arquitetura, automação, performance e desenvolvimento de produtos.",
 ];
 
@@ -170,10 +171,10 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    kicker: "produto em produção · saas multi-tenant · adapti code",
+    kicker: "produto em produção · saas · adapti code",
     title: "Servix",
     description:
-      "SaaS de agendamento e gestão para salões, barbearias e profissionais autônomos, desenvolvido e mantido pela Adapti Code e em produção em 5 negócios. A primeira versão usa Next.js no front e no back, com um microserviço dedicado em Node.js e Baileys para o WhatsApp.",
+      "Produto de agendamento e gestão para salões, barbearias e profissionais autônomos, desenvolvido e mantido pela Adapti Code e em produção em 5 negócios. A solução usa Next.js, TypeScript, Prisma e PostgreSQL, com um microserviço dedicado em Node.js e Baileys para o WhatsApp.",
     features: [
       {
         title: "Lembretes via WhatsApp",

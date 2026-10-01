@@ -6,7 +6,7 @@ export const resumeProjects = [
   {
     title: "Servix (2024 — atual)",
     description:
-      "SaaS de agendamento e gestão para salões e barbearias, em produção em 5 negócios. Lembretes via WhatsApp (microserviço Node.js + Baileys) e sync com Google Calendar: ~90% menos faltas. Reservas multisserviço atômicas com Prisma $transaction.",
+      "Produto de agendamento e gestão para salões e barbearias, em produção em 5 negócios. Lembretes via WhatsApp (microserviço Node.js + Baileys) e sync com Google Calendar: ~90% menos faltas. Reservas multisserviço atômicas com Prisma $transaction.",
     linkLabel: "servix.app.br",
   },
   {
@@ -18,11 +18,11 @@ export const resumeProjects = [
 ];
 
 export const resumeSummary =
-  "Engenheiro de Software Full Stack especializado em TypeScript, Node.js e produtos web, com experiência em sistemas de produção, SaaS e Indústria 4.0. Fundador da Adapti Code, onde desenvolvo produtos de ponta a ponta: arquitetura, banco de dados, integrações, deploy e manutenção. Transformo processos complexos em sistemas mais rápidos, automatizados e confiáveis. Trajetória fora do caminho tradicional — soldador, almoxarife e comerciante antes de migrar para software. Aberto a vagas de Software, Backend ou Full Stack Engineer.";
+  "Engenheiro de Software Full Stack com 5+ anos de experiência em desenvolvimento de software, com foco em TypeScript, Node.js, Next.js e React. Atuo no desenvolvimento de produtos e sistemas de ponta a ponta, desde arquitetura, modelagem de dados e APIs até integrações, deploy e manutenção em produção. Experiência em sistemas de produção, produtos SaaS e soluções para Indústria 4.0, com resultados mensuráveis em automação, performance e confiabilidade. Aberto a oportunidades como Software Engineer, Backend Engineer ou Full Stack Engineer.";
 
 export const resumeExperienceOverrides: Record<string, string> = {
   "Adapti Code":
-    "Projeto e desenvolvo produtos de ponta a ponta — web e mobile, APIs, banco, integrações, deploy e produção. Servix: SaaS de agendamento em produção em 5 salões e barbearias; ~90% menos faltas (lembretes via WhatsApp + Google Calendar) e reservas multisserviço atômicas com Prisma $transaction.",
+    "Projeto e desenvolvo produtos de ponta a ponta — web e mobile, APIs, banco, integrações, deploy e produção. Servix: produto de agendamento e gestão em produção em 5 salões e barbearias; ~90% menos faltas (lembretes via WhatsApp + Google Calendar) e reservas multisserviço atômicas com Prisma $transaction.",
   Rancheiro:
     "Soluções para Indústria 4.0: dashboards de produção, estoque e controle de acesso, com Next.js/React/TypeScript sobre APIs Python, mais APIs e integrações em Node.js e com equipamentos industriais. Automatizei um fechamento operacional de ~1h para ~20min e criei relatórios por turno, dia e mês (PDF e Excel).",
   Avaloon:

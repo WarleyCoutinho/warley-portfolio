@@ -50,17 +50,17 @@ export function Hero() {
             variants={item}
             className="mb-7 max-w-140 font-display text-[clamp(34px,5.4vw,56px)] font-semibold leading-[1.08] tracking-tight"
           >
-            Construo sistemas que aguentam o peso real do trabalho.
+            Engenheiro de Software focado em produtos que resolvem problemas reais.
           </motion.h1>
 
           <motion.p
             variants={item}
             className="mb-10 max-w-140 text-lg text-text-dim"
           >
-            Sou {profile.name}, desenvolvedor full stack. Antes de escrever
-            código eu soldava estrutura e organizava almoxarifado — hoje aplico
-            essa mesma exigência de precisão em produtos web e mobile
-            construídos com Next.js, Fastify e TypeScript.
+            Sou {profile.name}, Engenheiro de Software Full Stack com foco em
+            TypeScript, Node.js, Next.js e React. Desenvolvo produtos e sistemas
+            de ponta a ponta, da arquitetura e APIs às integrações, deploy e
+            manutenção em produção.
           </motion.p>
 
           <motion.div variants={item} className="flex flex-wrap gap-3.5">
