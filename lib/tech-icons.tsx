@@ -1,5 +1,5 @@
 import * as simpleIcons from "simple-icons";
-import { Blocks, Network, ShieldCheck, type LucideIcon } from "lucide-react";
+import { BookOpen, Blocks, MonitorSmartphone, Network, ShieldCheck, Smartphone, Sparkles, type LucideIcon } from "lucide-react";
 type SimpleIcon = { path: string; hex: string };
 const icons = simpleIcons as unknown as Record<string, SimpleIcon | undefined>;
 
@@ -8,10 +8,18 @@ const SIMPLE_ICON_KEY: Record<string, string> = {
   "Next.js": "siNextdotjs",
   React: "siReact",
   "React Native": "siReact",
-  "Vue.js": "siVuedotjs",
   "Tailwind CSS": "siTailwindcss",
   "shadcn/ui": "siShadcnui",
-  "React Query": "siReactquery",
+  JavaScript: "siJavascript",
+  iOS: "siIos",
+  Android: "siAndroid",
+  "TanStack Query": "siReactquery",
+  "React Hook Form": "siReacthookform",
+  Motion: "siFramer",
+  Lucide: "siLucide",
+  "Simple Icons": "siSimpleicons",
+  "next-themes": "siNextdotjs",
+  PWA: "siPwa",
   Zod: "siZod",
   "Node.js": "siNodedotjs",
   Fastify: "siFastify",
@@ -19,12 +27,17 @@ const SIMPLE_ICON_KEY: Record<string, string> = {
   PostgreSQL: "siPostgresql",
   "Better Auth": "siBetterauth",
   "Swagger / OpenAPI": "siSwagger",
-  "Baileys (WhatsApp)": "siWhatsapp",
+  "WhatsApp API oficial": "siWhatsapp",
   "Google Calendar API": "siGooglecalendar",
   Stripe: "siStripe",
+  Gemini: "siGooglegemini",
   Docker: "siDocker",
   Git: "siGit",
+  GitHub: "siGithub",
   Vercel: "siVercel",
+  Railway: "siRailway",
+  Hetzner: "siHetzner",
+  Neon: "siNeon",
   pnpm: "siPnpm",
 };
 
@@ -33,6 +46,12 @@ const FALLBACK_ICON: Record<string, LucideIcon> = {
   "REST APIs": Network,
   Microservices: Blocks,
   "Better Auth": ShieldCheck,
+  "Scalar API Reference": BookOpen,
+  "21st.dev": Sparkles,
+  Sonner: Sparkles,
+  Orval: Blocks,
+  "Responsive Design": MonitorSmartphone,
+  "Mobile First": Smartphone,
 };
 
 function channel(hex: string, start: number) {
