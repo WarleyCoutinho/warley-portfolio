@@ -90,7 +90,7 @@ export const resumeJobs: ResumeJob[] = [
       "Projetos sob demanda para pequenos negócios (sites, e-commerces e agendamento), do levantamento de requisitos ao deploy.",
     ],
     stack:
-      "TypeScript, Next.js, React Native, Fastify, Prisma, PostgreSQL, Better Auth, Baileys.",
+      "TypeScript, Next.js, React Native, Fastify, Prisma, PostgreSQL, Better Auth.",
   },
   {
     company: "Rancheiro",

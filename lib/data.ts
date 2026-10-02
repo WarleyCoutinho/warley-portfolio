@@ -122,7 +122,7 @@ export const experience: ExperienceItem[] = [
     company: "Autônomo",
     role: "Engenheiro de Software Full Stack · Projetos próprios e freelance · Anápolis, GO",
     description:
-      "Desenvolvo software de ponta a ponta de forma independente — aplicações web e mobile, APIs, bancos de dados, integrações, deploy e manutenção em produção. Principal projeto: o Servix, plataforma SaaS própria de agendamento para salões, barbearias e clínicas de estética, em produção em 5 negócios, com web (Next.js), mobile (React Native) e API (Fastify, Prisma, PostgreSQL). Reduzi em ~90% as faltas (no-shows) com lembretes automáticos via WhatsApp e sincronização com o Google Calendar, e evitei conflitos de horário com reservas multisserviço atômicas (Prisma $transaction) e controle de concorrência por profissional. Um microserviço independente em Node.js + Baileys separa o processamento das mensagens do WhatsApp da aplicação principal. Também entrego projetos sob demanda — sites institucionais, e-commerces e sistemas de agendamento para pequenos negócios — do levantamento de requisitos ao deploy.",
+      "Desenvolvo software de ponta a ponta de forma independente — aplicações web e mobile, APIs, bancos de dados, integrações, deploy e manutenção em produção. Principal projeto: o Servix, plataforma SaaS própria de agendamento para salões, barbearias e clínicas de estética, em produção em 5 negócios, com web (Next.js), mobile (React Native) e API (Fastify, Prisma, PostgreSQL). Reduzi em ~90% as faltas (no-shows) com lembretes automáticos via WhatsApp e sincronização com o Google Calendar, e evitei conflitos de horário com reservas multisserviço atômicas (Prisma $transaction) e controle de concorrência por profissional. Um microsserviço independente em Node.js separa o processamento das mensagens do WhatsApp da aplicação principal. Também entrego projetos sob demanda — sites institucionais, e-commerces e sistemas de agendamento para pequenos negócios — do levantamento de requisitos ao deploy.",
     tags: [
       "TypeScript",
       "Next.js",
@@ -130,7 +130,6 @@ export const experience: ExperienceItem[] = [
       "Prisma",
       "PostgreSQL",
       "Better Auth",
-      "Baileys",
     ],
   },
   {
