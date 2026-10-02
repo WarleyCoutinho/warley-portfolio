@@ -18,8 +18,9 @@ export function Contact() {
               Vamos construir o próximo sistema juntos.
             </h2>
             <p className="max-w-120 text-[15px] text-text-dim">
-              Aberto a oportunidades PJ ou CLT e a projetos de desenvolvimento
-              web e mobile sob medida.
+              Aberto a oportunidades CLT ou PJ como Engenheiro de Software
+              Full Stack ou Backend. Projetos próprios e demais trabalhos em
+              adapticode.com.br.
             </p>
           </div>
 
@@ -82,7 +83,7 @@ export function Contact() {
               className="flex items-center gap-2.5 text-text-dim transition-colors hover:text-amber"
             >
               <span className="inline-block w-20 text-[11px] text-text-faint">
-                adapti code
+                github org
               </span>
               {profile.githubOrgLabel} ↗
             </a>
@@ -93,7 +94,7 @@ export function Contact() {
               className="flex items-center gap-2.5 text-text-dim transition-colors hover:text-amber"
             >
               <span className="inline-block w-20 text-[11px] text-text-faint">
-                estúdio
+                projetos
               </span>
               {profile.studioLabel} ↗
             </a>

@@ -6,7 +6,7 @@ import { ResumeDownloadButtons } from "@/components/resume/resume-download-butto
 export const metadata: Metadata = {
   title: "Currículo — Warley Coutinho",
   description:
-    "Baixe o currículo de Warley Coutinho em PDF, sempre atualizado com as informações mais recentes do portfólio.",
+    "Baixe o currículo de Warley Coutinho em PDF (com foto) ou na versão ATS em PDF e Word.",
 };
 
 export default function CurriculoPage() {
@@ -20,18 +20,18 @@ export default function CurriculoPage() {
             // currículo
           </div>
           <h1 className="mb-3 font-display text-[28px] font-semibold">
-            Baixe o currículo em PDF
+            Baixe o currículo
           </h1>
           <p className="mb-6 text-[15px] text-text-dim">
-            O PDF é montado na hora do download, com as informações mais
-            recentes do portfólio e um QR code que leva direto pra este site —
-            sempre atualizado, sem versão desatualizada rodando por aí.
+            As versões com design (escuro e claro) são montadas na hora do
+            download, com foto e um QR code que leva direto pra este site. A
+            versão ATS é um arquivo pronto, em PDF ou Word.
           </p>
           <p className="mb-10 text-[13px] text-text-faint">
-            Escuro/claro: layout com design, pra enviar direto a uma pessoa ou
-            anexar no LinkedIn. ATS: coluna única, sem foto e sem elementos
-            gráficos — use essa versão em formulários de candidatura e sistemas
-            de recrutamento automatizados.
+            Escuro/claro: com foto, pra enviar direto a uma pessoa ou anexar
+            no LinkedIn. ATS: coluna única, sem foto e sem elementos gráficos —
+            use essa versão em formulários de candidatura e sistemas de
+            recrutamento automatizados.
           </p>
           <ResumeDownloadButtons />
         </section>

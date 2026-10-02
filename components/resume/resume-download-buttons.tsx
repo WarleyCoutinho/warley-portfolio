@@ -5,7 +5,6 @@ import { pdf } from "@react-pdf/renderer";
 import QRCode from "qrcode";
 import { Download, Loader2 } from "lucide-react";
 import { ResumeDocument } from "./resume-document";
-import { ResumeDocumentATS } from "./resume-document-ats";
 import { SITE_URL } from "@/lib/resume-content";
 
 async function fetchAsDataUrl(path: string): Promise<string> {
@@ -19,13 +18,25 @@ async function fetchAsDataUrl(path: string): Promise<string> {
   });
 }
 
-type Variant = "dark" | "light" | "ats";
+type Variant = "dark" | "light";
 
 const fileSuffix: Record<Variant, string> = {
   dark: "",
   light: "_Light",
-  ats: "_ATS",
 };
+
+const atsFiles = [
+  {
+    href: "/curriculo/Warley_Coutinho_Curriculo_ATS.pdf",
+    download: "Warley_Coutinho_Curriculo_ATS.pdf",
+    label: "Versão ATS — PDF",
+  },
+  {
+    href: "/curriculo/Warley_Coutinho_Curriculo_ATS.docx",
+    download: "Warley_Coutinho_Curriculo_ATS.docx",
+    label: "Versão ATS — Word (.docx)",
+  },
+];
 
 export function ResumeDownloadButtons() {
   const [loading, setLoading] = useState<Variant | null>(null);
@@ -33,32 +44,26 @@ export function ResumeDownloadButtons() {
   async function handleDownload(variant: Variant) {
     setLoading(variant);
     try {
-      let blob: Blob;
+      const [qrDataUrl, photoDataUrl] = await Promise.all([
+        QRCode.toDataURL(SITE_URL, {
+          width: 512,
+          margin: 1,
+          errorCorrectionLevel: "H",
+          color: {
+            dark: variant === "dark" ? "#ece9e2" : "#14171c",
+            light: "#00000000",
+          },
+        }),
+        fetchAsDataUrl("/images/warley-avatar.jpg"),
+      ]);
 
-      if (variant === "ats") {
-        blob = await pdf(<ResumeDocumentATS />).toBlob();
-      } else {
-        const [qrDataUrl, photoDataUrl] = await Promise.all([
-          QRCode.toDataURL(SITE_URL, {
-            width: 512,
-            margin: 1,
-            errorCorrectionLevel: "H",
-            color: {
-              dark: variant === "dark" ? "#ece9e2" : "#14171c",
-              light: "#00000000",
-            },
-          }),
-          fetchAsDataUrl("/images/warley-avatar.jpg"),
-        ]);
-
-        blob = await pdf(
-          <ResumeDocument
-            theme={variant}
-            qrDataUrl={qrDataUrl}
-            photoDataUrl={photoDataUrl}
-          />,
-        ).toBlob();
-      }
+      const blob = await pdf(
+        <ResumeDocument
+          theme={variant}
+          qrDataUrl={qrDataUrl}
+          photoDataUrl={photoDataUrl}
+        />,
+      ).toBlob();
 
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
@@ -72,7 +77,7 @@ export function ResumeDownloadButtons() {
   }
 
   return (
-    <div className="flex flex-col gap-3 sm:flex-row">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
       <button
         onClick={() => handleDownload("dark")}
         disabled={loading !== null}
@@ -97,18 +102,17 @@ export function ResumeDownloadButtons() {
         )}
         Currículo — tema claro
       </button>
-      <button
-        onClick={() => handleDownload("ats")}
-        disabled={loading !== null}
-        className="inline-flex flex-1 items-center justify-center gap-2 rounded-sm border border-border px-5 py-3.5 font-mono-brand text-[13px] text-text transition-colors hover:border-amber hover:text-amber disabled:opacity-60"
-      >
-        {loading === "ats" ? (
-          <Loader2 className="size-4 animate-spin" />
-        ) : (
+      {atsFiles.map((file) => (
+        <a
+          key={file.href}
+          href={file.href}
+          download={file.download}
+          className="inline-flex flex-1 items-center justify-center gap-2 rounded-sm border border-border px-5 py-3.5 font-mono-brand text-[13px] text-text transition-colors hover:border-amber hover:text-amber"
+        >
           <Download className="size-4" />
-        )}
-        Currículo — versão ATS
-      </button>
+          {file.label}
+        </a>
+      ))}
     </div>
   );
 }

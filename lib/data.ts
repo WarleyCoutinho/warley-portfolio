@@ -1,12 +1,13 @@
 export const profile = {
   name: "Warley Coutinho",
-  role: "Engenheiro de Software | Backend Node.js | Full Stack TypeScript",
+  role:
+    "Engenheiro de Software | Full Stack | Backend Node.js | TypeScript | Next.js | React | PostgreSQL | APIs REST",
   location: "Anápolis, Goiás — Brasil",
   email: "warleycoutinho@icloud.com",
   phone: "(62) 9-9248-6492",
   phoneHref: "+5562992486492",
-  linkedin: "https://www.linkedin.com/in/coutinho-warley/",
-  linkedinLabel: "/in/coutinho-warley",
+  linkedin: "https://www.linkedin.com/in/coutinhowarley/",
+  linkedinLabel: "/in/coutinhowarley",
   github: "https://github.com/WarleyCoutinho",
   githubLabel: "/WarleyCoutinho",
   instagram: "https://www.instagram.com/warlycoutinho/",
@@ -26,22 +27,22 @@ export const heroMeta = [
 export const aboutParagraphs = [
   "Sou Engenheiro de Software Full Stack com 5+ anos de experiência em desenvolvimento de software, com foco em TypeScript, Node.js, Next.js e React.",
   "Atuo no desenvolvimento de produtos e sistemas de ponta a ponta, desde arquitetura, modelagem de dados e desenvolvimento de APIs até integrações, deploy e manutenção em produção.",
-  "Na Adapti Code, desenvolvo produtos web e mobile e trabalho diretamente com arquitetura, backend, banco de dados, integrações e produção. Um dos principais projetos é o Servix, produto de agendamento e gestão em produção em 5 negócios.",
+  "De forma independente, desenvolvo produtos web e mobile e trabalho diretamente com arquitetura, backend, banco de dados, integrações e produção. Meu principal projeto é o Servix, plataforma SaaS de agendamento para salões, barbearias e clínicas de estética, em produção em 5 negócios, com web (Next.js), mobile (React Native) e API (Fastify, Prisma, PostgreSQL). Também entrego projetos sob demanda para pequenos negócios, do levantamento de requisitos ao deploy.",
   "No Servix, implementei lembretes automáticos via WhatsApp e sincronização com Google Calendar, contribuindo para uma redução de aproximadamente 90% nas faltas (no-shows). Também implementei reservas multisserviço atômicas utilizando Prisma $transaction.",
   "Na Rancheiro, desenvolvi soluções para Indústria 4.0, incluindo dashboards de produção, estoque e controle de acesso, APIs, integrações com sistemas e equipamentos industriais e automações. Um processo de fechamento operacional foi reduzido de aproximadamente 1 hora para cerca de 20 minutos.",
   "Na Avaloon, trabalhei com sistemas OEE para Indústria 4.0, APIs REST, microsserviços de coleta de dados diretamente das máquinas e otimização de performance, contribuindo para reduzir em até 70% as ocorrências identificadas.",
   "Minha stack principal inclui TypeScript, Node.js, Fastify, Next.js, React, React Native, Prisma, PostgreSQL, REST APIs, Microservices, Docker, Git, Vercel, Tailwind CSS e shadcn/ui.",
-  "Busco oportunidades como Software Engineer, Backend Engineer ou Full Stack Engineer, especialmente em times de produto e engenharia que valorizem arquitetura, automação, performance e desenvolvimento de produtos.",
+  "Busco oportunidades como Software Engineer, Backend Engineer ou Full Stack Engineer, em regime CLT ou PJ, especialmente em times de produto e engenharia que valorizem arquitetura, automação, performance e desenvolvimento de produtos. Meus projetos próprios, como o Servix, me mantêm em contato com o produto de ponta a ponta.",
 ];
 
 export const facts = [
   { k: "local", v: "Anápolis, GO — Brasil" },
-  { k: "estúdio", v: "Adapti Code — adapticode.com.br" },
+  { k: "projetos", v: "Servix e projetos sob demanda — adapticode.com.br" },
   { k: "e-mail", v: "warleycoutinho@icloud.com" },
   { k: "telefone", v: "(62) 9-9248-6492" },
   { k: "formação", v: "Eng. de Software, UniEVANGÉLICA (2018–2022)" },
   { k: "certificações", v: "React, React Native, Next.js, JavaScript" },
-  { k: "disponibilidade", v: "Aberto a oportunidades PJ ou CLT" },
+  { k: "disponibilidade", v: "Aberto a oportunidades CLT ou PJ" },
 ];
 
 export const stackGroups = [
@@ -118,10 +119,10 @@ export type ExperienceItem = {
 export const experience: ExperienceItem[] = [
   {
     period: "2026 — atual",
-    company: "Adapti Code",
-    role: "Founder & Engenheiro de Software · Anápolis, GO",
+    company: "Autônomo",
+    role: "Engenheiro de Software Full Stack · Projetos próprios e freelance · Anápolis, GO",
     description:
-      "Projeto e desenvolvo produtos de ponta a ponta — aplicações web e mobile, APIs, bancos de dados, integrações, deploy e manutenção em produção. Principal produto: o Servix, SaaS de agendamento e gestão para salões, barbearias e profissionais autônomos, em produção em 5 negócios. Reduzi em ~90% as faltas (no-shows) com lembretes automáticos via WhatsApp e sincronização com o Google Calendar, e evitei conflitos de horário com reservas multisserviço atômicas (Prisma $transaction) e controle de concorrência por profissional. Um microserviço independente em Node.js + Baileys separa o processamento das mensagens do WhatsApp da aplicação principal.",
+      "Desenvolvo software de ponta a ponta de forma independente — aplicações web e mobile, APIs, bancos de dados, integrações, deploy e manutenção em produção. Principal projeto: o Servix, plataforma SaaS própria de agendamento para salões, barbearias e clínicas de estética, em produção em 5 negócios, com web (Next.js), mobile (React Native) e API (Fastify, Prisma, PostgreSQL). Reduzi em ~90% as faltas (no-shows) com lembretes automáticos via WhatsApp e sincronização com o Google Calendar, e evitei conflitos de horário com reservas multisserviço atômicas (Prisma $transaction) e controle de concorrência por profissional. Um microserviço independente em Node.js + Baileys separa o processamento das mensagens do WhatsApp da aplicação principal. Também entrego projetos sob demanda — sites institucionais, e-commerces e sistemas de agendamento para pequenos negócios — do levantamento de requisitos ao deploy.",
     tags: [
       "TypeScript",
       "Next.js",
@@ -131,7 +132,6 @@ export const experience: ExperienceItem[] = [
       "Better Auth",
       "Baileys",
     ],
-    url: "https://www.adapticode.com.br/",
   },
   {
     period: "mai 2023 — mar 2026",
@@ -195,10 +195,10 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    kicker: "produto em produção · saas · adapti code",
+    kicker: "produto próprio em produção · saas",
     title: "Servix",
     description:
-      "Produto de agendamento e gestão para salões, barbearias e profissionais autônomos, desenvolvido e mantido pela Adapti Code e em produção em 5 negócios. A solução usa Next.js, TypeScript, Prisma e PostgreSQL, com um microserviço dedicado em Node.js e Baileys para o WhatsApp.",
+      "Plataforma SaaS de agendamento para salões, barbearias e clínicas de estética, desenvolvida e mantida por mim e em produção em 5 negócios. Web em Next.js, mobile em React Native e API em Fastify, Prisma e PostgreSQL, com integração ao Google Calendar e um microserviço dedicado em Node.js e Baileys para o WhatsApp.",
     features: [
       {
         title: "Lembretes via WhatsApp",
@@ -221,7 +221,9 @@ export const projects: Project[] = [
     ],
     stack: [
       "Next.js",
+      "React Native",
       "TypeScript",
+      "Fastify",
       "Prisma",
       "PostgreSQL",
       "Better Auth",

@@ -131,7 +131,7 @@ export function HeroPlate() {
           </span>
           <span className="h-px w-9 bg-amber-dim" />
           <span className="font-mono-brand text-[10px] text-text-faint">
-            Adapti Code · 2026
+            Anápolis, GO · 2026
           </span>
         </div>
 

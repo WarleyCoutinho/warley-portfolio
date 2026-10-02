@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Warley Coutinho — Engenheiro de Software Full Stack",
   description:
-    "Engenheiro de Software Full Stack com 5+ anos de experiência em TypeScript, Node.js, Next.js e Fastify. Fundador da Adapti Code — do chão de fábrica a SaaS e sistemas de Indústria 4.0.",
+    "Engenheiro de Software Full Stack com 5+ anos de experiência em TypeScript, Node.js, Next.js e Fastify. Do chão de fábrica a SaaS próprio e sistemas de Indústria 4.0.",
   metadataBase: new URL("https://warley-portfolio.vercel.app"),
   openGraph: {
     title: "Warley Coutinho — Engenheiro de Software Full Stack",

@@ -43,6 +43,16 @@ Todo o texto (experiência, stack, projetos, contato) vive em `lib/data.ts`.
 Não precisa mexer nos componentes pra atualizar uma vaga nova, um projeto novo
 ou trocar o e-mail de contato.
 
+## Currículos
+
+- `/curriculo` oferece quatro downloads. Os temas escuro e claro (com foto e QR code) são
+  gerados na hora por `components/resume/resume-document.tsx`, com o conteúdo de
+  `lib/resume-content.ts`.
+- A versão ATS (coluna única, sem foto) é um arquivo pronto em PDF e Word, que fica em
+  `public/curriculo/`. Eles espelham `lib/resume-content.ts` (1 página). Se o conteúdo mudar,
+  atualize o `.ts` e refaça os dois arquivos, mantendo o texto idêntico ao do LinkedIn.
+- `pnpm resume:pdf` gera os PDFs com foto em `out/`.
+
 ## Deploy
 
 Pronto pra Vercel:
