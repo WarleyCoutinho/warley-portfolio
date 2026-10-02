@@ -44,11 +44,11 @@ export type ResumeProject = {
 export const resumeProjects: ResumeProject[] = [
   {
     name: "Servix",
-    tech: "Next.js, React Native, Fastify, Prisma, PostgreSQL, Stripe",
+    tech: "Next.js, Fastify, Prisma, PostgreSQL, Stripe",
     href: "https://www.servix.app.br",
     linkLabel: "servix.app.br",
     description:
-      "SaaS multi-tenant de agendamento para salões, barbearias e clínicas de estética.",
+      "SaaS multi-tenant de agendamento para salões, barbearias e clínicas de estética (desde 2026).",
     bullets: [
       "Em produção em 5 negócios, com ~90% menos faltas (no-shows) graças a lembretes automáticos via WhatsApp e sincronização com Google Calendar.",
       "Microsserviço em Node.js (Fastify + Baileys) que conecta o WhatsApp de cada profissional e envia a agenda para grupos.",
@@ -85,8 +85,8 @@ export const resumeJobs: ResumeJob[] = [
     place: "Anápolis, GO",
     period: "2026 – atual",
     bullets: [
-      "Desenvolvo software de ponta a ponta: web e mobile, APIs, banco de dados, integrações, deploy e produção.",
-      "Criei e mantenho o Servix (web, mobile e API), em produção em 5 negócios, com ~90% menos faltas (no-shows).",
+      "Desde 2026, desenvolvo software de ponta a ponta: web e mobile (React Native), APIs, banco de dados, integrações e deploy.",
+      "Criei e mantenho o Servix (web e API), em produção em 5 negócios, com ~90% menos faltas.",
       "Projetos sob demanda para pequenos negócios (sites, e-commerces e agendamento), do levantamento de requisitos ao deploy.",
     ],
     stack:

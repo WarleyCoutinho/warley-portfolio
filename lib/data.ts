@@ -27,7 +27,7 @@ export const heroMeta = [
 export const aboutParagraphs = [
   "Sou Engenheiro de Software Full Stack com 5+ anos de experiência em desenvolvimento de software, com foco em TypeScript, Node.js, Next.js e React.",
   "Atuo no desenvolvimento de produtos e sistemas de ponta a ponta, desde arquitetura, modelagem de dados e desenvolvimento de APIs até integrações, deploy e manutenção em produção.",
-  "De forma independente, desenvolvo produtos web e mobile e trabalho diretamente com arquitetura, backend, banco de dados, integrações e produção. Meu principal projeto é o Servix, plataforma SaaS de agendamento para salões, barbearias e clínicas de estética, em produção em 5 negócios, com web (Next.js), mobile (React Native) e API (Fastify, Prisma, PostgreSQL). Também entrego projetos sob demanda para pequenos negócios, do levantamento de requisitos ao deploy.",
+  "Desde 2026, de forma independente, desenvolvo produtos web, além de apps mobile (iOS e Android) com React Native quando o projeto pede, e trabalho diretamente com arquitetura, backend, banco de dados, integrações e produção. Meu principal projeto é o Servix, plataforma SaaS de agendamento para salões, barbearias e clínicas de estética, em produção desde 2026 em 5 negócios, com web (Next.js) e API (Fastify, Prisma, PostgreSQL). Também entrego projetos sob demanda para pequenos negócios, do levantamento de requisitos ao deploy.",
   "No Servix, implementei lembretes automáticos via WhatsApp e sincronização com Google Calendar, contribuindo para uma redução de aproximadamente 90% nas faltas (no-shows). Também implementei reservas multisserviço atômicas utilizando Prisma $transaction.",
   "Na Rancheiro, desenvolvi soluções para Indústria 4.0, incluindo dashboards de produção, estoque e controle de acesso, APIs, integrações com sistemas e equipamentos industriais e automações. Um processo de fechamento operacional foi reduzido de aproximadamente 1 hora para cerca de 20 minutos.",
   "Na Avaloon, trabalhei com sistemas OEE para Indústria 4.0, APIs REST, microsserviços de coleta de dados diretamente das máquinas e otimização de performance, contribuindo para reduzir em até 70% as ocorrências identificadas.",
@@ -120,9 +120,9 @@ export const experience: ExperienceItem[] = [
   {
     period: "2026 — atual",
     company: "Autônomo",
-    role: "Engenheiro de Software Full Stack · Projetos próprios e freelance · Anápolis, GO",
+    role: "Engenheiro de Software Full Stack · Projetos próprios e sob demanda · Anápolis, GO",
     description:
-      "Desenvolvo software de ponta a ponta de forma independente — aplicações web e mobile, APIs, bancos de dados, integrações, deploy e manutenção em produção. Principal projeto: o Servix, plataforma SaaS própria de agendamento para salões, barbearias e clínicas de estética, em produção em 5 negócios, com web (Next.js), mobile (React Native) e API (Fastify, Prisma, PostgreSQL). Reduzi em ~90% as faltas (no-shows) com lembretes automáticos via WhatsApp e sincronização com o Google Calendar, e evitei conflitos de horário com reservas multisserviço atômicas (Prisma $transaction) e controle de concorrência por profissional. Um microsserviço independente em Node.js separa o processamento das mensagens do WhatsApp da aplicação principal. Também entrego projetos sob demanda — sites institucionais, e-commerces e sistemas de agendamento para pequenos negócios — do levantamento de requisitos ao deploy.",
+      "Desde 2026, desenvolvo software de ponta a ponta de forma independente — aplicações web, apps mobile com React Native (sob demanda), APIs, bancos de dados, integrações, deploy e manutenção em produção. Principal projeto: o Servix, plataforma SaaS própria de agendamento para salões, barbearias e clínicas de estética, em produção desde 2026 em 5 negócios, com web (Next.js) e API (Fastify, Prisma, PostgreSQL). Reduzi em ~90% as faltas (no-shows) com lembretes automáticos via WhatsApp e sincronização com o Google Calendar, e evitei conflitos de horário com reservas multisserviço atômicas (Prisma $transaction) e controle de concorrência por profissional. Um microsserviço independente em Node.js separa o processamento das mensagens do WhatsApp da aplicação principal. Também entrego projetos sob demanda — sites institucionais, e-commerces e sistemas de agendamento para pequenos negócios — do levantamento de requisitos ao deploy.",
     tags: [
       "TypeScript",
       "Next.js",
@@ -197,7 +197,7 @@ export const projects: Project[] = [
     kicker: "produto próprio em produção · saas",
     title: "Servix",
     description:
-      "Plataforma SaaS de agendamento para salões, barbearias e clínicas de estética, desenvolvida e mantida por mim e em produção em 5 negócios. Web em Next.js, mobile em React Native e API em Fastify, Prisma e PostgreSQL, com integração ao Google Calendar e um microserviço dedicado em Node.js e Baileys para o WhatsApp.",
+      "Plataforma SaaS de agendamento para salões, barbearias e clínicas de estética, desenvolvida e mantida por mim e em produção desde 2026 em 5 negócios. Web em Next.js e API em Fastify, Prisma e PostgreSQL, com integração ao Google Calendar e um microserviço dedicado em Node.js e Baileys para o WhatsApp.",
     features: [
       {
         title: "Lembretes via WhatsApp",
@@ -220,7 +220,6 @@ export const projects: Project[] = [
     ],
     stack: [
       "Next.js",
-      "React Native",
       "TypeScript",
       "Fastify",
       "Prisma",

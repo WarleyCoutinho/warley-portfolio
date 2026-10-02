@@ -19,7 +19,7 @@ export function Contact() {
             </h2>
             <p className="max-w-120 text-[15px] text-text-dim">
               Aberto a oportunidades CLT ou PJ como Engenheiro de Software
-              Full Stack ou Backend. Projetos próprios e demais trabalhos em
+              Full Stack ou Backend. Projetos próprios e sob demanda em
               adapticode.com.br.
             </p>
           </div>
@@ -75,17 +75,6 @@ export function Contact() {
                 github
               </span>
               {profile.githubLabel} ↗
-            </a>
-            <a
-              href={profile.githubOrg}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-text-dim transition-colors hover:text-amber"
-            >
-              <span className="inline-block w-20 text-[11px] text-text-faint">
-                github org
-              </span>
-              {profile.githubOrgLabel} ↗
             </a>
             <a
               href={profile.studio}
