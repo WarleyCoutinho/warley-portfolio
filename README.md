@@ -75,3 +75,17 @@ pnpm start
   estiverem públicos.
 - Adicionar uma foto/avatar real na seção "Sobre" (hoje o layout é 100% tipográfico).
 - Configurar domínio próprio (ex: `warleycoutinho.dev`) e ajustar `metadataBase` em `app/layout.tsx`.
+
+
+---
+
+## Home "talking-video" (nova)
+
+- Componentes: `components/tv/home.tsx` (todas as seções) e `components/tv/tv.css` (tokens e animações, escopados em `.tv`).
+- Conteúdo: `lib/data.ts` (fonte única) + `lib/tv-data.ts` (transcrição do vídeo, flag `SHOW_PHONE`, certificações, resultados).
+- Rotas `/curriculo` e `/qrcode` não foram alteradas e seguem com o visual antigo.
+- Vídeo: `public/hero/hero.mp4|webm`. Para refazer: `python3 scripts/build-hero-assets.py --src _inputs/intro.mp4 --out public/hero --start 1.20 --end 9.45` (requer ffmpeg + numpy).
+
+### Fontes (self-hosted)
+
+`app/fonts/` (subconjunto latino, `next/font/local`): Inter Tight (variável), Instrument Serif (itálico) e JetBrains Mono (variável). Todas sob a SIL Open Font License 1.1; os textos das licenças estão em `app/fonts/OFL-*.txt`. As fontes do Google (Space Grotesk, Inter, JetBrains Mono) continuam só para as rotas antigas `/curriculo` e `/qrcode`.

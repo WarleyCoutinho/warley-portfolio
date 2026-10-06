@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 
 import "./globals.css";
 
@@ -21,6 +22,10 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
+const interTight = localFont({ src: "./fonts/InterTight-Variable.woff", variable: "--font-tv-sans", weight: "100 900", display: "swap" });
+const instrumentSerif = localFont({ src: "./fonts/InstrumentSerif-Italic.woff", variable: "--font-tv-serif", weight: "400", style: "italic", display: "swap" });
+const tvMono = localFont({ src: "./fonts/JetBrainsMono-Variable.woff", variable: "--font-tv-mono", weight: "100 800", display: "swap" });
+
 export const metadata: Metadata = {
   title: "Warley Coutinho — Engenheiro de Software Full Stack",
   description:
@@ -30,6 +35,7 @@ export const metadata: Metadata = {
     title: "Warley Coutinho — Engenheiro de Software Full Stack",
     description:
       "Engenheiro de Software Full Stack com 5+ anos de experiência em TypeScript, Node.js, Next.js e Fastify.",
+    images: [{ url: "/og.jpg", width: 1200, height: 630 }],
     locale: "pt_BR",
     type: "website",
   },
@@ -42,7 +48,7 @@ export default function RootLayout({
     <html
       lang="pt-BR"
       data-scroll-behavior="smooth"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} ${interTight.variable} ${instrumentSerif.variable} ${tvMono.variable}`}
       suppressHydrationWarning
     >
       <head>
