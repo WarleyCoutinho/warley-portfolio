@@ -1,9 +1,10 @@
-import { FlatCompat } from "@eslint/eslintrc";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
 
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-});
-
-const eslintConfig = [...compat.extends("next/core-web-vitals", "next/typescript")];
+const eslintConfig = [
+  ...nextVitals,
+  ...nextTs,
+  { ignores: [".next/**", "out/**", "node_modules/**", "scripts/.gen-resume.bundle.mjs"] },
+];
 
 export default eslintConfig;

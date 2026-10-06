@@ -1,11 +1,17 @@
+import { PROFILE } from "@/lib/data";
+
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border py-8 text-center font-mono-brand text-xs text-text-faint">
-      © {new Date().getFullYear()} Warley Coutinho — construído com Next.js, Fastify e café.
+    <footer className="border-t border-line">
+      <div className="container-x flex flex-wrap items-center justify-between gap-x-8 gap-y-3 py-8 font-mono text-[12px] tracking-[0.06em] text-dim">
+        <p>
+          © {new Date().getFullYear()} {PROFILE.name}
+        </p>
+        <a href="#inicio" className="inline-flex h-11 items-center underline underline-offset-4 hover:text-ink">
+          Voltar ao topo ↑
+        </a>
+        <p>Feito com Next.js</p>
+      </div>
     </footer>
   );
-}
-
-export function BlueprintBackground() {
-  return <div className="bg-blueprint pointer-events-none fixed inset-0 z-0 opacity-35" />;
 }

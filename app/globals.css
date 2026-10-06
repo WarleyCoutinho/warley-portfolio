@@ -1,106 +1,234 @@
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
 
+/* Design system: papel claro, tinta preta e cinzas. Sem cores de acento. */
 @theme {
-  --font-display: "Space Grotesk", ui-sans-serif, sans-serif;
-  --font-body: "Inter", ui-sans-serif, sans-serif;
-  --font-mono-brand: "JetBrains Mono", ui-monospace, monospace;
-
-  --color-bg: #12151a;
-  --color-bg-raised: #1a1e25;
-  --color-bg-raised-2: #20242d;
-  --color-border: #2a2f38;
-  --color-border-soft: #22262e;
-  --color-text: #ece9e2;
-  --color-text-dim: #9099a8;
-  --color-text-faint: #5b6270;
-  --color-amber: #e8952a;
-  --color-amber-dim: #8a5a1e;
-  --color-steel: #6fa0d8;
+  --color-paper: #f4f2ee;
+  --color-card: #ffffff;
+  --color-ink: #0d0d0d;
+  --color-ink-2: #3a3a3a;
+  --color-mute: #77756f; /* só em texto grande (palavra em itálico) */
+  --color-dim: #5f5d58; /* texto pequeno: contraste AA sobre o papel */
+  --color-faint: #a9a6a0;
+  --color-line: rgba(13, 13, 13, 0.1);
+  --color-line-strong: rgba(13, 13, 13, 0.24);
+  --color-soft: #e9e6e0;
 }
 
-/*
-  Intensidade do retrato/glow de fundo do Hero (ver hero-background-scene.tsx).
-  Ficam fora de @theme porque não são cores, são valores de opacidade —
-  sobrescritos por .light do mesmo jeito que as cores acima.
-*/
+@theme inline {
+  --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
 :root {
-  --hero-portrait-opacity: 0.22;
-  --hero-glow-opacity: 0.4;
-}
-
-/*
-  Tema claro ("light"). Ativado via classe .light na <html>
-  (ver script inline no layout.tsx que evita flash no load).
-  As variáveis abaixo sobrescrevem as de @theme em runtime porque
-  utilities do Tailwind (bg-bg, text-text-dim, etc.) sempre leem
-  var(--color-*) — não importa se o valor mudou depois do build.
-*/
-.light {
-  --color-bg: #f7f5f0;
-  --color-bg-raised: #ffffff;
-  --color-bg-raised-2: #edeae2;
-  --color-border: #ddd8cc;
-  --color-border-soft: #e6e2d8;
-  --color-text: #14171c;
-  --color-text-dim: #565e6c;
-  --color-text-faint: #838b98;
-  --color-amber: #c97f1e;
-  --color-amber-dim: #dba15c;
-  --color-steel: #2f5f92;
-  --hero-portrait-opacity: 0.09;
-  --hero-glow-opacity: 0.2;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --gutter: clamp(18px, 4vw, 64px);
+  --section-py: clamp(96px, 14vh, 160px);
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+  background: var(--color-paper);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.container-x {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section-y {
+  padding-block: var(--section-py);
+}
+
+.h-display {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--color-mute);
+}
+
+.ghost-word {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(13, 13, 13, 0.14);
+  user-select: none;
+}
+
+/* O fundo branco do vídeo some no papel */
+.hero-video {
+  mix-blend-mode: multiply;
+  /* borda suave: mesmo sem o blend, o retângulo do vídeo some no papel */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent, #000 14%, #000 86%, transparent),
+    linear-gradient(to bottom, transparent, #000 10%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent, #000 14%, #000 86%, transparent),
+    linear-gradient(to bottom, transparent, #000 10%);
+  mask-composite: intersect;
+}
+
+/* Tabela periódica: onda diagonal (atraso por linha + coluna) */
+.tile-in {
+  opacity: 0;
+  transform: translateY(12px) scale(0.96);
+  transition:
+    opacity 0.7s var(--ease),
+    transform 0.7s var(--ease);
+  transition-delay: var(--d4, 0ms);
+}
+@media (min-width: 640px) {
+  .tile-in {
+    transition-delay: var(--d8, 0ms);
+  }
+}
+[data-in="true"] > .tile-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Fita do crachá: texto rolando na vertical */
+@keyframes strap-scroll {
+  to {
+    transform: translateY(-50%);
+  }
+}
+.animate-strap {
+  animation: strap-scroll 14s linear infinite;
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-1.2deg);
+  }
+  50% {
+    transform: rotate(1.2deg);
+  }
+}
+.animate-sway {
+  transform-origin: top center;
+  animation: sway 6s ease-in-out infinite;
+}
+
+@keyframes ping-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+.animate-ping-ring {
+  animation: ping-ring 1.8s var(--ease) infinite;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 22s linear infinite;
+}
+
+/* Menu mobile em tela cheia, revelado com clip-path */
+.menu-sheet {
+  clip-path: inset(0 0 100% 0);
+}
+.menu-sheet[data-state="open"] {
+  animation: menu-in 0.7s var(--ease) forwards;
+}
+.menu-sheet[data-state="closed"] {
+  animation: menu-out 0.45s var(--ease) forwards;
+}
+@keyframes menu-in {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes menu-out {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+.menu-link {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.menu-sheet[data-state="open"] .menu-link {
+  animation: menu-link-in 0.7s var(--ease) forwards;
+  animation-delay: calc(0.18s + var(--i, 0) * 70ms);
+}
+@keyframes menu-link-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Linha do tempo: pontos acendem quando a espinha chega */
+.timeline-dot[data-lit="true"] {
+  background: var(--color-ink);
+  box-shadow: 0 0 0 6px rgba(13, 13, 13, 0.08);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-}
-
-body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-body);
-  transition: background-color 0.25s ease, color 0.25s ease;
-}
-
-::selection {
-  background: var(--color-amber);
-  color: #1a1206;
-}
-
-.bg-blueprint {
-  background-image:
-    linear-gradient(var(--color-border-soft) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-border-soft) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: linear-gradient(to bottom, black, black 60%, transparent 100%);
-}
-
-.tick {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  pointer-events: none;
-}
-.tick::before,
-.tick::after {
-  content: "";
-  position: absolute;
-  background: var(--color-border);
-}
-.tick::before {
-  width: 100%;
-  height: 1px;
-  top: 50%;
-}
-.tick::after {
-  height: 100%;
-  width: 1px;
-  left: 50%;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .tile-in,
+  .menu-link {
+    opacity: 1;
+    transform: none;
+  }
+  .menu-sheet {
+    clip-path: none;
+  }
 }

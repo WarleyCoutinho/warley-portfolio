@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter, BlueprintBackground } from "@/components/site-footer";
+import { SiteNav } from "@/components/site-nav";
+import { SiteFooter } from "@/components/site-footer";
 import { QrGenerator } from "@/components/qr-generator";
 
 export const metadata: Metadata = {
@@ -11,9 +11,8 @@ export const metadata: Metadata = {
 export default function QrCodePage() {
   return (
     <>
-      <BlueprintBackground />
-      <SiteHeader />
-      <main className="relative z-10 mx-auto max-w-260 px-6 sm:px-8">
+      <SiteNav />
+      <main className="container-x pt-18">
         <QrGenerator />
       </main>
       <SiteFooter />

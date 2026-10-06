@@ -81,7 +81,7 @@ export function ResumeDownloadButtons() {
       <button
         onClick={() => handleDownload("dark")}
         disabled={loading !== null}
-        className="inline-flex flex-1 items-center justify-center gap-2 rounded-sm bg-amber px-5 py-3.5 font-mono-brand text-[13px] font-medium text-[#1a1206] transition-colors hover:bg-[#f0a13c] disabled:opacity-60"
+        className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-ink px-5 py-3.5 font-mono text-[13px] font-medium text-paper transition-colors hover:bg-ink-2 disabled:opacity-60"
       >
         {loading === "dark" ? (
           <Loader2 className="size-4 animate-spin" />
@@ -93,7 +93,7 @@ export function ResumeDownloadButtons() {
       <button
         onClick={() => handleDownload("light")}
         disabled={loading !== null}
-        className="inline-flex flex-1 items-center justify-center gap-2 rounded-sm border border-border px-5 py-3.5 font-mono-brand text-[13px] text-text transition-colors hover:border-amber hover:text-amber disabled:opacity-60"
+        className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-line-strong px-5 py-3.5 font-mono text-[13px] text-ink transition-colors hover:border-ink hover:text-ink disabled:opacity-60"
       >
         {loading === "light" ? (
           <Loader2 className="size-4 animate-spin" />
@@ -107,7 +107,7 @@ export function ResumeDownloadButtons() {
           key={file.href}
           href={file.href}
           download={file.download}
-          className="inline-flex flex-1 items-center justify-center gap-2 rounded-sm border border-border px-5 py-3.5 font-mono-brand text-[13px] text-text transition-colors hover:border-amber hover:text-amber"
+          className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-line-strong px-5 py-3.5 font-mono text-[13px] text-ink transition-colors hover:border-ink hover:text-ink"
         >
           <Download className="size-4" />
           {file.label}

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter, BlueprintBackground } from "@/components/site-footer";
+import { SiteNav } from "@/components/site-nav";
+import { SiteFooter } from "@/components/site-footer";
 import { ResumeDownloadButtons } from "@/components/resume/resume-download-buttons";
 
 export const metadata: Metadata = {
@@ -12,26 +12,25 @@ export const metadata: Metadata = {
 export default function CurriculoPage() {
   return (
     <>
-      <BlueprintBackground />
-      <SiteHeader />
-      <main className="relative z-10 mx-auto max-w-260 px-6 sm:px-8">
+      <SiteNav />
+      <main className="container-x pt-18">
         <section className="mx-auto max-w-140 px-0 py-28">
-          <div className="mb-2 font-mono-brand text-[13px] text-amber">
-            // currículo
+          <div className="mb-2 font-mono text-[13px] text-dim">
+            07 — Currículo
           </div>
-          <h1 className="mb-3 font-display text-[28px] font-semibold">
+          <h1 className="mb-3 font-sans text-[28px] font-semibold">
             Baixe o currículo
           </h1>
-          <p className="mb-6 text-[15px] text-text-dim">
+          <p className="mb-6 text-[15px] text-dim">
             As versões com design (escuro e claro) são montadas na hora do
             download, com foto e um QR code que leva direto pra este site. A
             versão ATS é um arquivo pronto, em PDF ou Word.
           </p>
-          <p className="mb-10 text-[13px] text-text-faint">
-            Escuro/claro: com foto, pra enviar direto a uma pessoa ou anexar
-            no LinkedIn. ATS: coluna única, sem foto e sem elementos gráficos —
-            use essa versão em formulários de candidatura e sistemas de
-            recrutamento automatizados.
+          <p className="mb-10 text-[13px] text-dim">
+            Escuro/claro: com foto, pra enviar direto a uma pessoa ou anexar no
+            LinkedIn. ATS: coluna única, sem foto e sem elementos gráficos — use
+            essa versão em formulários de candidatura e sistemas de recrutamento
+            automatizados.
           </p>
           <ResumeDownloadButtons />
         </section>

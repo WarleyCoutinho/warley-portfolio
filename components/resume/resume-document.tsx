@@ -3,13 +3,13 @@ import {
   Page,
   View,
   Text,
-  Image,
+  Image as PdfImage,
   Link,
   StyleSheet,
   Font,
 } from "@react-pdf/renderer";
 import type { ReactNode } from "react";
-import { profile } from "@/lib/data";
+import { PROFILE as profile } from "@/lib/data";
 import {
   SITE_URL,
   siteDomainLabel,
@@ -212,14 +212,14 @@ export function ResumeDocument({
         {/* Cabeçalho */}
         <View style={s.headerRow}>
           <View style={s.photoFrame}>
-            <Image src={photoDataUrl} style={s.photo} />
+            <PdfImage src={photoDataUrl} style={s.photo} />
           </View>
 
           <View style={s.headerCenter}>
             <Text style={s.name}>{profile.name}</Text>
             <Text style={s.role}>{resumeRole}</Text>
             <Text style={s.contactLine}>
-              {resumeLocation} · {profile.phone} · {profile.email}
+              {resumeLocation} · {profile.email}
             </Text>
           </View>
 
@@ -312,7 +312,7 @@ export function ResumeDocument({
           <Bullet s={s}>{languages}</Bullet>
 
           <View style={s.qrBlock}>
-            <Image src={qrDataUrl} style={s.qrImage} />
+            <PdfImage src={qrDataUrl} style={s.qrImage} />
             <Text style={s.qrLabel}>
               Escaneie o QR code para ver o portfólio sempre atualizado.
             </Text>

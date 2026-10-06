@@ -1,91 +1,57 @@
-# Warley Coutinho — Portfólio
+# Warley Coutinho — Portfólio "talking-video"
 
-Portfólio pessoal em Next.js 16 (App Router) + React 19 + Tailwind CSS v4, com
-todo o currículo (sobre, stack, experiência, projetos e contato) e link para
-o LinkedIn. Reaproveita o conteúdo do `Profile.pdf` original e apresenta os
-projetos `products-frontend` e `api-products` como cases.
+Next.js 16 (App Router) · React 19 · TypeScript strict · Tailwind CSS 4 · `motion` · pnpm.
+Visual claro (papel, tinta e cinzas), um vídeo de apresentação em loop no hero e uma seção única por tipo de conteúdo.
 
-## Stack
-
-- Next.js 16 (App Router, Server Components por padrão)
-- React 19 + TypeScript (strict, zero `any`)
-- Tailwind CSS v4 (config CSS-first em `app/globals.css`)
-- `motion` (motion/react) para as animações de entrada e reveal ao rolar
-- `lucide-react` para ícones
-
-## Rodando localmente
+## Rodar
 
 ```bash
 pnpm install
-pnpm dev
+pnpm dev        # http://localhost:3000
+pnpm lint && pnpm build
 ```
 
-Abre em `http://localhost:3000`.
+## Seções
 
-## Estrutura
+| # | Seção | Componente | Destaque |
+|---|---|---|---|
+| — | Hero | `components/sections/hero.tsx` | vídeo em loop (webm + mp4), botão de som, transcrição `sr-only` |
+| 01 | Sobre | `about.tsx`, `id-card.tsx` | crachá pendurado (pêndulo, flip por hover/toque/teclado) |
+| 02 | Stack | `stack.tsx` | tabela periódica filtrável + inspetor com logo |
+| 03 | Projetos | `projects.tsx` | galeria-acordeão com UI ilustrativa |
+| 04 | Certificações | `certifications.tsx` | lista com preenchimento de tinta |
+| 05 | Experiência | `experience.tsx` | linha do tempo cuja espinha desenha na rolagem |
+| 06 | Resultados | `results.tsx` | galeria horizontal fixa; fallback com scroll-snap (mobile / movimento reduzido) |
+| 07 | Contato | `contact.tsx` | e-mail com "Copiar", links, selo girando |
 
-```
-app/
-  layout.tsx        # fontes (Space Grotesk, Inter, JetBrains Mono) + metadata SEO
-  page.tsx           # compõe as seções da home
-  globals.css         # design tokens (@theme) e estilos globais
-components/
-  hero.tsx, about.tsx, stack.tsx, experience.tsx, projects.tsx, contact.tsx
-  site-header.tsx, site-footer.tsx, section-head.tsx, section-reveal.tsx
-lib/
-  data.ts             # todo o conteúdo do currículo, tipado — edite aqui
-  utils.ts            # helper cn()
-```
+Rotas preservadas: `/curriculo` (download dos PDFs/DOCX e gerador) e `/qrcode`.
 
-## Editar o conteúdo
+## Conteúdo
 
-Todo o texto (experiência, stack, projetos, contato) vive em `lib/data.ts`.
-Não precisa mexer nos componentes pra atualizar uma vaga nova, um projeto novo
-ou trocar o e-mail de contato.
+Todo o texto vem de `lib/data.ts` e `lib/resume-content.ts`. Nada é inventado.
 
-## Currículos
+- `PROFILE.showPhone` (padrão `false`): o telefone **não** é renderizado no HTML. O currículo ATS público também não traz telefone.
+- `PROFILE.introTranscript`: texto falado no vídeo. **Mantenha igual ao áudio.**
 
-- `/curriculo` oferece quatro downloads. Os temas escuro e claro (com foto e QR code) são
-  gerados na hora por `components/resume/resume-document.tsx`, com o conteúdo de
-  `lib/resume-content.ts`.
-- A versão ATS (coluna única, sem foto) é um arquivo pronto em PDF e Word, que fica em
-  `public/curriculo/`. Eles espelham `lib/resume-content.ts` (1 página). Se o conteúdo mudar,
-  atualize o `.ts` e refaça os dois arquivos, mantendo o texto idêntico ao do LinkedIn.
-- `pnpm resume:pdf` gera os PDFs com foto em `out/`.
+## Reconstruir o vídeo do hero
 
-## Deploy
-
-Pronto pra Vercel:
+Requer `ffmpeg`, `ffprobe`, `numpy` e `opencv-python`.
 
 ```bash
-vercel deploy
+python3 scripts/build-hero-assets.py _inputs/intro.mp4 public/hero --name hero
 ```
 
-Ou build manual:
+Gera `public/hero/hero.mp4` (H.264 + AAC) e `hero.webm` (VP9 + Opus), com loop sem emenda (crossfade de 0,5 s em imagem e áudio).
 
-```bash
-pnpm build
-pnpm start
-```
+## Currículo
 
-## Próximos passos sugeridos
+`pnpm resume:pdf` regenera o PDF com design. Os arquivos ATS ficam em `public/curriculo/`.
 
-- Trocar os links "Solicitar acesso ao repositório" pelas URLs reais do
-  GitHub assim que os repositórios `products-frontend` e `api-products`
-  estiverem públicos.
-- Adicionar uma foto/avatar real na seção "Sobre" (hoje o layout é 100% tipográfico).
-- Configurar domínio próprio (ex: `warleycoutinho.dev`) e ajustar `metadataBase` em `app/layout.tsx`.
+## Créditos e licenças
 
+Logos de marcas: [Simple Icons](https://simpleicons.org) (CC0), copiados para `public/logos/`. As marcas pertencem aos respectivos donos.
+Fontes (auto-hospedadas): Inter Tight, Instrument Serif e JetBrains Mono (SIL OFL).
 
----
+## Segurança e LGPD
 
-## Home "talking-video" (nova)
-
-- Componentes: `components/tv/home.tsx` (todas as seções) e `components/tv/tv.css` (tokens e animações, escopados em `.tv`).
-- Conteúdo: `lib/data.ts` (fonte única) + `lib/tv-data.ts` (transcrição do vídeo, flag `SHOW_PHONE`, certificações, resultados).
-- Rotas `/curriculo` e `/qrcode` não foram alteradas e seguem com o visual antigo.
-- Vídeo: `public/hero/hero.mp4|webm`. Para refazer: `python3 scripts/build-hero-assets.py --src _inputs/intro.mp4 --out public/hero --start 1.20 --end 9.45` (requer ffmpeg + numpy).
-
-### Fontes (self-hosted)
-
-`app/fonts/` (subconjunto latino, `next/font/local`): Inter Tight (variável), Instrument Serif (itálico) e JetBrains Mono (variável). Todas sob a SIL Open Font License 1.1; os textos das licenças estão em `app/fonts/OFL-*.txt`. As fontes do Google (Space Grotesk, Inter, JetBrains Mono) continuam só para as rotas antigas `/curriculo` e `/qrcode`.
+Sem analytics, cookies ou trackers. Nenhuma variável de ambiente no cliente. `pnpm audit --prod` sem vulnerabilidades conhecidas.
