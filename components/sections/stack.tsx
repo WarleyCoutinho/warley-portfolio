@@ -5,6 +5,7 @@ import { m, useInView } from "motion/react";
 
 import { SectionHeading } from "@/components/ui/section-heading";
 import { TechLogo } from "@/components/ui/tech-logo";
+import { isBrand, isConcept } from "@/lib/tech-icons";
 import {
   PROJECTS,
   SKILLS,
@@ -92,11 +93,12 @@ export function Stack() {
                     type="button"
                     aria-label={`${skill.name}, ${skill.familyLabel}`}
                     aria-pressed={isActive}
+                    data-active={isActive}
                     onPointerEnter={() => setActive(skill)}
                     onFocus={() => setActive(skill)}
                     onClick={() => setActive(skill)}
                     className={cn(
-                      "flex aspect-square w-full flex-col justify-between rounded-[14px] p-2 text-left transition-[background-color,color,opacity,box-shadow,transform] duration-300 ease-(--ease) hover:-translate-y-0.5",
+                      "relative flex aspect-square w-full flex-col items-center justify-center gap-1.5 rounded-[14px] p-2 text-center transition-[background-color,color,opacity,box-shadow,transform] duration-300 ease-(--ease) hover:-translate-y-0.5",
                       isActive
                         ? "bg-ink text-paper shadow-[0_14px_30px_-14px_rgba(13,13,13,0.6)]"
                         : "bg-card shadow-[inset_0_0_0_1px_var(--color-line)] hover:shadow-[inset_0_0_0_1px_var(--color-ink)]",
@@ -106,7 +108,7 @@ export function Stack() {
                     <span
                       aria-hidden="true"
                       className={cn(
-                        "font-mono text-[9px]",
+                        "absolute top-2 left-2.5 font-mono text-[9px]",
                         isActive ? "text-paper/70" : "text-dim",
                       )}
                     >
@@ -114,14 +116,20 @@ export function Stack() {
                     </span>
                     <span
                       aria-hidden="true"
-                      className="text-[clamp(1.2rem,2.4vw,1.7rem)] leading-none font-semibold tracking-tight"
+                      className="mt-2 grid h-8 place-items-center"
                     >
-                      {skill.symbol}
+                      {isBrand(skill.name) || isConcept(skill.name) ? (
+                        <TechLogo name={skill.name} size={32} />
+                      ) : (
+                        <b className="text-2xl tracking-tight">
+                          {skill.symbol}
+                        </b>
+                      )}
                     </span>
                     <span
                       aria-hidden="true"
                       className={cn(
-                        "line-clamp-2 text-[9px] leading-tight sm:text-[10px]",
+                        "line-clamp-2 w-full text-center text-[10px] leading-tight",
                         isActive ? "text-paper/80" : "text-dim",
                       )}
                     >
