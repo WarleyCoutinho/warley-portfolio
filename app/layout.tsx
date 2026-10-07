@@ -15,8 +15,16 @@ const interTight = localFont({
 
 const instrumentSerif = localFont({
   src: [
-    { path: "./fonts/instrument-serif-latin-400-normal.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/instrument-serif-latin-400-italic.woff2", weight: "400", style: "italic" },
+    {
+      path: "./fonts/instrument-serif-latin-400-normal.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/instrument-serif-latin-400-italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
   ],
   variable: "--font-instrument-serif",
   display: "swap",
@@ -28,6 +36,8 @@ const jetbrainsMono = localFont({
   weight: "100 800",
   display: "swap",
 });
+
+const THEME_SCRIPT = `(function(){try{var t=localStorage.getItem("theme");var d=t==="dark"||(t!=="light"&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(d)document.documentElement.classList.add("dark")}catch(e){}})()`;
 
 const TITLE = "Warley Coutinho — Engenheiro de Software Full Stack";
 
@@ -48,20 +58,29 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f4f2ee",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f4f2ee" },
+    { media: "(prefers-color-scheme: dark)", color: "#0e1116" },
+  ],
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="pt-BR"
+      suppressHydrationWarning
       data-scroll-behavior="smooth"
       className={`${interTight.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="antialiased">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      </head>
+      <body className="antialiased" suppressHydrationWarning>
         <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
