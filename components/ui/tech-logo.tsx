@@ -1,6 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import type { ReactElement } from "react";
-import { BRAND, isConcept, type ConceptName } from "@/lib/tech-icons";
+import { BRAND, DARK_LOGOS, isConcept, type ConceptName } from "@/lib/tech-icons";
 
 /** Ícones de linha (24x24, traço 1.5) para tecnologias sem logo de marca. */
 const CONCEPT_PATHS: Record<ConceptName, ReactElement> = {
@@ -47,6 +49,13 @@ const CONCEPT_PATHS: Record<ConceptName, ReactElement> = {
       <rect x="15" y="9" width="6.5" height="11" rx="1.5" />
     </>
   ),
+  OEE: (
+    <>
+      <path d="M4 17a8 8 0 1 1 16 0" />
+      <path d="M12 17l4-5" />
+      <circle cx="12" cy="17" r="1" />
+    </>
+  ),
   "Mobile First": (
     <>
       <rect x="7" y="2.5" width="10" height="19" rx="2.5" />
@@ -71,7 +80,10 @@ export function TechLogo({ name, size = 20, className }: Props) {
         width={size}
         height={size}
         unoptimized
-        className={className}
+        onError={(e) => {
+          e.currentTarget.style.display = "none"; // logo ainda não exportado: o chip fica só com o texto
+        }}
+        className={[className, DARK_LOGOS.has(slug) ? "logo-ink" : ""].filter(Boolean).join(" ") || undefined}
         style={{ width: size, height: size }}
       />
     );
