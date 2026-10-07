@@ -70,7 +70,6 @@ function makeStyles(t: Theme) {
       paddingBottom: 34,
     },
 
-    // Cabeçalho: foto | nome + contato (centro) | links (direita)
     headerRow: {
       flexDirection: "row",
       alignItems: "center",
@@ -109,7 +108,12 @@ function makeStyles(t: Theme) {
       marginTop: 3,
     },
     headerRight: { width: 140, alignItems: "flex-end" },
-    link: { color: t.amber, textDecoration: "none", fontSize: 8, lineHeight: 1.5 },
+    link: {
+      color: t.amber,
+      textDecoration: "none",
+      fontSize: 8,
+      lineHeight: 1.5,
+    },
 
     // Seções
     h2: {
@@ -159,7 +163,12 @@ function makeStyles(t: Theme) {
 
     qrBlock: { flexDirection: "row", alignItems: "center", marginTop: 8 },
     qrImage: { width: 34, height: 34, marginRight: 8, borderRadius: 2 },
-    qrLabel: { fontSize: 7.5, color: t.textFaint, width: 220, lineHeight: 1.35 },
+    qrLabel: {
+      fontSize: 7.5,
+      color: t.textFaint,
+      width: 220,
+      lineHeight: 1.35,
+    },
 
     footer: {
       position: "absolute",
