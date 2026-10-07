@@ -19,7 +19,7 @@ export const resumeSkills = [
   },
   {
     label: "Integrações:",
-    items: "WhatsApp API oficial, Google Calendar API, Stripe, Gemini.",
+    items: "WhatsApp, Google Calendar API, Stripe, Gemini.",
   },
   {
     label: "Infra e ferramentas:",
@@ -90,7 +90,7 @@ export const resumeJobs: ResumeJob[] = [
       "Projetos sob demanda para pequenos negócios (sites, e-commerces e agendamento), do levantamento de requisitos ao deploy.",
     ],
     stack:
-      "TypeScript, Next.js, React Native, Fastify, Prisma, PostgreSQL, Better Auth.",
+      "TypeScript, Next.js, React Native, Node.js, Prisma, PostgreSQL, Better Auth.",
   },
   {
     company: "Rancheiro",
@@ -114,7 +114,8 @@ export const resumeJobs: ResumeJob[] = [
       "Sistema OEE para Indústria 4.0: microsserviços de coleta direto das máquinas, APIs REST e integrações.",
       "Correção de gargalos e problemas de performance, com redução de até 70% das ocorrências identificadas.",
     ],
-    stack: "Node.js, Vue.js, TypeScript, JavaScript, PostgreSQL, Microsserviços.",
+    stack:
+      "Node.js, Vue.js, TypeScript, JavaScript, PostgreSQL, Microsserviços.",
   },
   {
     company: "Fábrica de Tecnologias Turing",
@@ -141,6 +142,8 @@ export const certifications = [
   "Fundamentos do React",
   "Fundamentos do React Native",
   "JavaScript: Formação Básica",
+  "Masterizando o Tailwind",
+  "Clean Code",
 ];
 
 export const languages = "Português: nativo. Inglês: básico.";

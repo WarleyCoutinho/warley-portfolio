@@ -39,7 +39,7 @@ export function About() {
           <SectionHeading
             index="01"
             label="Sobre"
-            accent="Warley."
+            accent="Warley Coutinho."
             id="sobre-title"
           >
             Olá, eu sou o

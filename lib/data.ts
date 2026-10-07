@@ -24,7 +24,7 @@ export const PROFILE = {
     "Engenheiro de Software Full Stack com 5+ anos de experiência, atuando de ponta a ponta: arquitetura, modelagem de dados, APIs, integrações, deploy e manutenção em produção.",
   /** Texto falado no vídeo do hero (vira a transcrição acessível). Confira se bate com o áudio. */
   introTranscript:
-    "Olá, eu sou o Warley. Sou engenheiro de software full stack e construo produtos web, APIs e sistemas do início ao fim.",
+    "Olá, eu sou o Warley Coutinho. Sou engenheiro de software full stack e construo produtos web, APIs e sistemas do início ao fim.",
 } as const;
 
 export const NAV = [
@@ -67,6 +67,8 @@ export const CERTIFICATIONS: readonly string[] = [
   "Fundamentos do React",
   "Fundamentos do React Native",
   "JavaScript: Formação Básica",
+  "Masterizando o Tailwind",
+  "Clean Code",
 ];
 
 export const ABOUT_PARAGRAPHS = [
@@ -137,12 +139,7 @@ const SKILL_SOURCE: Record<FamilyId, readonly string[]> = {
     "Scalar API Reference",
     "Orval",
   ],
-  integrations: [
-    "WhatsApp API oficial",
-    "Google Calendar API",
-    "Stripe",
-    "Gemini",
-  ],
+  integrations: ["WhatsApp", "Google Calendar API", "Stripe", "Gemini"],
   infra: [
     "Docker",
     "Git",
@@ -230,19 +227,21 @@ export const TIMELINE: readonly TimelineItem[] = [
     title: "Almoxarife / comerciante varejista",
     place: "ASE Eldorado Distribuição",
   },
-  {
-    id: "kingspan",
-    kind: "work",
-    period: "2016 — 2021",
-    title: "Soldador",
-    place: "Kingspan Isoeste",
-  },
+
   {
     id: "unievangelica",
     kind: "education",
     period: "2018 — 2022",
     title: EDUCATION.degree,
     place: EDUCATION.school,
+  },
+
+  {
+    id: "kingspan",
+    kind: "work",
+    period: "2016 — 2021",
+    title: "Soldador",
+    place: "Kingspan Isoeste",
   },
   {
     id: "turing",
@@ -431,13 +430,13 @@ export const PROJECTS: Project[] = [
     stack: [
       "Next.js",
       "TypeScript",
-      "Fastify",
+      "Node.js",
       "Prisma",
       "PostgreSQL",
       "Better Auth",
       "Baileys",
     ],
-    liveUrl: "https://www.servix.app.br/",
+    /*  liveUrl: "https://www.servix.app.br/", */
     liveLabel: "Ver produto ao vivo ↗",
     repoUrl: "https://github.com/WarleyCoutinho/servix",
   },

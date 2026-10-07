@@ -25,7 +25,7 @@ export const BRAND: Readonly<Record<string, string>> = {
   "Swagger / OpenAPI": "swagger",
   Swagger: "swagger",
   "Scalar API Reference": "scalar",
-  "WhatsApp API oficial": "whatsapp",
+  WhatsApp: "whatsapp",
   "Google Calendar API": "googlecalendar",
   Stripe: "stripe",
   Gemini: "googlegemini",

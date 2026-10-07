@@ -33,11 +33,6 @@ const BACK_LINES = [
   "~90% menos faltas (no-shows) com lembretes automáticos",
 ] as const;
 
-/**
- * Crachá pendurado numa fita: pêndulo amortecido que reage à velocidade do
- * ponteiro (springs do `motion`), balanço sutil em repouso e giro 3D ao
- * passar o mouse, tocar ou usar Enter/Espaço.
- */
 export function IdCard() {
   const reduceMotion = useReducedMotion();
   const [flipped, setFlipped] = useState(false);

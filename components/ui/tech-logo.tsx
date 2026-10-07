@@ -2,7 +2,12 @@
 
 import Image from "next/image";
 import type { ReactElement } from "react";
-import { BRAND, DARK_LOGOS, isConcept, type ConceptName } from "@/lib/tech-icons";
+import {
+  BRAND,
+  DARK_LOGOS,
+  isConcept,
+  type ConceptName,
+} from "@/lib/tech-icons";
 
 /** Ícones de linha (24x24, traço 1.5) para tecnologias sem logo de marca. */
 const CONCEPT_PATHS: Record<ConceptName, ReactElement> = {
@@ -66,10 +71,6 @@ const CONCEPT_PATHS: Record<ConceptName, ReactElement> = {
 
 type Props = { name: string; size?: number; className?: string };
 
-/**
- * Logo de uma tecnologia. Decorativo (`alt=""`): o nome sempre aparece em
- * texto ao lado.
- */
 export function TechLogo({ name, size = 20, className }: Props) {
   const slug = BRAND[name];
   if (slug) {
@@ -83,7 +84,11 @@ export function TechLogo({ name, size = 20, className }: Props) {
         onError={(e) => {
           e.currentTarget.style.display = "none"; // logo ainda não exportado: o chip fica só com o texto
         }}
-        className={[className, DARK_LOGOS.has(slug) ? "logo-ink" : ""].filter(Boolean).join(" ") || undefined}
+        className={
+          [className, DARK_LOGOS.has(slug) ? "logo-ink" : ""]
+            .filter(Boolean)
+            .join(" ") || undefined
+        }
         style={{ width: size, height: size }}
       />
     );
