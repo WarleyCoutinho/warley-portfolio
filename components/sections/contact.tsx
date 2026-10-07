@@ -4,7 +4,10 @@ import { useRef, useState } from "react";
 import { ArrowUpRight, Check, Copy } from "lucide-react";
 import { m } from "motion/react";
 
+import AdapticodeIcon from "@/components/ui/adapticode-icon";
+import { BrandIcon } from "@/components/ui/brand-icon";
 import { Reveal } from "@/components/ui/reveal";
+import { LocalTime } from "./local-time";
 import { PROFILE } from "@/lib/data";
 
 const HOP = {
@@ -74,17 +77,21 @@ export function Contact() {
   }
 
   const links = [
-    { label: "GitHub", href: PROFILE.github },
-    { label: "LinkedIn", href: PROFILE.linkedin },
-    { label: "Instagram", href: PROFILE.instagram },
-    { label: PROFILE.studioLabel, href: PROFILE.studio },
+    { label: "GitHub", href: PROFILE.github, icon: "github" as const },
+    { label: "LinkedIn", href: PROFILE.linkedin, icon: "linkedin" as const },
+    { label: "Instagram", href: PROFILE.instagram, icon: "instagram" as const },
+    {
+      label: PROFILE.studioLabel,
+      href: PROFILE.studio,
+      icon: "adapticode" as const,
+    },
   ];
 
   return (
     <section id="contato" aria-labelledby="contato-title" className="section-y">
       <div className="container-x">
         <p className="mb-5 font-mono text-[12px] tracking-[0.14em] text-dim uppercase">
-          07 — Contato
+          08 — Contato
         </p>
         <h2
           id="contato-title"
@@ -136,8 +143,12 @@ export function Contact() {
                     rel="noopener noreferrer"
                     className="inline-flex h-11 items-center gap-1.5 rounded-full px-5 text-[14px] font-medium shadow-[inset_0_0_0_1px_var(--color-line-strong)] transition-colors duration-300 hover:bg-ink hover:text-paper"
                   >
-                    {link.label}{" "}
-                    <ArrowUpRight className="size-4" aria-hidden="true" />
+                    {link.icon === "adapticode" ? (
+                      <AdapticodeIcon size={26} />
+                    ) : (
+                      <BrandIcon name={link.icon} />
+                    )}
+                    {link.label}
                   </a>
                 </li>
               ))}
@@ -152,6 +163,7 @@ export function Contact() {
                 </li>
               )}
             </ul>
+            <LocalTime />
           </Reveal>
           <SpinBadge />
         </div>
