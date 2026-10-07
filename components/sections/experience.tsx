@@ -5,12 +5,27 @@ import { ArrowUpRight } from "lucide-react";
 import { m, useInView, useScroll, useSpring } from "motion/react";
 
 import { Badge } from "@/components/ui/badge";
+import { TechLogo } from "@/components/ui/tech-logo";
+import { isBrand, isConcept } from "@/lib/tech-icons";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { usePrefersReducedMotion } from "@/lib/hooks";
 import { TIMELINE, type TimelineItem } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 const LONG_TEXT = 220;
+
+const ORDER = [
+  "autonomo",
+  "rancheiro",
+  "avaloon",
+  "unievangelica",
+  "turing",
+  "kingspan",
+  "ase",
+];
+const ITEMS = [...TIMELINE].sort(
+  (a, b) => ORDER.indexOf(a.id) - ORDER.indexOf(b.id),
+);
 
 function Stop({ item, forceLit }: { item: TimelineItem; forceLit: boolean }) {
   const ref = useRef<HTMLLIElement>(null);
@@ -75,7 +90,12 @@ function Stop({ item, forceLit }: { item: TimelineItem; forceLit: boolean }) {
           <ul className="mt-3 flex flex-wrap gap-2" aria-label="Tecnologias">
             {item.tags.map((tag) => (
               <li key={tag}>
-                <Badge variant="outline">{tag}</Badge>
+                <Badge variant="outline">
+                  {(isBrand(tag) || isConcept(tag)) && (
+                    <TechLogo name={tag} size={14} />
+                  )}
+                  {tag}
+                </Badge>
               </li>
             ))}
           </ul>
@@ -114,27 +134,9 @@ export function Experience() {
           Meu
         </SectionHeading>
 
-        <div className="relative mt-16 ml-1.5">
-          {/* espinha: trilho + traço que desenha com a rolagem */}
-          <div
-            aria-hidden="true"
-            className="absolute top-2 bottom-2 left-0 w-px bg-line"
-          />
-          <m.div
-            aria-hidden="true"
-            className="absolute top-2 bottom-2 left-0 w-px origin-top bg-ink"
-            style={{ scaleY: reduceMotion ? 1 : fill }}
-          />
-          <ol ref={listRef}>
-            {TIMELINE.map((item) => (
-              <Stop key={item.id} item={item} forceLit={reduceMotion} />
-            ))}
-          </ol>
-        </div>
-
         <a
           href="#contato"
-          className="group mt-16 flex min-h-28 flex-wrap items-center justify-between gap-4 rounded-[28px] border border-dashed border-line-strong p-8 transition-colors duration-500 ease-(--ease) hover:bg-card"
+          className="group mb-4 flex min-h-28 flex-wrap items-center justify-between gap-4 rounded-[28px] border border-dashed border-line-strong p-8 transition-colors duration-500 ease-(--ease) hover:bg-card"
         >
           <span>
             <span className="block font-mono text-[12px] tracking-[0.14em] text-dim uppercase">
@@ -149,6 +151,24 @@ export function Experience() {
             <span className="sr-only">Ir para o contato</span>
           </span>
         </a>
+
+        <div className="relative mt-12 ml-1.5">
+          {/* espinha: trilho + traço que desenha com a rolagem */}
+          <div
+            aria-hidden="true"
+            className="absolute top-2 bottom-2 left-0 w-px bg-line"
+          />
+          <m.div
+            aria-hidden="true"
+            className="absolute top-2 bottom-2 left-0 w-px origin-top bg-ink"
+            style={{ scaleY: reduceMotion ? 1 : fill }}
+          />
+          <ol ref={listRef}>
+            {ITEMS.map((item) => (
+              <Stop key={item.id} item={item} forceLit={reduceMotion} />
+            ))}
+          </ol>
+        </div>
       </div>
     </section>
   );
