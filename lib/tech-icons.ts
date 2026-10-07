@@ -1,10 +1,3 @@
-/**
- * Mapeia o nome de cada tecnologia para um logo de marca (arquivo em
- * public/logos, gerado por scripts/export-logos.mjs a partir do simple-icons)
- * ou para um ícone conceitual desenhado à mão (components/ui/tech-logo.tsx).
- */
-
-/** nome da tecnologia -> slug do arquivo em /public/logos */
 export const BRAND: Readonly<Record<string, string>> = {
   TypeScript: "typescript",
   JavaScript: "javascript",
@@ -44,6 +37,12 @@ export const BRAND: Readonly<Record<string, string>> = {
   Hetzner: "hetzner",
   Neon: "neon",
   pnpm: "pnpm",
+  Laravel: "laravel",
+  Angular: "angular",
+  "Spring Boot": "springboot",
+  PHP: "php",
+  "Vue.js": "vuedotjs",
+  Java: "openjdk",
 };
 
 /** Tecnologias sem logo de marca: ganham um ícone de linha consistente. */
@@ -56,6 +55,7 @@ export const CONCEPT = [
   "Microservices",
   "Responsive Design",
   "Mobile First",
+  "OEE",
 ] as const;
 
 export type ConceptName = (typeof CONCEPT)[number];
@@ -67,3 +67,20 @@ export function isBrand(name: string): boolean {
 export function isConcept(name: string): name is ConceptName {
   return (CONCEPT as readonly string[]).includes(name);
 }
+
+/** Logos quase pretos (arquivos em /public/logos): invertidos no tema escuro via `.logo-ink` (globals.css). */
+export const DARK_LOGOS: ReadonlySet<string> = new Set([
+  "betterauth",
+  "fastify",
+  "github",
+  "hetzner",
+  "ios",
+  "nextdotjs",
+  "prisma",
+  "pwa",
+  "railway",
+  "scalar",
+  "shadcnui",
+  "simpleicons",
+  "vercel",
+]);

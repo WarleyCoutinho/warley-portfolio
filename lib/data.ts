@@ -1,9 +1,3 @@
-/**
- * Fonte única de conteúdo do site. Os componentes só leem daqui.
- * Tudo o que aparece no portfólio vem deste arquivo, de `lib/resume-content.ts`
- * ou do currículo em PDF — nada é inventado.
- */
-
 export { SITE_URL } from "./resume-content";
 
 export const PROFILE = {
@@ -39,11 +33,15 @@ export const NAV = [
   { id: "projetos", label: "Projetos" },
   { id: "experiencia", label: "Experiência" },
   { id: "resultados", label: "Resultados" },
+  { id: "curriculo", label: "Currículo" },
   { id: "contato", label: "Contato" },
 ] as const;
 
 export const HERO_META = [
-  { k: "foco atual", v: "Software Engineering — Node.js, TypeScript & Next.js" },
+  {
+    k: "foco atual",
+    v: "Software Engineering — Node.js, TypeScript & Next.js",
+  },
   { k: "experiência", v: "5+ anos em desenvolvimento de software" },
   { k: "formação", v: "Eng. de Software — UniEVANGÉLICA" },
 ] as const;
@@ -55,7 +53,8 @@ export const FACTS = {
   availability: "Aberto a oportunidades CLT ou PJ",
 } as const;
 
-export const QUOTE = "Do chão de fábrica a SaaS próprio e sistemas de Indústria 4.0.";
+export const QUOTE =
+  "Do chão de fábrica a SaaS próprio e sistemas de Indústria 4.0.";
 
 export const EDUCATION = {
   degree: "Bacharelado em Engenharia de Software",
@@ -105,17 +104,55 @@ export type Skill = {
 
 const SKILL_SOURCE: Record<FamilyId, readonly string[]> = {
   frontend: [
-    "TypeScript", "JavaScript", "Next.js", "React", "React Native", "iOS", "Android",
-    "Tailwind CSS", "shadcn/ui", "21st.dev", "TanStack Query", "React Hook Form", "Zod",
-    "Motion", "Lucide", "Simple Icons", "next-themes", "Sonner", "PWA",
-    "Responsive Design", "Mobile First",
+    "TypeScript",
+    "JavaScript",
+    "Next.js",
+    "React",
+    "React Native", // iOS/Android: usados dentro do React Native, não entram sozinhos
+    "Tailwind CSS",
+    "shadcn/ui",
+    "21st.dev",
+    "TanStack Query",
+    "React Hook Form",
+    "Zod",
+    "Motion",
+    "Lucide",
+    "Simple Icons",
+    "next-themes",
+    "Sonner",
+    "PWA",
+    "Responsive Design",
+    "Mobile First",
   ],
   backend: [
-    "Node.js", "Fastify", "Prisma ORM", "PostgreSQL", "REST APIs", "Microservices",
-    "Zod", "Better Auth", "Swagger / OpenAPI", "Scalar API Reference", "Orval",
+    "Node.js",
+    "Fastify",
+    "Prisma ORM",
+    "PostgreSQL",
+    "REST APIs",
+    "Microservices",
+    "Zod",
+    "Better Auth",
+    "Swagger / OpenAPI",
+    "Scalar API Reference",
+    "Orval",
   ],
-  integrations: ["WhatsApp API oficial", "Google Calendar API", "Stripe", "Gemini"],
-  infra: ["Docker", "Git", "GitHub", "Vercel", "Railway", "Hetzner", "Neon", "pnpm"],
+  integrations: [
+    "WhatsApp API oficial",
+    "Google Calendar API",
+    "Stripe",
+    "Gemini",
+  ],
+  infra: [
+    "Docker",
+    "Git",
+    "GitHub",
+    "Vercel",
+    "Railway",
+    "Hetzner",
+    "Neon",
+    "pnpm",
+  ],
 };
 
 const EXTRA_ALIASES: Readonly<Record<string, readonly string[]>> = {
@@ -149,7 +186,10 @@ function buildSkills(): Skill[] {
       const symbol = makeSymbol(name);
       usedSymbols.add(symbol);
       skills.push({
-        id: name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""),
+        id: name
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/(^-|-$)/g, ""),
         number: String(skills.length + 1).padStart(2, "0"),
         symbol,
         name,
@@ -165,7 +205,10 @@ function buildSkills(): Skill[] {
 const [firstSkill, ...otherSkills] = buildSkills();
 if (!firstSkill) throw new Error("SKILLS não pode ser vazio");
 
-export const SKILLS: readonly [Skill, ...Skill[]] = [firstSkill, ...otherSkills];
+export const SKILLS: readonly [Skill, ...Skill[]] = [
+  firstSkill,
+  ...otherSkills,
+];
 
 /* ───────────────────────── Experiência e formação ───────────────────────── */
 
@@ -209,7 +252,15 @@ export const TIMELINE: readonly TimelineItem[] = [
     place: "Fábrica de Tecnologias Turing (FTT) · Anápolis, GO",
     detail:
       "Primeira experiência prática em desenvolvimento: sistema para um colégio, planejado e construído do zero em equipe — requisitos, regras de negócio, front-end, back-end, APIs, banco de dados e Docker.",
-    tags: ["Laravel", "Angular", "Spring Boot", "Java", "PHP", "PostgreSQL", "Docker"],
+    tags: [
+      "Laravel",
+      "Angular",
+      "Spring Boot",
+      "Java",
+      "PHP",
+      "PostgreSQL",
+      "Docker",
+    ],
   },
   {
     id: "avaloon",
@@ -219,7 +270,15 @@ export const TIMELINE: readonly TimelineItem[] = [
     place: "Avaloon · Goiânia, GO",
     detail:
       "Desenvolvimento e evolução de sistema OEE para Indústria 4.0, de ponta a ponta no back-end e front-end: microsserviços de coleta de dados direto das máquinas, APIs REST/JSON, novas funcionalidades e integrações com sistemas e equipamentos industriais. Análise e correção de bugs, gargalos e problemas de performance (rotas, consultas e processamento de dados), contribuindo para reduzir em até 70% as ocorrências identificadas.",
-    tags: ["Node.js", "Vue.js", "TypeScript", "JavaScript", "PostgreSQL", "Microservices", "OEE"],
+    tags: [
+      "Node.js",
+      "Vue.js",
+      "TypeScript",
+      "JavaScript",
+      "PostgreSQL",
+      "Microservices",
+      "OEE",
+    ],
   },
   {
     id: "rancheiro",
@@ -229,7 +288,16 @@ export const TIMELINE: readonly TimelineItem[] = [
     place: "Rancheiro · Anápolis, GO",
     detail:
       "Soluções para Indústria 4.0, do levantamento de requisitos e entendimento dos processos operacionais até a entrega. Sistemas web e dashboards de produção, controle de estoque e controle de acesso — atuando principalmente no front-end (Next.js, React, TypeScript) sobre APIs REST em Python, além de APIs e integrações em Node.js e integração com equipamentos industriais. Automatizei processos de produção, reduzindo um fechamento operacional de ~1h para ~20min, e criei indicadores e relatórios por turno, dia e mês com exportação para PDF e Excel.",
-    tags: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "Tailwind CSS", "shadcn/ui"],
+    tags: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma",
+      "Tailwind CSS",
+      "shadcn/ui",
+    ],
   },
   {
     id: "autonomo",
@@ -239,7 +307,14 @@ export const TIMELINE: readonly TimelineItem[] = [
     place: "Autônomo · Projetos próprios e sob demanda · Anápolis, GO",
     detail:
       "Desde 2026, desenvolvo software de ponta a ponta de forma independente — aplicações web, apps mobile com React Native (sob demanda), APIs, bancos de dados, integrações, deploy e manutenção em produção. Principal projeto: o Servix, plataforma SaaS própria de agendamento para salões, barbearias e clínicas de estética, em produção desde 2026 em 5 negócios, com web (Next.js) e API (Fastify, Prisma, PostgreSQL). Reduzi em ~90% as faltas (no-shows) com lembretes automáticos via WhatsApp e sincronização com o Google Calendar, e evitei conflitos de horário com reservas multisserviço atômicas (Prisma $transaction) e controle de concorrência por profissional. Também entrego projetos sob demanda — sites institucionais, e-commerces e sistemas de agendamento para pequenos negócios — do levantamento de requisitos ao deploy.",
-    tags: ["TypeScript", "Next.js", "Fastify", "Prisma", "PostgreSQL", "Better Auth"],
+    tags: [
+      "TypeScript",
+      "Next.js",
+      "Fastify",
+      "Prisma",
+      "PostgreSQL",
+      "Better Auth",
+    ],
   },
 ];
 
@@ -332,7 +407,7 @@ export const PROJECTS: Project[] = [
     kicker: "produto próprio em produção · saas",
     title: "Servix",
     description:
-      "Plataforma SaaS de agendamento para salões, barbearias e clínicas de estética, desenvolvida e mantida por mim e em produção desde 2026 em 5 negócios. Web em Next.js e API em Fastify, Prisma e PostgreSQL, com integração ao Google Calendar e um microserviço dedicado em Node.js e Baileys para o WhatsApp.",
+      "Plataforma SaaS de agendamento para salões, barbearias e clínicas de estética, desenvolvida e mantida por mim e em produção desde 2026 em 5 negócios. Front-end e back-end construídos inteiramente em Next.js, com Prisma e PostgreSQL e integração ao Google Calendar. Só o microsserviço do WhatsApp é separado: em Node.js, com API em Fastify e Baileys.",
     features: [
       {
         title: "Lembretes via WhatsApp",
