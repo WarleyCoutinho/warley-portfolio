@@ -13,14 +13,6 @@ export function Hero() {
       aria-labelledby="hero-title"
       className="relative isolate overflow-clip bg-paper pt-22 pb-10 lg:pb-0"
     >
-      {/* palavra fantasma, só decoração */}
-      <div
-        aria-hidden="true"
-        className="ghost-word pointer-events-none absolute inset-x-0 top-[22%] -z-10 text-center font-sans text-[clamp(6rem,27vw,26rem)] leading-none font-extrabold tracking-[-0.06em] uppercase"
-      >
-        Warley
-      </div>
-
       <div className="container-x grid items-end gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,380px)_minmax(0,1fr)] lg:gap-10">
         <div className="relative z-10 order-2 pb-4 lg:order-1 lg:pb-[12svh]">
           <h1
@@ -49,9 +41,7 @@ export function Hero() {
                 </a>
               </Button>
               <Button asChild size="lg" variant="ghost">
-                <a href={PROFILE.resume} download>
-                  Currículo ↓
-                </a>
+                <a href="#curriculo">Currículo ↓</a>
               </Button>
             </div>
           </Reveal>
