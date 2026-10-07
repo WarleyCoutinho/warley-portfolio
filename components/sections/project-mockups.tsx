@@ -119,3 +119,18 @@ export function ProductsApiMockup() {
     </div>
   );
 }
+
+export function ServixLogo() {
+  return (
+    <div className="grid h-full min-h-75 place-items-center rounded-[20px] bg-paper p-6">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/servix-logo.png"
+        alt="Logotipo do Servix — gestão profissional, negócios de beleza"
+        width={684}
+        height={192}
+        className="servix-logo h-auto w-full max-w-105"
+      />
+    </div>
+  );
+}

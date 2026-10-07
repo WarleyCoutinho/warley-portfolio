@@ -14,11 +14,11 @@ import { cn } from "@/lib/utils";
 import {
   ProductsApiMockup,
   ProductsAppMockup,
-  ServixMockup,
+  ServixLogo,
 } from "./project-mockups";
 
 const MOCKUPS: Record<string, () => React.JSX.Element> = {
-  Servix: ServixMockup,
+  Servix: ServixLogo,
   "Products App": ProductsAppMockup,
   "Products API": ProductsApiMockup,
 };
@@ -164,9 +164,11 @@ function Panel({
           data-reveal
         >
           {Mockup && <Mockup />}
-          <figcaption className="absolute top-3 left-3 rounded-full bg-ink px-2.5 py-1 font-mono text-[10px] tracking-widest text-paper uppercase">
-            UI ilustrativa
-          </figcaption>
+          {project.title !== "Servix" && (
+            <figcaption className="absolute top-3 left-3 rounded-full bg-ink px-2.5 py-1 font-mono text-[10px] tracking-widest text-paper uppercase">
+              UI ilustrativa
+            </figcaption>
+          )}
         </figure>
       </div>
     </article>
