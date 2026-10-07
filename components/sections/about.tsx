@@ -1,5 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
-
+import { BrandIcon } from "@/components/ui/brand-icon";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -55,7 +54,8 @@ export function About() {
           <Reveal index={2} className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="outline">
               <a href={PROFILE.resume} download>
-                Currículo ↓
+                <BrandIcon name="download" />
+                Currículo
               </a>
             </Button>
             <Button asChild variant="outline">
@@ -64,7 +64,8 @@ export function About() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                GitHub <ArrowUpRight />
+                <BrandIcon name="github" />
+                GitHub
               </a>
             </Button>
             <Button asChild variant="outline">
@@ -73,7 +74,8 @@ export function About() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                LinkedIn <ArrowUpRight />
+                <BrandIcon name="linkedin" />
+                LinkedIn
               </a>
             </Button>
           </Reveal>

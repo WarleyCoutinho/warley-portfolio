@@ -33,6 +33,11 @@ const BACK_LINES = [
   "~90% menos faltas (no-shows) com lembretes automáticos",
 ] as const;
 
+/**
+ * Crachá pendurado numa fita: pêndulo amortecido que reage à velocidade do
+ * ponteiro (springs do `motion`), balanço sutil em repouso e giro 3D ao
+ * passar o mouse, tocar ou usar Enter/Espaço.
+ */
 export function IdCard() {
   const reduceMotion = useReducedMotion();
   const [flipped, setFlipped] = useState(false);
@@ -57,6 +62,7 @@ export function IdCard() {
         style={{ rotate: reduceMotion ? 0 : angle }}
       >
         <div className="animate-sway">
+          {/* fita: 30 px de largura, com nome e cargo rolando na vertical */}
           <div
             className="relative mx-auto h-42.5 w-7.5 overflow-hidden bg-ink"
             aria-hidden="true"
@@ -72,7 +78,7 @@ export function IdCard() {
               ))}
             </div>
           </div>
-
+          {/* presilha metálica 30×56 */}
           <div
             aria-hidden="true"
             className="relative mx-auto h-14 w-7.5 rounded-b-[10px] bg-[linear-gradient(90deg,#8d8d8d,#e9e9e9_35%,#bdbdbd_60%,#7d7d7d)] shadow-[0_2px_6px_rgba(13,13,13,0.25)]"
