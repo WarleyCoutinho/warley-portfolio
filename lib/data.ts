@@ -250,7 +250,7 @@ export const TIMELINE: readonly TimelineItem[] = [
     title: "Desenvolvedor Full Stack",
     place: "Fábrica de Tecnologias Turing (FTT) · Anápolis, GO",
     detail:
-      "Primeira experiência prática em desenvolvimento: sistema para um colégio, planejado e construído do zero em equipe — requisitos, regras de negócio, front-end, back-end, APIs, banco de dados e Docker.",
+      "Participei do planejamento e desenvolvimento em equipe de um sistema para um colégio, abrangendo requisitos, regras de negócio, frontend, backend, APIs e banco de dados.",
     tags: [
       "Laravel",
       "Angular",
@@ -268,12 +268,12 @@ export const TIMELINE: readonly TimelineItem[] = [
     title: "Desenvolvedor de Sistemas",
     place: "Avaloon · Goiânia, GO",
     detail:
-      "Desenvolvimento e evolução de sistema OEE para Indústria 4.0, de ponta a ponta no back-end e front-end: microsserviços de coleta de dados direto das máquinas, APIs REST/JSON, novas funcionalidades e integrações com sistemas e equipamentos industriais. Análise e correção de bugs, gargalos e problemas de performance (rotas, consultas e processamento de dados), contribuindo para reduzir em até 70% as ocorrências identificadas.",
+      "Atuei em sistema OEE para Indústria 4.0, com microsserviços de coleta de dados das máquinas, APIs REST e integrações. Identifiquei e corrigi gargalos e problemas de performance em sistemas OEE para Indústria 4.0.",
     tags: [
       "Node.js",
-      "Vue.js",
       "TypeScript",
       "JavaScript",
+      "Vue.js",
       "PostgreSQL",
       "Microservices",
       "OEE",
@@ -286,7 +286,7 @@ export const TIMELINE: readonly TimelineItem[] = [
     title: "Analista de Sistemas Pleno",
     place: "Rancheiro · Anápolis, GO",
     detail:
-      "Soluções para Indústria 4.0, do levantamento de requisitos e entendimento dos processos operacionais até a entrega. Sistemas web e dashboards de produção, controle de estoque e controle de acesso — atuando principalmente no front-end (Next.js, React, TypeScript) sobre APIs REST em Python, além de APIs e integrações em Node.js e integração com equipamentos industriais. Automatizei processos de produção, reduzindo um fechamento operacional de ~1h para ~20min, e criei indicadores e relatórios por turno, dia e mês com exportação para PDF e Excel.",
+      "Desenvolvi soluções para Indústria 4.0, incluindo dashboards de produção, gestão de estoque e controle de acesso, utilizando Next.js, React e TypeScript. Integrei aplicações frontend com APIs desenvolvidas em Python, consumindo endpoints disponibilizados pela equipe responsável pelo backend. Desenvolvi APIs e integrações em Node.js, incluindo comunicação com equipamentos industriais. Contribuí para a redução do tempo de fechamento operacional de aproximadamente 1 hora para 20 minutos, por meio da automação de processos. Desenvolvi relatórios operacionais por turno, dia e mês, com exportação em PDF e Excel.",
     tags: [
       "Next.js",
       "React",

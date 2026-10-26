@@ -14,12 +14,12 @@ import {
   SITE_URL,
   siteDomainLabel,
   resumeRole,
+  resumeHeadline,
   resumeLocation,
+  resumeSummary,
   resumeSkills,
-  resumeObjective,
   resumeProjects,
   resumeJobs,
-  resumeEarlierCareer,
   education,
   certifications,
   languages,
@@ -227,6 +227,7 @@ export function ResumeDocument({
           <View style={s.headerCenter}>
             <Text style={s.name}>{profile.name}</Text>
             <Text style={s.role}>{resumeRole}</Text>
+            <Text style={s.contactLine}>{resumeHeadline}</Text>
             <Text style={s.contactLine}>
               {resumeLocation} · {profile.email}
             </Text>
@@ -245,43 +246,17 @@ export function ResumeDocument({
           </View>
         </View>
 
-        {/* Habilidades */}
-        <Text style={s.h2}>Habilidades</Text>
+        {/* Resumo profissional */}
+        <Text style={s.h2}>Resumo Profissional</Text>
+        <Text style={s.labeled}>{resumeSummary}</Text>
+
+        {/* Competências técnicas */}
+        <Text style={s.h2}>Competências Técnicas</Text>
         {resumeSkills.map((group) => (
           <Text key={group.label} style={s.labeled}>
             <Text style={s.bold}>{group.label} </Text>
             {group.items}
           </Text>
-        ))}
-
-        {/* Objetivo */}
-        <Text style={s.h2}>Objetivo</Text>
-        {resumeObjective.map((line) => (
-          <Bullet key={line} s={s}>
-            {line}
-          </Bullet>
-        ))}
-
-        {/* Projetos */}
-        <Text style={s.h2}>Projetos</Text>
-        {resumeProjects.map((project) => (
-          <View key={project.name} wrap={false}>
-            <View style={s.itemHead}>
-              <Text style={s.itemTitle}>
-                <Text style={s.bold}>{project.name}</Text>
-                {` | ${project.tech} | `}
-                <Link src={project.href} style={s.link}>
-                  {project.linkLabel}
-                </Link>
-              </Text>
-            </View>
-            <Text style={s.itemDesc}>{project.description}</Text>
-            {project.bullets.map((b) => (
-              <Bullet key={b} s={s}>
-                {b}
-              </Bullet>
-            ))}
-          </View>
         ))}
 
         {/* Experiência */}
@@ -301,24 +276,48 @@ export function ResumeDocument({
               </Bullet>
             ))}
             <Text style={s.stack}>
-              <Text style={s.bold}>Stack: </Text>
+              <Text style={s.bold}>Tecnologias: </Text>
               {job.stack}
             </Text>
           </View>
         ))}
-        <Text style={s.earlier}>
-          <Text style={s.bold}>Antes da tecnologia: </Text>
-          {resumeEarlierCareer}
-        </Text>
 
-        {/* Educação, certificações e idiomas */}
+        {/* Projeto técnico */}
+        <Text style={s.h2}>Projeto Técnico</Text>
+        {resumeProjects.map((project) => (
+          <View key={project.name} wrap={false}>
+            <View style={s.itemHead}>
+              <Text style={s.itemTitle}>
+                <Text style={s.bold}>{project.name}</Text>
+                {` | ${project.tech}`}
+              </Text>
+            </View>
+            <Text style={s.itemDesc}>
+              {"GitHub: "}
+              <Link src={project.href} style={s.link}>
+                {project.linkLabel}
+              </Link>
+            </Text>
+            {project.bullets.map((b) => (
+              <Bullet key={b} s={s}>
+                {b}
+              </Bullet>
+            ))}
+          </View>
+        ))}
+
+        {/* Formação, certificações e idiomas */}
         <View wrap={false}>
-          <Text style={s.h2}>Educação, Certificações e Idiomas</Text>
-          <Bullet s={s}>
+          <Text style={s.h2}>Formação Acadêmica</Text>
+          <Text style={s.labeled}>
             {education.degree} — {education.school}.
-          </Bullet>
-          <Bullet s={s}>Certificações: {certifications.join(", ")}.</Bullet>
-          <Bullet s={s}>{languages}</Bullet>
+          </Text>
+
+          <Text style={s.h2}>Certificações e Cursos</Text>
+          <Text style={s.labeled}>{certifications.join("; ")}.</Text>
+
+          <Text style={s.h2}>Idiomas</Text>
+          <Text style={s.labeled}>{languages}</Text>
 
           <View style={s.qrBlock}>
             <PdfImage src={qrDataUrl} style={s.qrImage} />

@@ -2,34 +2,44 @@ export const SITE_URL = "https://warley-portfolio.vercel.app";
 
 export const siteDomainLabel = SITE_URL.replace(/^https?:\/\//, "");
 
-export const resumeRole = "Engenheiro de Software Full Stack";
+export const resumeRole = "Engenheiro de Software | Desenvolvedor Full Stack";
+
+export const resumeHeadline =
+  "Frontend | Backend | TypeScript | React | Next.js | Node.js";
 
 export const resumeLocation = "Anápolis, GO";
 
+export const resumeSummary =
+  "Engenheiro de Software Full Stack com experiência em desenvolvimento de software, aplicações web, dashboards industriais, APIs REST, integração de sistemas e automação de processos. Atuo com TypeScript, JavaScript, React, Next.js, Vue.js, Node.js, Fastify e PostgreSQL. Experiência em soluções para Indústria 4.0, sistemas OEE, comunicação com equipamentos industriais e desenvolvimento de relatórios operacionais. Contribuí para reduzir o tempo de um fechamento operacional de aproximadamente 60 para 20 minutos.";
+
 export const resumeSkills = [
   {
-    label: "Front-end e mobile:",
+    label: "Frontend e desenvolvimento web:",
     items:
-      "TypeScript, JavaScript, React, Next.js, React Native, Tailwind CSS, shadcn/ui, TanStack Query, React Hook Form, Zod, PWA.",
+      "TypeScript, JavaScript, React, Next.js, React Native, Vue.js, Tailwind CSS, shadcn/ui, TanStack Query, React Hook Form, Zod, PWA.",
   },
   {
-    label: "Back-end e dados:",
+    label: "Backend e APIs:",
     items:
-      "Node.js, Fastify, APIs REST, Microsserviços, Prisma ORM, PostgreSQL, Better Auth, OpenAPI (Swagger), Orval.",
+      "Node.js, Fastify, APIs REST, microsserviços, integração de sistemas, Prisma ORM, Better Auth, OpenAPI (Swagger), Orval.",
+  },
+  {
+    label: "Banco de dados:",
+    items: "PostgreSQL, modelagem e acesso a dados com Prisma ORM.",
   },
   {
     label: "Integrações:",
-    items: "WhatsApp, Google Calendar API, Stripe, Gemini.",
+    items: "WhatsApp, Google Calendar API, Stripe.",
   },
   {
-    label: "Infra e ferramentas:",
+    label: "Ferramentas e infraestrutura:",
     items: "Docker, Git, GitHub, Vercel, Railway, Hetzner, Neon, pnpm.",
   },
-];
-
-export const resumeObjective = [
-  "Engenheiro de Software Full Stack com 5+ anos de experiência, atuando de ponta a ponta: arquitetura, modelagem de dados, APIs, integrações, deploy e manutenção em produção.",
-  "Busco oportunidades como Software Engineer, Backend Engineer ou Full Stack Engineer, em regime PJ ou CLT, em times de produto e engenharia.",
+  {
+    label: "Domínios e soluções:",
+    items:
+      "desenvolvimento de software, aplicações web, Indústria 4.0, sistemas OEE, dashboards, controle de acesso, automação de processos, relatórios PDF e Excel, integração com equipamentos industriais.",
+  },
 ];
 
 export type ResumeProject = {
@@ -37,34 +47,18 @@ export type ResumeProject = {
   tech: string;
   href: string;
   linkLabel: string;
-  description: string;
   bullets: string[];
 };
 
 export const resumeProjects: ResumeProject[] = [
   {
-    name: "Servix",
-    tech: "Next.js, Fastify, Prisma, PostgreSQL, Stripe",
-    href: "https://www.servix.app.br",
-    linkLabel: "servix.app.br",
-    description:
-      "SaaS multi-tenant de agendamento para salões, barbearias e clínicas de estética (desde 2026).",
-    bullets: [
-      "Em produção em 5 negócios, com ~90% menos faltas (no-shows) graças a lembretes automáticos via WhatsApp e sincronização com Google Calendar.",
-      "Microsserviço em Node.js (Fastify + Baileys) que conecta o WhatsApp de cada profissional e envia a agenda para grupos.",
-      "Reservas multisserviço atômicas com Prisma $transaction e pagamentos via Stripe.",
-    ],
-  },
-  {
     name: "Products API e Frontend",
     tech: "Fastify, Prisma, Next.js, TanStack Query",
     href: "https://github.com/WarleyCoutinho/api-products",
     linkLabel: "github.com/WarleyCoutinho/api-products",
-    description:
-      "Projeto de referência técnica: API REST e painel web para gestão de produtos.",
     bullets: [
-      "Autenticação por sessão com Better Auth, validação com Zod e documentação OpenAPI.",
-      "Cliente de API tipado gerado do OpenAPI com Orval e backend em camadas com verificação de ownership por recurso.",
+      "Desenvolvi uma API REST e um painel web de gestão de produtos, com autenticação por sessão via Better Auth, validação de dados com Zod e documentação OpenAPI.",
+      "Implementei cliente tipado com Orval e backend organizado em camadas, com verificação de propriedade dos recursos.",
     ],
   },
 ];
@@ -80,27 +74,16 @@ export type ResumeJob = {
 
 export const resumeJobs: ResumeJob[] = [
   {
-    company: "Autônomo",
-    role: "Engenheiro de Software Full Stack",
-    place: "Anápolis, GO",
-    period: "2026 – atual",
-    bullets: [
-      "Desde 2026, desenvolvo software de ponta a ponta: web e mobile (React Native), APIs, banco de dados, integrações e deploy.",
-      "Criei e mantenho o Servix (web e API), em produção em 5 negócios, com ~90% menos faltas.",
-      "Projetos sob demanda para pequenos negócios (sites, e-commerces e agendamento), do levantamento de requisitos ao deploy.",
-    ],
-    stack:
-      "TypeScript, Next.js, React Native, Node.js, Prisma, PostgreSQL, Better Auth.",
-  },
-  {
     company: "Rancheiro",
     role: "Analista de Sistemas Pleno",
     place: "Anápolis, GO",
-    period: "mai 2023 – mar 2026",
+    period: "mai/2023 – mar/2026",
     bullets: [
-      "Soluções para Indústria 4.0: dashboards de produção, estoque e controle de acesso com Next.js, React e TypeScript sobre APIs Python.",
-      "APIs e integrações em Node.js, inclusive com equipamentos industriais.",
-      "Automatizei um fechamento operacional de ~1h para ~20 min e criei relatórios por turno, dia e mês (PDF e Excel).",
+      "Reduzi o tempo de fechamento operacional de aproximadamente 60 para 20 minutos por meio da automação do processo.",
+      "Desenvolvi dashboards web de produção, estoque e controle de acesso para soluções de Indústria 4.0, utilizando Next.js, React e TypeScript.",
+      "Desenvolvi APIs e integrações em Node.js, incluindo comunicação com equipamentos industriais.",
+      "Integrei aplicações frontend a APIs desenvolvidas em Python, consumindo endpoints disponibilizados pela equipe responsável pelo backend.",
+      "Desenvolvi relatórios operacionais por turno, dia e mês, com exportação para PDF e Excel.",
     ],
     stack:
       "Next.js, React, TypeScript, Node.js, PostgreSQL, Prisma, Tailwind CSS, shadcn/ui.",
@@ -109,32 +92,29 @@ export const resumeJobs: ResumeJob[] = [
     company: "Avaloon",
     role: "Desenvolvedor de Sistemas",
     place: "Goiânia, GO",
-    period: "fev 2022 – mai 2023",
+    period: "fev/2022 – mai/2023",
     bullets: [
-      "Sistema OEE para Indústria 4.0: microsserviços de coleta direto das máquinas, APIs REST e integrações.",
-      "Correção de gargalos e problemas de performance, com redução de até 70% das ocorrências identificadas.",
+      "Atuei em sistema OEE para Indústria 4.0, envolvendo microsserviços de coleta de dados de máquinas, APIs REST e integrações.",
+      "Identifiquei e corrigi gargalos e problemas de desempenho em sistemas OEE.",
     ],
     stack:
-      "Node.js, Vue.js, TypeScript, JavaScript, PostgreSQL, Microsserviços.",
+      "Node.js, Vue.js, TypeScript, JavaScript, PostgreSQL, microsserviços.",
   },
   {
     company: "Fábrica de Tecnologias Turing",
     role: "Desenvolvedor Full Stack",
     place: "Anápolis, GO",
-    period: "ago 2021 – set 2021",
+    period: "ago/2021 – set/2021",
     bullets: [
-      "Primeira experiência prática: sistema para um colégio, planejado e construído do zero em equipe (requisitos, regras de negócio, front-end, back-end, APIs, banco de dados e Docker).",
+      "Participei do planejamento e desenvolvimento em equipe de um sistema para um colégio, abrangendo requisitos, regras de negócio, frontend, backend, APIs e banco de dados.",
     ],
     stack: "Laravel, Angular, Spring Boot, Java, PHP, PostgreSQL, Docker.",
   },
 ];
 
-export const resumeEarlierCareer =
-  "Soldador na Kingspan Isoeste (2016–2021) e almoxarife / comerciante varejista na ASE Eldorado Distribuição (2008–2016).";
-
 export const education = {
   degree: "Bacharelado em Engenharia de Software",
-  school: "UniEVANGÉLICA (2018–2022)",
+  school: "UniEVANGÉLICA | 2018–2022",
 };
 
 export const certifications = [
@@ -146,4 +126,4 @@ export const certifications = [
   "Clean Code",
 ];
 
-export const languages = "Português: nativo. Inglês: básico.";
+export const languages = "Português nativo | Inglês básico.";
