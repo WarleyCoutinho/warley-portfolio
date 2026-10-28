@@ -42,7 +42,7 @@ export function About() {
             accent="Warley Coutinho."
             id="sobre-title"
           >
-            Olá, eu sou o
+            Olá, eu sou
           </SectionHeading>
           <div className="mt-8 space-y-5 text-[17px] leading-relaxed text-ink-2">
             {ABOUT_PARAGRAPHS.slice(0, 2).map((paragraph, i) => (

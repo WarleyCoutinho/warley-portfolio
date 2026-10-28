@@ -26,7 +26,7 @@ export const PROFILE = {
     "Engenheiro de Software com experiência em aplicações web, APIs REST, integração de sistemas e automação de processos, com atuação em soluções para Indústria 4.0.",
   /** Texto falado no vídeo do hero (vira a transcrição acessível). Confira se bate com o áudio. */
   introTranscript:
-    "Olá, eu sou o Warley Coutinho. Sou engenheiro de software full stack e construo produtos web, APIs e sistemas do início ao fim.",
+    "Olá, eu sou Warley Coutinho. Sou engenheiro de software full stack e construo produtos web, APIs e sistemas do início ao fim.",
 } as const;
 
 export const NAV = [
@@ -312,7 +312,28 @@ export const RESULTS: readonly ResultItem[] = [
     decimals: 1,
     label: "anos de experiência",
     caption: "em desenvolvimento de software",
-    detail: "Sistemas e Indústria 4.0 · 2021–2026",
+    detail: "Sistemas e Indústria 4.0",
+  },
+  {
+    id: "negocios",
+    context: "SX",
+    from: 0,
+    to: 5,
+    suffix: "",
+    label: "negócios em produção",
+    caption: "usando o Servix, meu SaaS de agendamento",
+    detail: "Salões, barbearias e clínicas de estética",
+  },
+  {
+    id: "faltas",
+    context: "SX",
+    from: 0,
+    to: 90,
+    prefix: "~",
+    suffix: "%",
+    label: "menos faltas (no-shows)",
+    caption: "com lembretes via WhatsApp e Google Calendar",
+    detail: "Servix · desde 2026",
   },
   {
     id: "fechamento",
@@ -412,5 +433,43 @@ export const PROJECTS: Project[] = [
       "Swagger",
     ],
     repoUrl: "https://github.com/WarleyCoutinho/api-products.git",
+  },
+  {
+    kicker: "produto próprio em produção · saas",
+    title: "Servix",
+    description:
+      "Plataforma SaaS de agendamento para salões, barbearias e clínicas de estética, desenvolvida e mantida por mim e em produção em 5 negócios desde 2026. Front-end e back-end construídos inteiramente em Next.js, com Prisma e PostgreSQL e integração com o Google Calendar. Apenas o microsserviço do WhatsApp é separado: em Node.js, com API em Fastify e Baileys.",
+    features: [
+      {
+        title: "Lembretes via WhatsApp",
+        description:
+          "microsserviço independente (Node.js + Baileys), com cerca de 90% menos faltas",
+      },
+      {
+        title: "Google Calendar",
+        description: "sincronização da agenda de cada profissional",
+      },
+      {
+        title: "Reservas atômicas",
+        description:
+          "reservas com vários serviços usando Prisma $transaction e controle de concorrência por profissional",
+      },
+      {
+        title: "Autenticação segura",
+        description: "sessão via Better Auth, pronta para produção",
+      },
+    ],
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Prisma",
+      "PostgreSQL",
+      "Better Auth",
+      "Baileys",
+    ],
+    /*  liveUrl: "https://www.servix.app.br/", */
+    liveLabel: "Ver produto ao vivo ↗",
+    repoUrl: "https://github.com/WarleyCoutinho/servix",
   },
 ];
