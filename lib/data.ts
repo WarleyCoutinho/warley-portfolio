@@ -1,9 +1,11 @@
+import { resumeRole } from "./resume-content";
+
 export { SITE_URL } from "./resume-content";
 
 export const PROFILE = {
   name: "Warley Coutinho",
   initials: "WC",
-  role: "Engenheiro de Software Full Stack",
+  role: resumeRole,
   location: "Anápolis, Goiás — Brasil",
   locationShort: "Anápolis, GO",
   email: "warleycoutinho@icloud.com",
@@ -21,7 +23,7 @@ export const PROFILE = {
   studioLabel: "adapticode.com.br",
   resume: "/curriculo/Warley_Coutinho_Curriculo_ATS.pdf",
   resumeSummary:
-    "Engenheiro de Software Full Stack com 5+ anos de experiência, atuando de ponta a ponta: arquitetura, modelagem de dados, APIs, integrações, deploy e manutenção em produção.",
+    "Engenheiro de Software com experiência em aplicações web, APIs REST, integração de sistemas e automação de processos, com atuação em soluções para Indústria 4.0.",
   /** Texto falado no vídeo do hero (vira a transcrição acessível). Confira se bate com o áudio. */
   introTranscript:
     "Olá, eu sou o Warley Coutinho. Sou engenheiro de software full stack e construo produtos web, APIs e sistemas do início ao fim.",
@@ -42,19 +44,19 @@ export const HERO_META = [
     k: "foco atual",
     v: "Software Engineering — Node.js, TypeScript & Next.js",
   },
-  { k: "experiência", v: "5+ anos em desenvolvimento de software" },
+  { k: "experiência", v: "4,5 anos em desenvolvimento de software" },
   { k: "formação", v: "Eng. de Software — UniEVANGÉLICA" },
 ] as const;
 
 export const FACTS = {
   location: "Anápolis, GO — Brasil",
   education: "Eng. de Software, UniEVANGÉLICA (2018–2022)",
-  current: "Autônomo, desde 2026",
+  last: "Analista de Sistemas Pleno · Rancheiro (até 03/2026)",
   availability: "Aberto a oportunidades CLT ou PJ",
 } as const;
 
 export const QUOTE =
-  "Do chão de fábrica a SaaS próprio e sistemas de Indústria 4.0.";
+  "Software para a indústria: dashboards, APIs e automação de processos.";
 
 export const EDUCATION = {
   degree: "Bacharelado em Engenharia de Software",
@@ -72,14 +74,12 @@ export const CERTIFICATIONS: readonly string[] = [
 ];
 
 export const ABOUT_PARAGRAPHS = [
-  "Sou Engenheiro de Software Full Stack com 5+ anos de experiência em desenvolvimento de software, com foco em TypeScript, Node.js, Next.js e React.",
-  "Atuo no desenvolvimento de produtos e sistemas de ponta a ponta, desde arquitetura, modelagem de dados e desenvolvimento de APIs até integrações, deploy e manutenção em produção.",
-  "Desde 2026, de forma independente, desenvolvo produtos web, além de apps mobile (iOS e Android) com React Native quando o projeto pede, e trabalho diretamente com arquitetura, backend, banco de dados, integrações e produção. Meu principal projeto é o Servix, plataforma SaaS de agendamento para salões, barbearias e clínicas de estética, em produção desde 2026 em 5 negócios, com web (Next.js) e API (Fastify, Prisma, PostgreSQL). Também entrego projetos sob demanda para pequenos negócios, do levantamento de requisitos ao deploy.",
-  "No Servix, implementei lembretes automáticos via WhatsApp e sincronização com Google Calendar, contribuindo para uma redução de aproximadamente 90% nas faltas (no-shows). Também implementei reservas multisserviço atômicas utilizando Prisma $transaction.",
-  "Na Rancheiro, desenvolvi soluções para Indústria 4.0, incluindo dashboards de produção, estoque e controle de acesso, APIs, integrações com sistemas e equipamentos industriais e automações. Um processo de fechamento operacional foi reduzido de aproximadamente 1 hora para cerca de 20 minutos.",
-  "Na Avaloon, trabalhei com sistemas OEE para Indústria 4.0, APIs REST, microsserviços de coleta de dados diretamente das máquinas e otimização de performance, contribuindo para reduzir em até 70% as ocorrências identificadas.",
+  "Sou Engenheiro de Software com experiência em desenvolvimento de aplicações web, APIs REST, integração de sistemas e automação de processos, com foco em TypeScript, Node.js, Next.js e React.",
+  "Atuo no frontend e no backend, desenvolvendo dashboards web, APIs e integrações, incluindo comunicação com equipamentos industriais, em soluções para Indústria 4.0.",
+  "Na Rancheiro, como Analista de Sistemas Pleno, desenvolvi dashboards de produção, estoque e controle de acesso, APIs e integrações em Node.js e relatórios operacionais em PDF e Excel. Contribuí para reduzir o tempo de fechamento operacional de aproximadamente 1 hora para 20 minutos, por meio da automação de processos.",
+  "Na Avaloon, atuei em sistema OEE para Indústria 4.0, com microsserviços de coleta de dados das máquinas, APIs REST e integrações, além da identificação e correção de gargalos e problemas de desempenho.",
   "Minha stack principal inclui TypeScript, Node.js, Fastify, Next.js, React, React Native, Prisma, PostgreSQL, REST APIs, Microservices, Docker, Git, Vercel, Tailwind CSS e shadcn/ui.",
-  "Busco oportunidades como Software Engineer, Backend Engineer ou Full Stack Engineer, em regime CLT ou PJ, especialmente em times de produto e engenharia que valorizem arquitetura, automação, performance e desenvolvimento de produtos. Meus projetos próprios, como o Servix, me mantêm em contato com o produto de ponta a ponta.",
+  "Busco oportunidades como Software Engineer, Backend Engineer ou Full Stack Engineer, em regime CLT ou PJ, especialmente em times de produto e engenharia que valorizem arquitetura, automação, performance e desenvolvimento de produtos.",
 ];
 
 /* ───────────────────────── Stack (tabela periódica) ───────────────────────── */
@@ -221,14 +221,6 @@ export type TimelineItem = {
 
 export const TIMELINE: readonly TimelineItem[] = [
   {
-    id: "ase",
-    kind: "work",
-    period: "2008 — 2016",
-    title: "Almoxarife / comerciante varejista",
-    place: "ASE Eldorado Distribuição",
-  },
-
-  {
     id: "unievangelica",
     kind: "education",
     period: "2018 — 2022",
@@ -236,13 +228,6 @@ export const TIMELINE: readonly TimelineItem[] = [
     place: EDUCATION.school,
   },
 
-  {
-    id: "kingspan",
-    kind: "work",
-    period: "2016 — 2021",
-    title: "Soldador",
-    place: "Kingspan Isoeste",
-  },
   {
     id: "turing",
     kind: "work",
@@ -298,23 +283,6 @@ export const TIMELINE: readonly TimelineItem[] = [
       "shadcn/ui",
     ],
   },
-  {
-    id: "autonomo",
-    kind: "work",
-    period: "2026 — atual",
-    title: "Engenheiro de Software Full Stack",
-    place: "Autônomo · Projetos próprios e sob demanda · Anápolis, GO",
-    detail:
-      "Desde 2026, desenvolvo software de ponta a ponta de forma independente — aplicações web, apps mobile com React Native (sob demanda), APIs, bancos de dados, integrações, deploy e manutenção em produção. Principal projeto: o Servix, plataforma SaaS própria de agendamento para salões, barbearias e clínicas de estética, em produção desde 2026 em 5 negócios, com web (Next.js) e API (Fastify, Prisma, PostgreSQL). Reduzi em ~90% as faltas (no-shows) com lembretes automáticos via WhatsApp e sincronização com o Google Calendar, e evitei conflitos de horário com reservas multisserviço atômicas (Prisma $transaction) e controle de concorrência por profissional. Também entrego projetos sob demanda — sites institucionais, e-commerces e sistemas de agendamento para pequenos negócios — do levantamento de requisitos ao deploy.",
-    tags: [
-      "TypeScript",
-      "Next.js",
-      "Fastify",
-      "Prisma",
-      "PostgreSQL",
-      "Better Auth",
-    ],
-  },
 ];
 
 /* ───────────────────────── Resultados ───────────────────────── */
@@ -327,6 +295,8 @@ export type ResultItem = {
   to: number;
   prefix?: string;
   suffix: string;
+  /** Casas decimais exibidas no contador (padrão: 0). */
+  decimals?: number;
   label: string;
   caption: string;
   detail: string;
@@ -337,32 +307,12 @@ export const RESULTS: readonly ResultItem[] = [
     id: "anos",
     context: "DEV",
     from: 0,
-    to: 5,
-    suffix: "+",
+    to: 4.5,
+    suffix: "",
+    decimals: 1,
     label: "anos de experiência",
     caption: "em desenvolvimento de software",
-    detail: "Do chão de fábrica à engenharia de software",
-  },
-  {
-    id: "negocios",
-    context: "SX",
-    from: 0,
-    to: 5,
-    suffix: "",
-    label: "negócios em produção",
-    caption: "usando o Servix, meu SaaS de agendamento",
-    detail: "Salões, barbearias e clínicas de estética",
-  },
-  {
-    id: "faltas",
-    context: "SX",
-    from: 0,
-    to: 90,
-    prefix: "~",
-    suffix: "%",
-    label: "menos faltas (no-shows)",
-    caption: "com lembretes via WhatsApp e Google Calendar",
-    detail: "Servix · desde 2026",
+    detail: "Sistemas e Indústria 4.0 · 2021–2026",
   },
   {
     id: "fechamento",
@@ -374,17 +324,6 @@ export const RESULTS: readonly ResultItem[] = [
     label: "de fechamento operacional",
     caption: "que levava ~1h antes da automação",
     detail: "Rancheiro · Indústria 4.0",
-  },
-  {
-    id: "ocorrencias",
-    context: "AV",
-    from: 0,
-    to: 70,
-    prefix: "até ",
-    suffix: "%",
-    label: "menos ocorrências identificadas",
-    caption: "com correção de gargalos e performance",
-    detail: "Avaloon · sistema OEE",
   },
 ];
 
@@ -402,44 +341,6 @@ export type Project = {
 };
 
 export const PROJECTS: Project[] = [
-  {
-    kicker: "produto próprio em produção · saas",
-    title: "Servix",
-    description:
-      "Plataforma SaaS de agendamento para salões, barbearias e clínicas de estética, desenvolvida e mantida por mim e em produção desde 2026 em 5 negócios. Front-end e back-end construídos inteiramente em Next.js, com Prisma e PostgreSQL e integração ao Google Calendar. Só o microsserviço do WhatsApp é separado: em Node.js, com API em Fastify e Baileys.",
-    features: [
-      {
-        title: "Lembretes via WhatsApp",
-        description:
-          "microserviço independente (Node.js + Baileys) — cerca de 90% menos faltas",
-      },
-      {
-        title: "Google Calendar",
-        description: "sincronização da agenda de cada profissional",
-      },
-      {
-        title: "Reservas atômicas",
-        description:
-          "multisserviço com Prisma $transaction e controle de concorrência por profissional",
-      },
-      {
-        title: "Autenticação segura",
-        description: "sessão via Better Auth, pronta pra produção",
-      },
-    ],
-    stack: [
-      "Next.js",
-      "TypeScript",
-      "Node.js",
-      "Prisma",
-      "PostgreSQL",
-      "Better Auth",
-      "Baileys",
-    ],
-    /*  liveUrl: "https://www.servix.app.br/", */
-    liveLabel: "Ver produto ao vivo ↗",
-    repoUrl: "https://github.com/WarleyCoutinho/servix",
-  },
   {
     kicker: "app mobile-first · next.js 16 + react 19",
     title: "Products App",

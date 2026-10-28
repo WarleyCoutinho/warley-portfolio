@@ -39,17 +39,18 @@ const jetbrainsMono = localFont({
 
 const THEME_SCRIPT = `(function(){try{var t=localStorage.getItem("theme");var d=t==="dark"||(t!=="light"&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(d)document.documentElement.classList.add("dark")}catch(e){}})()`;
 
-const TITLE = "Warley Coutinho — Engenheiro de Software Full Stack";
+const TITLE =
+  "Warley Coutinho — Engenheiro de Software | Desenvolvedor de Sistemas";
 
 export const metadata: Metadata = {
   title: TITLE,
   description:
-    "Engenheiro de Software Full Stack com 5+ anos de experiência em TypeScript, Node.js, Next.js e Fastify. Do chão de fábrica a SaaS próprio e sistemas de Indústria 4.0.",
+    "Engenheiro de Software com experiência em TypeScript, Node.js, Next.js e Fastify, aplicações web, APIs REST e soluções para Indústria 4.0.",
   metadataBase: new URL(SITE_URL),
   openGraph: {
     title: TITLE,
     description:
-      "Engenheiro de Software Full Stack com 5+ anos de experiência em TypeScript, Node.js, Next.js e Fastify.",
+      "Engenheiro de Software com experiência em TypeScript, Node.js, Next.js e Fastify, aplicações web, APIs REST e soluções para Indústria 4.0.",
     locale: "pt_BR",
     type: "website",
     images: [{ url: "/og.jpg", width: 1200, height: 630, alt: TITLE }],

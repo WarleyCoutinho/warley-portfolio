@@ -20,17 +20,17 @@ const BARCODE = [
 ];
 
 const FRONT_ROWS = [
-  { k: "Foco", v: "Full Stack · Node.js · TypeScript" },
+  { k: "Foco", v: "Node.js · TypeScript · Next.js" },
   { k: "Local", v: PROFILE.locationShort },
   { k: "Formação", v: "Eng. de Software · 2022" },
 ] as const;
 
 const BACK_LINES = [
   PROFILE.role,
-  "5+ anos de experiência em desenvolvimento de software",
+  "4,5 anos de experiência em desenvolvimento de software",
   `${EDUCATION.degree} (${EDUCATION.school})`,
-  "Servix em produção em 5 negócios",
-  "~90% menos faltas (no-shows) com lembretes automáticos",
+  "Indústria 4.0: dashboards, APIs e sistemas OEE",
+  "Fechamento operacional de ~1 h para 20 min com automação",
 ] as const;
 
 export function IdCard() {

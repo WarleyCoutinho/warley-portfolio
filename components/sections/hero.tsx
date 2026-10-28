@@ -20,9 +20,8 @@ export function Hero() {
             className="h-display text-[clamp(2.4rem,4.2vw,4.4rem)]"
           >
             <RevealMask>Engenheiro de</RevealMask>
-            <RevealMask index={1}>Software</RevealMask>
-            <RevealMask index={2}>
-              <span className="accent">Full Stack.</span>
+            <RevealMask index={1}>
+              <span className="accent">Software.</span>
             </RevealMask>
           </h1>
           <Reveal index={3}>

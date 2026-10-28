@@ -14,15 +14,7 @@ import { cn } from "@/lib/utils";
 
 const LONG_TEXT = 220;
 
-const ORDER = [
-  "autonomo",
-  "rancheiro",
-  "avaloon",
-  "unievangelica",
-  "turing",
-  "kingspan",
-  "ase",
-];
+const ORDER = ["rancheiro", "avaloon", "unievangelica", "turing"];
 const ITEMS = [...TIMELINE].sort(
   (a, b) => ORDER.indexOf(a.id) - ORDER.indexOf(b.id),
 );

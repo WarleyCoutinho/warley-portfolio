@@ -63,11 +63,11 @@ function makeStyles(t: Theme) {
       backgroundColor: t.bg,
       color: t.text,
       fontFamily: "Helvetica",
-      fontSize: 8.8,
-      lineHeight: 1.3,
-      paddingTop: 26,
+      fontSize: 8.6,
+      lineHeight: 1.28,
+      paddingTop: 22,
       paddingHorizontal: 32,
-      paddingBottom: 34,
+      paddingBottom: 30,
     },
 
     headerRow: {
@@ -124,14 +124,14 @@ function makeStyles(t: Theme) {
       borderBottomColor: t.amber,
       borderBottomStyle: "solid",
       paddingBottom: 2,
-      marginTop: 10,
-      marginBottom: 5,
+      marginTop: 7,
+      marginBottom: 3.5,
     },
-    labeled: { marginBottom: 1.5, color: t.textDim },
+    labeled: { marginBottom: 1, color: t.textDim },
     bold: { fontFamily: "Helvetica-Bold", color: t.text },
     italic: { fontFamily: "Helvetica-Oblique" },
 
-    bullet: { flexDirection: "row", marginBottom: 1.5, paddingLeft: 8 },
+    bullet: { flexDirection: "row", marginBottom: 1, paddingLeft: 8 },
     bulletDot: { width: 10, color: t.amber },
     bulletText: { flex: 1, color: t.textDim },
 
@@ -139,7 +139,7 @@ function makeStyles(t: Theme) {
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "flex-start",
-      marginTop: 5,
+      marginTop: 3.5,
       marginBottom: 1,
     },
     itemTitle: { flex: 1, paddingRight: 8, fontSize: 9.4, color: t.textDim },
@@ -161,8 +161,8 @@ function makeStyles(t: Theme) {
     },
     earlier: { marginTop: 6, color: t.textDim },
 
-    qrBlock: { flexDirection: "row", alignItems: "center", marginTop: 8 },
-    qrImage: { width: 34, height: 34, marginRight: 8, borderRadius: 2 },
+    qrBlock: { flexDirection: "row", alignItems: "center", marginTop: 6 },
+    qrImage: { width: 32, height: 32, marginRight: 8, borderRadius: 2 },
     qrLabel: {
       fontSize: 7.5,
       color: t.textFaint,
@@ -265,8 +265,8 @@ export function ResumeDocument({
           <View key={job.company + job.period} wrap={false}>
             <View style={s.itemHead}>
               <Text style={s.itemTitle}>
-                <Text style={s.bold}>{job.company}</Text>
-                {` | ${job.role} | ${job.place}`}
+                <Text style={s.bold}>{job.role}</Text>
+                {` | ${job.company} | ${job.place}`}
               </Text>
               <Text style={s.itemDate}>{job.period}</Text>
             </View>
@@ -289,15 +289,12 @@ export function ResumeDocument({
             <View style={s.itemHead}>
               <Text style={s.itemTitle}>
                 <Text style={s.bold}>{project.name}</Text>
-                {` | ${project.tech}`}
+                {` | ${project.tech} | `}
+                <Link src={project.href} style={s.link}>
+                  {project.linkLabel}
+                </Link>
               </Text>
             </View>
-            <Text style={s.itemDesc}>
-              {"GitHub: "}
-              <Link src={project.href} style={s.link}>
-                {project.linkLabel}
-              </Link>
-            </Text>
             {project.bullets.map((b) => (
               <Bullet key={b} s={s}>
                 {b}
@@ -310,14 +307,19 @@ export function ResumeDocument({
         <View wrap={false}>
           <Text style={s.h2}>Formação Acadêmica</Text>
           <Text style={s.labeled}>
-            {education.degree} — {education.school}.
+            <Text style={s.bold}>{education.degree}</Text>
+            {` | ${education.school} | ${education.period}`}
           </Text>
 
-          <Text style={s.h2}>Certificações e Cursos</Text>
-          <Text style={s.labeled}>{certifications.join("; ")}.</Text>
-
-          <Text style={s.h2}>Idiomas</Text>
-          <Text style={s.labeled}>{languages}</Text>
+          <Text style={s.h2}>Certificações, Cursos e Idiomas</Text>
+          <Text style={s.labeled}>
+            <Text style={s.bold}>Cursos: </Text>
+            {certifications.join("; ")}.
+          </Text>
+          <Text style={s.labeled}>
+            <Text style={s.bold}>Idiomas: </Text>
+            {languages}
+          </Text>
 
           <View style={s.qrBlock}>
             <PdfImage src={qrDataUrl} style={s.qrImage} />

@@ -2,7 +2,7 @@
 
 # Warley Coutinho — Portfólio
 
-**Engenheiro de Software Full Stack · um portfólio onde o personagem fala com você.**
+**Engenheiro de Software | Desenvolvedor de Sistemas · um portfólio onde o personagem fala com você.**
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-000?logo=nextdotjs&logoColor=white)](https://nextjs.org)
 [![React](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)](https://react.dev)

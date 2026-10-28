@@ -2,43 +2,43 @@ export const SITE_URL = "https://warley-portfolio.vercel.app";
 
 export const siteDomainLabel = SITE_URL.replace(/^https?:\/\//, "");
 
-export const resumeRole = "Engenheiro de Software | Desenvolvedor Full Stack";
+/* Fonte única do currículo: o PDF gerado na hora (tema escuro/claro) e os
+   arquivos fixos em public/curriculo/ (ATS PDF e DOCX) devem refletir este
+   conteúdo. Ao alterar aqui, regenere os arquivos fixos. */
+
+export const resumeRole = "Engenheiro de Software | Desenvolvedor de Sistemas";
 
 export const resumeHeadline =
-  "Frontend | Backend | TypeScript | React | Next.js | Node.js";
+  "Aplicações Web | APIs REST | Integração de Sistemas | Indústria 4.0";
 
-export const resumeLocation = "Anápolis, GO";
+export const resumeLocation = "Anápolis, Goiás, Brasil";
 
 export const resumeSummary =
-  "Engenheiro de Software Full Stack com experiência em desenvolvimento de software, aplicações web, dashboards industriais, APIs REST, integração de sistemas e automação de processos. Atuo com TypeScript, JavaScript, React, Next.js, Vue.js, Node.js, Fastify e PostgreSQL. Experiência em soluções para Indústria 4.0, sistemas OEE, comunicação com equipamentos industriais e desenvolvimento de relatórios operacionais. Contribuí para reduzir o tempo de um fechamento operacional de aproximadamente 60 para 20 minutos.";
+  "Engenheiro de Software com experiência em aplicações web, APIs REST, integração de sistemas e automação de processos. Atuação em soluções para Indústria 4.0: dashboards de produção e estoque, sistemas OEE (Overall Equipment Effectiveness), microsserviços de coleta de dados e comunicação com equipamentos industriais. Experiência com TypeScript, React, Next.js e Node.js, em frontend e backend, e relatórios operacionais em PDF e Excel. Contribuição para reduzir o fechamento operacional de aproximadamente 1 hora para 20 minutos.";
 
 export const resumeSkills = [
   {
-    label: "Frontend e desenvolvimento web:",
+    label: "Linguagens e frontend:",
     items:
-      "TypeScript, JavaScript, React, Next.js, React Native, Vue.js, Tailwind CSS, shadcn/ui, TanStack Query, React Hook Form, Zod, PWA.",
+      "TypeScript, JavaScript, React, Next.js, Vue.js, React Native, Tailwind CSS, shadcn/ui, TanStack Query, React Hook Form, Zod, PWA",
   },
   {
     label: "Backend e APIs:",
     items:
-      "Node.js, Fastify, APIs REST, microsserviços, integração de sistemas, Prisma ORM, Better Auth, OpenAPI (Swagger), Orval.",
+      "Node.js, Fastify, APIs REST, microsserviços, integração de sistemas, Better Auth, OpenAPI (Swagger), Orval",
   },
   {
-    label: "Banco de dados:",
-    items: "PostgreSQL, modelagem e acesso a dados com Prisma ORM.",
-  },
-  {
-    label: "Integrações:",
-    items: "WhatsApp, Google Calendar API, Stripe.",
+    label: "Banco de dados e integrações:",
+    items:
+      "PostgreSQL, Prisma ORM, WhatsApp, Google Calendar API, Stripe",
   },
   {
     label: "Ferramentas e infraestrutura:",
-    items: "Docker, Git, GitHub, Vercel, Railway, Hetzner, Neon, pnpm.",
+    items: "Docker, Git, GitHub, Vercel, Railway, Hetzner, Neon, pnpm",
   },
   {
-    label: "Domínios e soluções:",
-    items:
-      "desenvolvimento de software, aplicações web, Indústria 4.0, sistemas OEE, dashboards, controle de acesso, automação de processos, relatórios PDF e Excel, integração com equipamentos industriais.",
+    label: "Outras tecnologias (experiência inicial):",
+    items: "Java, Spring Boot, PHP, Laravel, Angular",
   },
 ];
 
@@ -57,8 +57,8 @@ export const resumeProjects: ResumeProject[] = [
     href: "https://github.com/WarleyCoutinho/api-products",
     linkLabel: "github.com/WarleyCoutinho/api-products",
     bullets: [
-      "Desenvolvi uma API REST e um painel web de gestão de produtos, com autenticação por sessão via Better Auth, validação de dados com Zod e documentação OpenAPI.",
-      "Implementei cliente tipado com Orval e backend organizado em camadas, com verificação de propriedade dos recursos.",
+      "Desenvolvimento de API REST e painel web de gestão de produtos, com autenticação por sessão via Better Auth, validação de dados com Zod e documentação OpenAPI.",
+      "Implementação de cliente tipado com Orval e backend organizado em camadas, com verificação de propriedade dos recursos.",
     ],
   },
 ];
@@ -77,13 +77,13 @@ export const resumeJobs: ResumeJob[] = [
     company: "Rancheiro",
     role: "Analista de Sistemas Pleno",
     place: "Anápolis, GO",
-    period: "mai/2023 – mar/2026",
+    period: "05/2023 – 03/2026",
     bullets: [
-      "Reduzi o tempo de fechamento operacional de aproximadamente 60 para 20 minutos por meio da automação do processo.",
-      "Desenvolvi dashboards web de produção, estoque e controle de acesso para soluções de Indústria 4.0, utilizando Next.js, React e TypeScript.",
-      "Desenvolvi APIs e integrações em Node.js, incluindo comunicação com equipamentos industriais.",
-      "Integrei aplicações frontend a APIs desenvolvidas em Python, consumindo endpoints disponibilizados pela equipe responsável pelo backend.",
-      "Desenvolvi relatórios operacionais por turno, dia e mês, com exportação para PDF e Excel.",
+      "Contribuição para a redução do tempo de fechamento operacional de aproximadamente 1 hora para 20 minutos, por meio da automação de processos.",
+      "Desenvolvimento de dashboards web de produção, gestão de estoque e controle de acesso para soluções de Indústria 4.0, com Next.js, React e TypeScript.",
+      "Desenvolvimento de APIs e integrações em Node.js, incluindo comunicação com equipamentos industriais.",
+      "Integração de aplicações frontend com APIs desenvolvidas em Python pela equipe responsável pelo backend, com consumo dos endpoints disponibilizados.",
+      "Desenvolvimento de relatórios operacionais por turno, dia e mês, com exportação em PDF e Excel.",
     ],
     stack:
       "Next.js, React, TypeScript, Node.js, PostgreSQL, Prisma, Tailwind CSS, shadcn/ui.",
@@ -92,21 +92,21 @@ export const resumeJobs: ResumeJob[] = [
     company: "Avaloon",
     role: "Desenvolvedor de Sistemas",
     place: "Goiânia, GO",
-    period: "fev/2022 – mai/2023",
+    period: "02/2022 – 05/2023",
     bullets: [
-      "Atuei em sistema OEE para Indústria 4.0, envolvendo microsserviços de coleta de dados de máquinas, APIs REST e integrações.",
-      "Identifiquei e corrigi gargalos e problemas de desempenho em sistemas OEE.",
+      "Atuação em sistema OEE (Overall Equipment Effectiveness) para Indústria 4.0, com microsserviços de coleta de dados das máquinas, APIs REST e integrações.",
+      "Identificação e correção de gargalos e problemas de desempenho em sistemas OEE.",
     ],
     stack:
-      "Node.js, Vue.js, TypeScript, JavaScript, PostgreSQL, microsserviços.",
+      "Node.js, TypeScript, JavaScript, Vue.js, PostgreSQL, microsserviços.",
   },
   {
     company: "Fábrica de Tecnologias Turing",
     role: "Desenvolvedor Full Stack",
     place: "Anápolis, GO",
-    period: "ago/2021 – set/2021",
+    period: "08/2021 – 09/2021",
     bullets: [
-      "Participei do planejamento e desenvolvimento em equipe de um sistema para um colégio, abrangendo requisitos, regras de negócio, frontend, backend, APIs e banco de dados.",
+      "Participação, em equipe, no planejamento e desenvolvimento de um sistema para um colégio, incluindo levantamento de requisitos, regras de negócio, frontend, backend, APIs e banco de dados.",
     ],
     stack: "Laravel, Angular, Spring Boot, Java, PHP, PostgreSQL, Docker.",
   },
@@ -114,7 +114,8 @@ export const resumeJobs: ResumeJob[] = [
 
 export const education = {
   degree: "Bacharelado em Engenharia de Software",
-  school: "UniEVANGÉLICA | 2018–2022",
+  school: "UniEVANGÉLICA",
+  period: "2018 – 2022",
 };
 
 export const certifications = [
@@ -126,4 +127,4 @@ export const certifications = [
   "Clean Code",
 ];
 
-export const languages = "Português nativo | Inglês básico.";
+export const languages = "Português (nativo) | Inglês (básico)";

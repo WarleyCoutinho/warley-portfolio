@@ -14,7 +14,7 @@ export function About() {
   const facts: { k: string; v: string; href?: string }[] = [
     { k: "Local", v: FACTS.location },
     { k: "Formação", v: FACTS.education },
-    { k: "Atuação atual", v: FACTS.current },
+    { k: "Última atuação", v: FACTS.last },
     { k: "E-mail", v: PROFILE.email, href: `mailto:${PROFILE.email}` },
     ...(PROFILE.showPhone
       ? [

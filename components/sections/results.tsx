@@ -23,6 +23,13 @@ import { cn } from "@/lib/utils";
 
 const EASE_OUT_QUART = [0.165, 0.84, 0.44, 1] as const;
 
+function formatValue(n: number, decimals = 0): string {
+  return n.toLocaleString("pt-BR", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  });
+}
+
 function CountUp({ item, instant }: { item: ResultItem; instant: boolean }) {
   const ref = useRef<HTMLSpanElement>(null);
   const seen = useInView(ref, { once: true, margin: "0px 0px 0px 0px" });
@@ -33,10 +40,13 @@ function CountUp({ item, instant }: { item: ResultItem; instant: boolean }) {
     const controls = animate(item.from, item.to, {
       duration: 1.4,
       ease: EASE_OUT_QUART,
-      onUpdate: (latest) => setValue(Math.round(latest)),
+      onUpdate: (latest) => {
+        const factor = 10 ** (item.decimals ?? 0);
+        setValue(Math.round(latest * factor) / factor);
+      },
     });
     return () => controls.stop();
-  }, [seen, instant, item.from, item.to]);
+  }, [seen, instant, item.from, item.to, item.decimals]);
 
   const shown = instant ? item.to : value;
   return (
@@ -50,7 +60,7 @@ function CountUp({ item, instant }: { item: ResultItem; instant: boolean }) {
           {item.prefix}
         </span>
       )}
-      {shown}
+      {formatValue(shown, item.decimals)}
       <span className="text-[0.55em] tracking-tight">{item.suffix}</span>
     </span>
   );
@@ -74,7 +84,7 @@ const Card = ({
   <li
     ref={cardRef}
     data-active={active}
-    aria-label={`${item.prefix ?? ""}${item.to}${item.suffix} ${item.label}: ${item.caption}`}
+    aria-label={`${item.prefix ?? ""}${formatValue(item.to, item.decimals)}${item.suffix} ${item.label}: ${item.caption}`}
     className={cn(
       "relative flex h-[clamp(260px,36vh,310px)] w-[clamp(340px,40vw,540px)] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-[28px] bg-card p-6 transition-[transform,box-shadow] duration-700 ease-(--ease)",
       active
