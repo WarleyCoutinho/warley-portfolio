@@ -82,6 +82,8 @@ body {
 /* O fundo branco do vídeo some no papel */
 .hero-video {
   mix-blend-mode: multiply;
+  /* o fundo do vídeo original é cinza-claro: sem isso o multiply vira um painel cinza no papel */
+  filter: brightness(1.14);
   /* borda suave: mesmo sem o blend, o retângulo do vídeo some no papel */
   -webkit-mask-image:
     linear-gradient(to right, transparent, #000 14%, #000 86%, transparent),

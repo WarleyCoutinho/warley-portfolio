@@ -5,14 +5,26 @@ import { Pause, Play } from "lucide-react";
 
 import { usePrefersReducedMotion } from "@/lib/hooks";
 
+import { useHeroScrollSequence } from "./hero-sequence";
+
 export function HeroVideo({ transcriptId }: { transcriptId: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const visibleRef = useRef(true);
+  // `true` enquanto os frames (scroll) estão no lugar do vídeo: o vídeo fica pausado.
+  const scrubbingRef = useRef(false);
   const reduceMotion = usePrefersReducedMotion();
   const [soundOn, setSoundOn] = useState(false);
   const [blocked, setBlocked] = useState(false);
+
+  useHeroScrollSequence({
+    enabled: !reduceMotion,
+    videoRef,
+    canvasRef,
+    scrubbingRef,
+  });
 
   useEffect(() => {
     const video = videoRef.current;
@@ -39,7 +51,7 @@ export function HeroVideo({ transcriptId }: { transcriptId: string }) {
         const visible = entry.intersectionRatio >= 0.35;
         visibleRef.current = visible;
         if (!visible) video.pause();
-        else if (!reduceMotion && video.paused) {
+        else if (!reduceMotion && video.paused && !scrubbingRef.current) {
           video.play().catch(() => undefined);
         }
       },
@@ -56,6 +68,12 @@ export function HeroVideo({ transcriptId }: { transcriptId: string }) {
       const video = videoRef.current;
       if (!video) return;
       video.muted = false;
+      if (scrubbingRef.current) {
+        // Hero já está sob a sequência de frames: só libera o som, sem tocar.
+        setSoundOn(true);
+        setBlocked(false);
+        return;
+      }
       video
         .play()
         .then(() => {
@@ -110,9 +128,17 @@ export function HeroVideo({ transcriptId }: { transcriptId: string }) {
         aria-describedby={transcriptId}
         aria-label="Vídeo de apresentação de Warley Coutinho"
       >
-        <source src="/hero/hero.webm" type="video/webm" />
         <source src="/hero/hero.mp4" type="video/mp4" />
       </video>
+
+      {/* Os 81 frames acompanham o scroll (ver hero-sequence.ts). Mesma classe do vídeo: mesmo blend e máscara. */}
+      <canvas
+        ref={canvasRef}
+        width={480}
+        height={600}
+        aria-hidden="true"
+        className="hero-video pointer-events-none absolute inset-0 size-full object-cover opacity-0"
+      />
 
       <div className="absolute bottom-[9%] left-1/2 -translate-x-1/2">
         {blocked && !soundOn && (
