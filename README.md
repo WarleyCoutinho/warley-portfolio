@@ -54,13 +54,13 @@ O projeto foi construído em etapas, cada uma com uma decisão deliberada:
 
 ## Tecnologias
 
-**Aplicação:** Next.js 16 (App Router) · React 19 · TypeScript (strict, sem `any`) · Tailwind CSS 4 · motion · Radix UI (Dialog) · class-variance-authority · lucide-react · Simple Icons
+**Aplicação:** Next.js 16 (App Router) · React 19 · TypeScript (strict, sem `any`) · Tailwind CSS 4 · motion · Radix UI (Dialog) · class-variance-authority · lucide-react · three
 
-**Currículo e utilitários:** @react-pdf/renderer · qrcode · dayjs · clsx · tailwind-merge
+**Currículo e utilitários:** @react-pdf/renderer · qrcode · clsx · tailwind-merge
 
 **Pipeline de mídia:** Python 3 · ffmpeg · numpy · opencv
 
-**Ferramentas:** pnpm · ESLint 9 · esbuild · Playwright
+**Ferramentas:** pnpm · ESLint 9 · esbuild
 
 ## Como rodar
 

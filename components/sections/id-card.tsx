@@ -5,13 +5,13 @@ import { useRef, useState } from "react";
 import {
   m,
   useMotionValue,
-  useReducedMotion,
   useSpring,
   useTransform,
   useVelocity,
 } from "motion/react";
 
 import { EDUCATION, PROFILE } from "@/lib/data";
+import { usePrefersReducedMotion } from "@/lib/hooks";
 
 const STRAP_TEXT = `${PROFILE.name.toUpperCase()} · ${PROFILE.role.toUpperCase()} · `;
 const BARCODE = [
@@ -34,7 +34,7 @@ const BACK_LINES = [
 ] as const;
 
 export function IdCard() {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = usePrefersReducedMotion();
   const [flipped, setFlipped] = useState(false);
   const pointerType = useRef("mouse");
 

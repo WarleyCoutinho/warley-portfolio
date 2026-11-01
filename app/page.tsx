@@ -9,6 +9,7 @@ import { Projects } from "@/components/sections/projects";
 import { ResumeSection } from "@/components/sections/resume";
 import { Results } from "@/components/sections/results";
 import { Stack } from "@/components/sections/stack";
+import { StackRibbon } from "@/components/sections/stack-ribbon";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <Hero />
         <About />
         <Stack />
+        <StackRibbon />
         <Projects />
         <Certifications />
         <Experience />

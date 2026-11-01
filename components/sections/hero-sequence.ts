@@ -21,6 +21,8 @@ const HANDOFF = 0.06;
 /** Dolly-in sutil do retrato ao longo da rolagem. */
 const DOLLY_SCALE = 1.06;
 const FADE = 0.3;
+/** Constante de tempo (s) da suavização do scroll: equivale a um scrub suave. */
+const SMOOTH = 0.14;
 const CONCURRENCY = 4;
 
 const frameUrl = (index: number) =>
@@ -56,7 +58,7 @@ type Options = {
 };
 
 /**
- * Acompanha a rolagem da seção hero com os 81 frames (GSAP ScrollTrigger).
+ * Acompanha a rolagem da seção hero com os 81 frames (Motion: `scroll` + `animate`).
  *
  * - No topo, o vídeo toca normalmente (com som, como antes).
  * - Ao rolar, o canvas assume (mesmo recorte central do vídeo) e avança/
@@ -64,8 +66,8 @@ type Options = {
  * - O zoom é aplicado direto no <video>/<canvas>, nunca num ancestral: um
  *   transform no wrapper isolaria o `mix-blend-mode: multiply` do `.hero-video`
  *   e o fundo branco deixaria de sumir no papel.
- * - GSAP só é baixado depois do carregamento inicial (idle). Sem JS, com
- *   `prefers-reduced-motion` ou `saveData`, a página segue só com o vídeo.
+ * - O Motion vanilla só é baixado depois do carregamento inicial (idle). Sem JS,
+ *   com `prefers-reduced-motion` ou `saveData`, a página segue só com o vídeo.
  */
 export function useHeroScrollSequence({
   enabled,
@@ -86,20 +88,24 @@ export function useHeroScrollSequence({
     let teardown = () => {};
 
     const start = async () => {
-      const [{ gsap }, { ScrollTrigger }] = await Promise.all([
-        import("gsap"),
-        import("gsap/ScrollTrigger"),
-      ]);
+      const { animate, scroll } = await import("motion");
       if (disposed) return;
-      gsap.registerPlugin(ScrollTrigger);
 
       const frames: (HTMLCanvasElement | undefined)[] = new Array(FRAME_COUNT);
-      const proxy = { f: 0 };
-      const volume = { v: 1 };
       let loadedCount = 0;
       let ready = false;
       let lastKey = -1;
-      let tweens: { kill: () => unknown }[] = [];
+
+      let rawProgress = 0;
+      let smoothProgress = 0;
+      let raf = 0;
+      let lastTime = 0;
+      let handOffId = 0;
+      let running: { stop: () => unknown }[] = [];
+
+      const frameAt = (progress: number) =>
+        Math.min(Math.max((progress - HANDOFF) / (1 - HANDOFF), 0), 1) *
+        LAST_FRAME;
 
       const nearest = (index: number) => {
         for (let d = 0; d < FRAME_COUNT; d++) {
@@ -111,7 +117,7 @@ export function useHeroScrollSequence({
         return undefined;
       };
 
-      /** Desenha o frame fracionário `f`: mistura 2 vizinhos (a fonte tem só 10 fps). */
+      /** Desenha o frame fracionário `f`: mistura 2 vizinhos (a fonte tem poucos fps). */
       const paint = (f: number) => {
         const clamped = Math.min(Math.max(f, 0), LAST_FRAME);
         const index = Math.floor(clamped);
@@ -133,6 +139,13 @@ export function useHeroScrollSequence({
         }
       };
 
+      const render = () => {
+        const transform = `scale(${1 + (DOLLY_SCALE - 1) * smoothProgress})`;
+        video.style.transform = transform;
+        canvas.style.transform = transform;
+        paint(frameAt(smoothProgress));
+      };
+
       const loadFrame = (index: number) =>
         new Promise<void>((resolve) => {
           const img = new Image();
@@ -152,7 +165,7 @@ export function useHeroScrollSequence({
               loadedCount += 1;
               if (!ready && frames[0] && loadedCount >= 5) ready = true;
               lastKey = -1;
-              if (scrubbingRef.current) paint(proxy.f);
+              if (scrubbingRef.current) paint(frameAt(smoothProgress));
             })
             // Frame ausente: o vizinho mais próximo cobre; o vídeo segue como fallback.
             .catch(() => undefined)
@@ -170,45 +183,60 @@ export function useHeroScrollSequence({
       };
       void Promise.all(Array.from({ length: CONCURRENCY }, worker));
 
-      const killTweens = () => {
-        tweens.forEach((tween) => tween.kill());
-        tweens = [];
+      /** Suaviza o progresso do scroll para o scrub não ficar "seco". */
+      const step = (time: number) => {
+        raf = 0;
+        const dt = lastTime ? Math.min((time - lastTime) / 1000, 0.05) : 1 / 60;
+        lastTime = time;
+        smoothProgress += (rawProgress - smoothProgress) * (1 - Math.exp(-dt / SMOOTH));
+        if (Math.abs(rawProgress - smoothProgress) < 0.0004) {
+          smoothProgress = rawProgress;
+          lastTime = 0;
+          render();
+          return;
+        }
+        render();
+        raf = requestAnimationFrame(step);
+      };
+      const wake = () => {
+        if (!raf) raf = requestAnimationFrame(step);
+      };
+
+      const stopRunning = () => {
+        running.forEach((control) => control.stop());
+        running = [];
       };
 
       const handOff = (on: boolean) => {
         if (on === scrubbingRef.current) return;
         if (on && !ready) return; // frames ainda chegando: o vídeo continua
         scrubbingRef.current = on;
-        killTweens();
+        const id = ++handOffId;
+        stopRunning();
 
         if (on) {
-          paint(proxy.f);
-          tweens = [
-            gsap.to(canvas, {
-              opacity: 1,
-              duration: FADE,
-              ease: "power1.out",
-              onComplete: () => {
-                // Só esconde o vídeo com o canvas opaco (evita "fantasma" no multiply).
-                if (scrubbingRef.current) video.style.visibility = "hidden";
-              },
-            }),
-            gsap.to(volume, {
-              v: 0,
-              duration: FADE + 0.1,
-              ease: "none",
-              onUpdate: () => {
-                video.volume = volume.v;
-              },
-              onComplete: () => {
-                if (scrubbingRef.current) video.pause();
-              },
-            }),
-          ];
+          paint(frameAt(smoothProgress));
+          const fade = animate(canvas, { opacity: 1 }, { duration: FADE, ease: "easeOut" });
+          const volume = animate(1, 0, {
+            duration: FADE + 0.1,
+            ease: "linear",
+            onUpdate: (value) => {
+              video.volume = value;
+            },
+          });
+          fade.then(() => {
+            // Só esconde o vídeo com o canvas opaco (evita "fantasma" no multiply).
+            if (id === handOffId && scrubbingRef.current) {
+              video.style.visibility = "hidden";
+            }
+          });
+          volume.then(() => {
+            if (id === handOffId && scrubbingRef.current) video.pause();
+          });
+          running = [fade, volume];
           return;
         }
 
-        volume.v = 1;
         video.volume = 1;
         video.style.visibility = "";
         video.currentTime = 0; // volta ao frame 1, igual ao do canvas
@@ -216,42 +244,33 @@ export function useHeroScrollSequence({
           video.muted = true;
           video.play().catch(() => undefined);
         });
-        tweens = [gsap.to(canvas, { opacity: 0, duration: FADE })];
+        running = [animate(canvas, { opacity: 0 }, { duration: FADE })];
       };
 
-      const context = gsap.context(() => {
-        gsap.set([video, canvas], { transformOrigin: "50% 30%" });
+      video.style.transformOrigin = "50% 30%";
+      canvas.style.transformOrigin = "50% 30%";
 
-        gsap
-          .timeline({
-            defaults: { ease: "none" },
-            scrollTrigger: {
-              trigger: section,
-              start: "top top",
-              end: "bottom 40%",
-              scrub: 0.5,
-              onUpdate: (self) => handOff(self.progress > HANDOFF),
-            },
-          })
-          .fromTo(
-            [video, canvas],
-            { scale: 1 },
-            { scale: DOLLY_SCALE, duration: 1 },
-            0,
-          )
-          .fromTo(
-            proxy,
-            { f: 0 },
-            { f: LAST_FRAME, duration: 1 - HANDOFF, onUpdate: () => paint(proxy.f) },
-            HANDOFF,
-          );
-      }, section);
+      // 0 = topo do hero no topo da tela; 1 = base do hero em 40% da altura da tela.
+      const stopScroll = scroll(
+        (progress: number) => {
+          rawProgress = progress;
+          handOff(progress > HANDOFF);
+          wake();
+        },
+        { target: section, offset: ["start start", "end 40%"] },
+      );
 
       teardown = () => {
-        context.revert(); // mata timeline + ScrollTrigger e limpa o transform inline
-        killTweens();
+        stopScroll();
+        if (raf) cancelAnimationFrame(raf);
+        stopRunning();
+        handOffId += 1;
+        video.style.transform = "";
+        video.style.transformOrigin = "";
         video.style.visibility = "";
         video.volume = 1;
+        canvas.style.transform = "";
+        canvas.style.transformOrigin = "";
         canvas.style.opacity = "";
         scrubbingRef.current = false;
         frames.fill(undefined);
@@ -260,7 +279,7 @@ export function useHeroScrollSequence({
 
     const run = () => {
       start().catch((error: unknown) => {
-        // Falha ao carregar o GSAP: o hero segue funcionando só com o vídeo.
+        // Falha ao carregar o Motion: o hero segue funcionando só com o vídeo.
         console.error("[hero-sequence] não foi possível iniciar:", error);
       });
     };

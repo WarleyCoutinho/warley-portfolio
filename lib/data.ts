@@ -118,6 +118,7 @@ const SKILL_SOURCE: Record<FamilyId, readonly string[]> = {
     "React Hook Form",
     "Zod",
     "Motion",
+    "Three.js",
     "Lucide",
     "Simple Icons",
     "next-themes",

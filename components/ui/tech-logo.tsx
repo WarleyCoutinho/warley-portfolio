@@ -20,6 +20,12 @@ const CONCEPT_PATHS: Record<ConceptName, ReactElement> = {
       <path d="M8.5 12l2 2 4-4" />
     </>
   ),
+  "Three.js": (
+    <>
+      <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
+      <path d="M4 7.5l8 4.5 8-4.5M12 12v9" />
+    </>
+  ),
   Orval: (
     <>
       <path d="M8 8l-4 4 4 4M16 8l4 4-4 4" />

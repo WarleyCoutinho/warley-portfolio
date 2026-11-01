@@ -1,5 +1,7 @@
 import { ArrowDown, Package, Plus, UserRound } from "lucide-react";
 
+import { LiquidImage } from "@/components/ui/liquid-image";
+
 const DAYS = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
 const BLOCKS: readonly (readonly [number, number])[][] = [
   [
@@ -123,13 +125,13 @@ export function ProductsApiMockup() {
 export function ServixLogo() {
   return (
     <div className="grid h-full min-h-75 place-items-center rounded-[20px] bg-paper p-6">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <LiquidImage
         src="/images/servix.png"
         alt="Logotipo do Servix — gestão profissional, negócios de beleza"
         width={684}
         height={192}
-        className="servix-logo h-auto w-full max-w-105"
+        className="w-full max-w-105"
+        imgClassName="servix-logo"
       />
     </div>
   );

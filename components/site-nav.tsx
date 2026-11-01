@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { m, useScroll, useSpring } from "motion/react";
+import { m, useMotionValueEvent, useScroll, useSpring } from "motion/react";
 import { X } from "lucide-react";
 
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -16,7 +16,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { NAV, PROFILE } from "@/lib/data";
-import { useScrolledPast } from "@/lib/hooks";
 import { cn } from "@/lib/utils";
 
 const SECTION_IDS = NAV.map((item) => item.id);
@@ -47,10 +46,11 @@ function useActiveSection(): string {
 }
 
 export function SiteNav() {
-  const scrolled = useScrolledPast(40);
   const active = useActiveSection();
   const [open, setOpen] = useState(false);
-  const { scrollYProgress } = useScroll();
+  const [scrolled, setScrolled] = useState(false);
+  const { scrollY, scrollYProgress } = useScroll();
+  useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 40));
   const progress = useSpring(scrollYProgress, {
     stiffness: 140,
     damping: 28,

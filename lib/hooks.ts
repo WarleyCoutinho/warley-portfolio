@@ -22,16 +22,3 @@ export function useMediaQuery(query: string, serverValue = false): boolean {
 export function usePrefersReducedMotion(): boolean {
   return useMediaQuery("(prefers-reduced-motion: reduce)");
 }
-
-/** `true` quando a página já rolou mais que `px` pixels. */
-export function useScrolledPast(px: number): boolean {
-  const subscribe = useCallback((onChange: () => void) => {
-    window.addEventListener("scroll", onChange, { passive: true });
-    return () => window.removeEventListener("scroll", onChange);
-  }, []);
-  return useSyncExternalStore(
-    subscribe,
-    () => window.scrollY > px,
-    () => false,
-  );
-}

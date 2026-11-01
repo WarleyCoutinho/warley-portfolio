@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { m, useInView, useScroll, useSpring } from "motion/react";
 
 import { Badge } from "@/components/ui/badge";
+import { CursorReveal } from "@/components/ui/cursor-reveal";
 import { TechLogo } from "@/components/ui/tech-logo";
 import { isBrand, isConcept } from "@/lib/tech-icons";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -18,6 +19,35 @@ const ORDER = ["rancheiro", "avaloon", "unievangelica", "turing"];
 const ITEMS = [...TIMELINE].sort(
   (a, b) => ORDER.indexOf(a.id) - ORDER.indexOf(b.id),
 );
+
+function NextCtaContent({ inverted }: { inverted: boolean }) {
+  return (
+    <>
+      <span>
+        <span
+          className={cn(
+            "block font-mono text-[12px] tracking-[0.14em] uppercase",
+            inverted ? "text-paper/70" : "text-dim",
+          )}
+        >
+          Próximo
+        </span>
+        <span className="h-display mt-1 block text-[clamp(1.8rem,3.6vw,3rem)]">
+          Seu <span className="accent">time?</span>
+        </span>
+      </span>
+      <span
+        className={cn(
+          "grid size-12 place-items-center rounded-full transition-transform duration-500 ease-(--ease) group-hover:rotate-45",
+          inverted ? "bg-paper text-ink" : "bg-ink text-paper",
+        )}
+      >
+        <ArrowUpRight className="size-5" aria-hidden="true" />
+        {!inverted && <span className="sr-only">Ir para o contato</span>}
+      </span>
+    </>
+  );
+}
 
 function Stop({ item, forceLit }: { item: TimelineItem; forceLit: boolean }) {
   const ref = useRef<HTMLLIElement>(null);
@@ -126,23 +156,14 @@ export function Experience() {
           Meu
         </SectionHeading>
 
-        <a
+        <CursorReveal
           href="#contato"
           className="group mb-4 flex min-h-28 flex-wrap items-center justify-between gap-4 rounded-[28px] border border-dashed border-line-strong p-8 transition-colors duration-500 ease-(--ease) hover:bg-card"
+          reveal={<NextCtaContent inverted />}
+          revealClassName="flex flex-wrap items-center justify-between gap-4 bg-ink p-8 text-paper"
         >
-          <span>
-            <span className="block font-mono text-[12px] tracking-[0.14em] text-dim uppercase">
-              Próximo
-            </span>
-            <span className="h-display mt-1 block text-[clamp(1.8rem,3.6vw,3rem)]">
-              Seu <span className="accent">time?</span>
-            </span>
-          </span>
-          <span className="grid size-12 place-items-center rounded-full bg-ink text-paper transition-transform duration-500 ease-(--ease) group-hover:rotate-45">
-            <ArrowUpRight className="size-5" aria-hidden="true" />
-            <span className="sr-only">Ir para o contato</span>
-          </span>
-        </a>
+          <NextCtaContent inverted={false} />
+        </CursorReveal>
 
         <div className="relative mt-12 ml-1.5">
           {/* espinha: trilho + traço que desenha com a rolagem */}
