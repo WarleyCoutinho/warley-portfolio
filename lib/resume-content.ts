@@ -20,7 +20,7 @@ export const resumeSkills = [
   {
     label: "Linguagens e frontend:",
     items:
-      "TypeScript, JavaScript, React, Next.js, Vue.js, React Native, Tailwind CSS, shadcn/ui, TanStack Query, React Hook Form, Zod, PWA",
+      "TypeScript, JavaScript, React, Next.js, React Native, Tailwind CSS, shadcn/ui, TanStack Query, React Hook Form, Zod, PWA",
   },
   {
     label: "Backend e APIs:",
@@ -29,16 +29,11 @@ export const resumeSkills = [
   },
   {
     label: "Banco de dados e integrações:",
-    items:
-      "PostgreSQL, Prisma ORM, WhatsApp, Google Calendar API, Stripe",
+    items: "PostgreSQL, Prisma ORM, WhatsApp, Google Calendar API, Stripe",
   },
   {
     label: "Ferramentas e infraestrutura:",
     items: "Docker, Git, GitHub, Vercel, Railway, Hetzner, Neon, pnpm",
-  },
-  {
-    label: "Outras tecnologias (experiência inicial):",
-    items: "Java, Spring Boot, PHP, Laravel, Angular",
   },
 ];
 
