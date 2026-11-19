@@ -70,7 +70,8 @@ Requisitos: Node.js 22+ e [pnpm](https://pnpm.io).
 git clone https://github.com/WarleyCoutinho/warley-portfolio.git
 cd warley-portfolio
 pnpm install
-pnpm dev          # http://localhost:3338
+pnpm typecheck && pnpm lint && pnpm build
+pnpm dev   # abra http://localhost:3338/kit no celular       # http://localhost:3338
 ```
 
 | Comando           | O que faz                              |

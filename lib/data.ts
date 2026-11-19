@@ -469,8 +469,8 @@ export const PROJECTS: Project[] = [
       "Better Auth",
       "Baileys",
     ],
-    /*  liveUrl: "https://www.servix.app.br/", */
-    liveLabel: "Ver produto ao vivo ↗",
+    liveUrl: "https://marketing.servix.app.br/",
+    liveLabel: "Ver em produção ↗",
     repoUrl: "https://github.com/WarleyCoutinho/servix",
   },
 ];
