@@ -11,8 +11,8 @@ export const PROFILE = {
   email: "warleycoutinho@icloud.com",
   /** O telefone só é renderizado no HTML quando `showPhone` for `true` (LGPD / spam). */
   showPhone: false,
-  phone: "(62) 9-9248-6492",
-  phoneHref: "+5562992486492",
+  phone: "(62) 9-9999-9999",
+  phoneHref: "+5562999999999",
   linkedin: "https://www.linkedin.com/in/coutinhowarley/",
   linkedinLabel: "/in/coutinhowarley",
   github: "https://github.com/WarleyCoutinho",
