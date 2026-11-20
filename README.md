@@ -31,12 +31,13 @@ Todo o conteúdo (experiência, projetos, stack, resultados e currículo) vem de
 | **Hero**          | Vídeo em loop sem emenda (WebM + MP4), fundo fundido com a página, botão de som e transcrição para leitores de tela |
 | **Sobre**         | Crachá pendurado por fita, com física de pêndulo e giro 3D por mouse, toque ou teclado                              |
 | **Stack**         | "Tabela periódica" filtrável por família, com inspetor que mostra o logo e os projetos que usam a tecnologia        |
-| **Projetos**      | Galeria-acordeão com UI ilustrativa de cada produto                                                                 |
+| **Projetos**      | Galeria-acordeão com UI ilustrativa de cada produto, com botões “Ver em produção” e “Ver no GitHub”                 |
 | **Certificações** | Lista com preenchimento de tinta no hover                                                                           |
 | **Experiência**   | Linha do tempo cuja espinha se desenha com a rolagem                                                                |
 | **Resultados**    | Galeria horizontal fixa na tela, com contadores animados                                                            |
 | **Currículo**     | Versões ATS (PDF/Word) prontas e versões com design (claro/escuro) geradas no clique                                |
 | **Contato**       | E-mail com "Copiar", links e cartão de horário local com diferença de fuso do visitante                             |
+| **Kit (`/kit`)**  | Página com o passo a passo para adaptar o portfólio e um prompt de IA pronto, com botão “Copiar prompt”             |
 
 Também: **tema claro/escuro** (sistema → claro → escuro, sem flash), link "Pular para o conteúdo", respeito a `prefers-reduced-motion` e menu mobile em tela cheia.
 
@@ -60,7 +61,7 @@ O projeto foi construído em etapas, cada uma com uma decisão deliberada:
 
 **Pipeline de mídia:** Python 3 · ffmpeg · numpy · opencv
 
-**Ferramentas:** pnpm · ESLint 9 · esbuild
+**Ferramentas:** pnpm · ESLint 10 · esbuild
 
 ## Como rodar
 
@@ -70,51 +71,56 @@ Requisitos: Node.js 22+ e [pnpm](https://pnpm.io).
 git clone https://github.com/WarleyCoutinho/warley-portfolio.git
 cd warley-portfolio
 pnpm install
-pnpm typecheck && pnpm lint && pnpm build
-pnpm dev   # abra http://localhost:3338/kit no celular       # http://localhost:3338
+pnpm dev          # http://localhost:3338
 ```
 
 | Comando           | O que faz                              |
 | ----------------- | -------------------------------------- |
 | `pnpm dev`        | servidor de desenvolvimento            |
 | `pnpm lint`       | ESLint                                 |
+| `pnpm typecheck`  | checagem de tipos (`tsc --noEmit`)     |
 | `pnpm build`      | build de produção                      |
 | `pnpm start`      | serve o build                          |
 | `pnpm resume:pdf` | regenera o PDF do currículo com design |
 
 ## Quer usar como base? Fique à vontade
 
-Clone, adapte e publique o seu. O caminho mais curto:
+Clone, adapte e publique o seu. Preparei uma página só para isso: **[warley-portfolio.vercel.app/kit](https://warley-portfolio.vercel.app/kit)**. Ela tem o passo a passo completo para devs e um **prompt pronto** para colar na sua IA (com botão “Copiar prompt”). O código dessa página está em `app/kit/` e o texto em `lib/kit-content.ts`.
+
+O caminho mais curto:
 
 1. **Dados:** edite `lib/data.ts` (`PROFILE`, `SKILLS`, `TIMELINE`, `RESULTS`, `PROJECTS`, `CERTIFICATIONS`) e `lib/resume-content.ts` (currículo).
-2. **Imagens:** troque `public/portrait-bust.webp`, `public/avatar.webp` e `public/og.jpg` por imagens suas.
-3. **Vídeo:** gere o seu com o pipeline abaixo e substitua `public/hero/`.
-4. **Texto do vídeo:** atualize `PROFILE.introTranscript` para ficar igual ao áudio.
-5. **Metadados:** ajuste `SITE_URL` e o título/descrição em `app/layout.tsx`.
-6. **Currículo:** troque os arquivos em `public/curriculo/`.
+2. **Pontos fixos:** alguns textos e lógicas ficam fora do `data.ts` e estão amarrados ao meu perfil (título em `app/layout.tsx`, ordem da timeline em `experience.tsx`, mockups de projetos, ícone do estúdio, fuso em `local-time.tsx`, nomes dos arquivos de currículo). O passo 4 do kit lista todos, e há um `grep` para achar o que sobrou.
+3. **Imagens:** troque `public/portrait-bust.webp`, `public/avatar.webp`, `public/images/warley-avatar.jpg` e `public/og.jpg` por imagens suas.
+4. **Vídeo:** gere o seu com o pipeline abaixo e substitua `public/hero/`.
+5. **Texto do vídeo:** atualize `PROFILE.introTranscript` para ficar igual ao áudio.
+6. **Metadados:** ajuste `SITE_URL` e o título/descrição em `app/layout.tsx`.
+7. **Currículo:** troque os arquivos em `public/curriculo/`.
 
 ```bash
-python3 scripts/build-hero-assets.py _inputs/intro.mp4 public/hero --name hero
+python3 scripts/build-hero-assets.py --src _inputs/intro.mp4 --out public/hero --start 1.2 --end 9.4
 ```
 
-O pipeline gera `hero.mp4` (H.264 + AAC) e `hero.webm` (VP9 + Opus) com loop sem emenda.
+O pipeline gera `hero.mp4` (H.264 + AAC) e `hero.webm` (VP9 + Opus) com loop sem emenda. O poster e a sequência de 81 frames da rolagem (`public/hero/frames/`) não vêm do script: gere com `ffmpeg` (o kit mostra como) e ajuste `FRAME_COUNT` e o recorte em `components/sections/hero-sequence.ts`.
 
 > **Importante:** o código é livre (MIT), mas **fotos, vídeo, textos pessoais e currículo são meus** e não estão cobertos pela licença. Troque-os pelos seus antes de publicar.
 
 ## Estrutura
 
 ```text
-app/                 rotas (/, /curriculo, /qrcode), layout, tokens de design
+app/                 rotas (/, /curriculo, /qrcode, /kit), layout, tokens de design
 components/
   sections/          uma pasta de seção = um componente com animação própria
   ui/                primitivos (botão, badge, sheet, reveal, logos)
   resume/            documento do currículo em PDF
+  kit/               botão de copiar, blocos de código e prompt da página /kit
 lib/
   data.ts            fonte única de conteúdo (tipada)
   resume-content.ts  conteúdo do currículo
   tech-icons.ts      mapa de logos e ícones de conceito
+  kit-content.ts     passo a passo e prompt da página /kit
 public/              vídeo, imagens, logos e currículos prontos
-scripts/             pipeline do vídeo, exportação de logos e currículo
+scripts/             pipeline do vídeo do hero (build-hero-assets.py) e PDF do currículo (gen-resume.tsx)
 ```
 
 ## Segurança e privacidade (LGPD)
