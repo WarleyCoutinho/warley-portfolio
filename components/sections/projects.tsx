@@ -97,40 +97,43 @@ function Panel({
           open ? "opacity-100 delay-300" : "opacity-0 max-lg:hidden",
         )}
       >
-        <div className="flex min-h-0 flex-col lg:overflow-y-auto lg:pr-1">
-          <p className="font-mono text-[11px] tracking-[0.12em] text-dim uppercase">
-            {number} · {project.kicker}
-          </p>
-          <h3
-            id={titleId}
-            className="h-display mt-3 text-[clamp(2rem,3.4vw,3rem)]"
-          >
-            {project.title}
-          </h3>
-          <p className="mt-3 text-[14.5px] leading-relaxed text-ink-2">
-            {project.description}
-          </p>
-          <ul className="mt-4 grid gap-x-5 gap-y-3 sm:grid-cols-2">
-            {project.features.map((feature) => (
-              <li key={feature.title} className="text-[13px] leading-snug">
-                <span className="block font-semibold">{feature.title}</span>
-                <span className="text-dim">{feature.description}</span>
-              </li>
-            ))}
-          </ul>
-          <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Tecnologias">
-            {project.stack.map((tech) => (
-              <li key={tech}>
-                <Badge variant="outline">
-                  {(isBrand(tech) || isConcept(tech)) && (
-                    <TechLogo name={tech} size={14} />
-                  )}
-                  {tech}
-                </Badge>
-              </li>
-            ))}
-          </ul>
-          <div className="pointer-events-auto mt-5 flex flex-wrap gap-3 pb-1">
+        <div className="flex min-h-0 flex-col">
+          {/* texto rolável: se faltar altura, rola aqui e os botões continuam visíveis */}
+          <div className="pointer-events-auto min-h-0 flex-1 lg:overflow-y-auto lg:pr-2">
+            <p className="font-mono text-[11px] tracking-[0.12em] text-dim uppercase">
+              {number} · {project.kicker}
+            </p>
+            <h3
+              id={titleId}
+              className="h-display mt-3 text-[clamp(2rem,3.4vw,3rem)]"
+            >
+              {project.title}
+            </h3>
+            <p className="mt-3 text-[14.5px] leading-relaxed text-ink-2">
+              {project.description}
+            </p>
+            <ul className="mt-4 grid gap-x-5 gap-y-3 sm:grid-cols-2">
+              {project.features.map((feature) => (
+                <li key={feature.title} className="text-[13px] leading-snug">
+                  <span className="block font-semibold">{feature.title}</span>
+                  <span className="text-dim">{feature.description}</span>
+                </li>
+              ))}
+            </ul>
+            <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Tecnologias">
+              {project.stack.map((tech) => (
+                <li key={tech}>
+                  <Badge variant="outline">
+                    {(isBrand(tech) || isConcept(tech)) && (
+                      <TechLogo name={tech} size={14} />
+                    )}
+                    {tech}
+                  </Badge>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="pointer-events-auto mt-4 flex shrink-0 flex-wrap gap-3 pb-1">
             {project.liveUrl && (
               <Button asChild>
                 <a
@@ -192,7 +195,7 @@ export function Projects() {
         >
           O que eu
         </SectionHeading>
-        <div className="mt-14 flex flex-col gap-3 lg:h-[min(78svh,600px)] lg:flex-row">
+        <div className="mt-14 flex flex-col gap-3 lg:h-[max(34rem,min(86svh,46rem))] lg:flex-row">
           {PROJECTS.map((project, i) => (
             <Panel
               key={project.title}
