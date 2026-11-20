@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 
 const TITLE = "Kit do portfólio — passo a passo e prompt de IA";
 const DESCRIPTION =
-  "Adapte o portfólio open source do Warley para o seu perfil: passo a passo para devs e um prompt pronto para colar na sua IA.";
+  "Adapte o meu portfólio open source para o seu perfil: passo a passo para devs e um prompt pronto para colar na sua IA.";
 
 export const metadata: Metadata = {
   title: TITLE,

@@ -76,7 +76,7 @@ pnpm dev                  # http://localhost:3338`,
       {
         type: "note",
         tone: "warn",
-        text: "Não copie os números e resultados do Warley (anos de experiência, tempo de fechamento etc.). Use só o que for verdade para você. O projeto segue o princípio “nada é inventado”.",
+        text: "Não copie os meus números e resultados (anos de experiência, tempo de fechamento etc.). Use só o que for verdade para você. O projeto segue o princípio “nada é inventado”.",
       },
       {
         type: "ul",
@@ -108,7 +108,7 @@ pnpm dev                  # http://localhost:3338`,
     blocks: [
       {
         type: "p",
-        text: "Alguns pontos têm texto ou lógica amarrada ao Warley, fora do `data.ts`. Se você não mexer, o site fica meio seu, meio dele.",
+        text: "Alguns pontos têm texto ou lógica amarrada ao meu perfil, fora do `data.ts`. Troque pelo seu. Se você não mexer, o site fica meio seu, meio meu.",
       },
       {
         type: "table",
@@ -121,30 +121,30 @@ pnpm dev                  # http://localhost:3338`,
           ],
           [
             "components/sections/projects.tsx e project-mockups.tsx",
-            "mockups ligados ao título “Servix”. Reescreva ou remova",
+            "mockups ligados ao meu projeto “Servix”. Reescreva para o seu ou remova",
           ],
           [
             "components/sections/contact.tsx",
-            "link e ícone do estúdio (`AdapticodeIcon`). Remova ou troque",
+            "link e ícone do meu estúdio (`AdapticodeIcon`). Remova ou troque pelo seu",
           ],
           [
             "components/ui/adapticode-icon.tsx",
-            "logo do estúdio do Warley. Apague se não usar",
+            "logo do meu estúdio. Apague se não usar",
           ],
           [
             "components/sections/local-time.tsx",
             "fuso `TZ` e textos “Anápolis, GO”",
           ],
-          ["components/sections/about.tsx", "`accent=\"Warley Coutinho.\"` do título"],
-          ["components/sections/id-card.tsx", "textos do crachá e `aria-label`"],
+          ["components/sections/about.tsx", "`accent=\"Warley Coutinho.\"` do título. Troque pelo seu nome"],
+          ["components/sections/id-card.tsx", "textos do crachá e `aria-label`. Troque pelos seus"],
           ["components/sections/hero-video.tsx", "`aria-label` do vídeo"],
           [
             "components/sections/resume.tsx e components/resume/resume-download-buttons.tsx",
-            "nomes dos arquivos `Warley_Coutinho_Curriculo...` e `warley-avatar.jpg`",
+            "nomes dos arquivos `Warley_Coutinho_Curriculo...` e `warley-avatar.jpg`. Troque pelo seu nome",
           ],
           ["components/qr-generator.tsx", "URL padrão do QR code"],
           ["app/curriculo/page.tsx e app/qrcode/page.tsx", "títulos das páginas"],
-          ["public/images/servix.png", "imagem do projeto do Warley"],
+          ["public/images/servix.png", "imagem do meu projeto. Troque pela do seu"],
         ],
       },
       {
@@ -191,20 +191,21 @@ pnpm dev                  # http://localhost:3338`,
       },
       {
         type: "p",
-        text: "Gere os arquivos. Se a pasta `scripts/` existir no repositório, use o script do projeto:",
+        text: "Para gerar os arquivos, use o script que está na pasta `scripts/` do meu repositório:",
       },
       {
         type: "code",
         label: "Com o script do repositório",
-        text: `python3 scripts/build-hero-assets.py _inputs/intro.mp4 public/hero --name hero`,
+        text: `# --start e --end: segundos do vídeo a aproveitar (antes da 1ª palavra e depois da última)
+python3 scripts/build-hero-assets.py --src _inputs/intro.mp4 --out public/hero --start 1.2 --end 9.4`,
       },
       {
         type: "p",
-        text: "Ele recorta o personagem, clareia o fundo, cria o loop sem emenda (crossfade de imagem e áudio) e exporta o vídeo. Sem o script, dá para fazer na mão com ffmpeg (ajuste os comandos ao seu vídeo):",
+        text: "Ele recorta o personagem em 4:5, clareia o fundo, cria o loop sem emenda (crossfade de imagem e áudio) e exporta `hero.mp4` e `hero.webm`. Precisa de ffmpeg e numpy. Os frames da rolagem não vêm do script: gere com ffmpeg (ajuste os comandos ao seu vídeo):",
       },
       {
         type: "code",
-        label: "Alternativa manual com ffmpeg",
+        label: "Poster e frames com ffmpeg",
         text: `mkdir -p public/hero/frames
 ffmpeg -i intro.mp4 -frames:v 1 -vf "scale=1280:720" public/hero/poster.webp
 ffmpeg -i intro.mp4 -vf "scale=1280:720,fps=12" -c:v libwebp -quality 80 public/hero/frames/frame_%05d.webp
@@ -272,7 +273,7 @@ pnpm build`,
 
 export const KIT_LICENSE: string[] = [
   "Código: MIT. Mantenha o arquivo `LICENSE` com o aviso de copyright original.",
-  "Vídeo, fotos, textos pessoais e currículo do Warley não estão cobertos pela licença: substitua tudo pelos seus.",
+  "Meu vídeo, minhas fotos, meus textos pessoais e meu currículo não estão cobertos pela licença: substitua tudo pelos seus.",
   "Logos: Simple Icons (CC0). Fontes: Inter Tight, Instrument Serif e JetBrains Mono (SIL OFL).",
 ];
 
